@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adobe Integration with ChatGPT - Persona Behaviors</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #657189;
+      --panel: #ffffff;
+      --soft: #f7f8fc;
+      --line: #dfe5f2;
+      --accent: #ff6b6b;
+      --accent-2: #6c63ff;
+      --accent-3: #00a6a6;
+      --accent-4: #ffbe3d;
+      --shadow: 0 22px 60px rgba(23, 32, 51, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 107, 107, 0.28), transparent 34rem),
+        radial-gradient(circle at top right, rgba(108, 99, 255, 0.25), transparent 32rem),
+        linear-gradient(135deg, #fbfcff 0%, #eef3ff 100%);
+    }
+
+    header {
+      padding: 56px 32px 32px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 14px;
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      border-radius: 999px;
+      color: #4f46d9;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 960px;
+      margin: 22px auto 14px;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto 24px;
+      padding: 16px 24px;
+      border: 1px solid rgba(223, 229, 242, 0.8);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 32px rgba(23, 32, 51, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--soft);
+    }
+
+    .search span {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      color: var(--ink);
+      background: transparent;
+      font: inherit;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .stat {
+      min-width: 112px;
+      padding: 11px 14px;
+      border-radius: 16px;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(23, 32, 51, 0.1);
+    }
+
+    .stat:nth-child(1) {
+      background: linear-gradient(135deg, var(--accent), #ff8e53);
+    }
+
+    .stat:nth-child(2) {
+      background: linear-gradient(135deg, var(--accent-2), #9d7cff);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .stat small {
+      font-size: 0.76rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 72px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+    }
+
+    .persona {
+      overflow: hidden;
+      border: 1px solid rgba(223, 229, 242, 0.92);
+      border-radius: 30px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .persona-header {
+      position: relative;
+      padding: 24px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    }
+
+    .persona:nth-child(2n) .persona-header {
+      background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+    }
+
+    .persona:nth-child(3n) .persona-header {
+      background: linear-gradient(135deg, #ff8e53, var(--accent-4));
+    }
+
+    .persona:nth-child(4n) .persona-header {
+      background: linear-gradient(135deg, #334dff, #00c2ff);
+    }
+
+    .persona-id {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .persona h2 {
+      margin: 14px 0 6px;
+      font-size: 1.45rem;
+      letter-spacing: -0.025em;
+    }
+
+    .persona-title {
+      margin: 0;
+      opacity: 0.92;
+      font-weight: 600;
+    }
+
+    .persona-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 16px 24px 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #41506a;
+      background: #f0f4ff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .behaviors {
+      display: grid;
+      gap: 14px;
+      padding: 20px 24px 24px;
+    }
+
+    .behavior {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      overflow: hidden;
+    }
+
+    .behavior summary {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      cursor: pointer;
+      padding: 16px;
+      list-style: none;
+    }
+
+    .behavior summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .behavior-number {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      color: #ffffff;
+      background: var(--accent-2);
+      font-weight: 900;
+    }
+
+    .behavior h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .behavior-content {
+      padding: 0 16px 16px 62px;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .behavior-content p {
+      margin: 0 0 10px;
+    }
+
+    .label {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .copy-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 12px;
+    }
+
+    button {
+      cursor: pointer;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(108, 99, 255, 0.22);
+    }
+
+    .empty {
+      display: none;
+      padding: 40px;
+      border: 1px dashed var(--line);
+      border-radius: 24px;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 40px 20px 24px;
+      }
+
+      .toolbar {
+        position: static;
+        grid-template-columns: 1fr;
+        margin: 0 20px 22px;
+      }
+
+      .stats {
+        justify-content: stretch;
+      }
+
+      .stat {
+        flex: 1 1 140px;
+      }
+
+      main {
+        padding: 0 20px 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Behavior-only persona set</div>
+    <h1>Adobe Integration with ChatGPT Persona Behaviors</h1>
+    <p class="subtitle">
+      Ten synthetic personas for testing Adobe integration with ChatGPT. This page intentionally lists multiple behaviors for each persona only.
+    </p>
+  </header>
+
+  <section class="toolbar" aria-label="Behavior search and summary">
+    <label class="search" for="searchInput">
+      <span aria-hidden="true">Search</span>
+      <input id="searchInput" type="search" placeholder="Search personas, roles, locales, or behavior text">
+    </label>
+    <div class="stats" aria-label="Counts">
+      <div class="stat"><strong id="personaCount">10</strong><small>Personas</small></div>
+      <div class="stat"><strong id="behaviorCount">40</strong><small>Behaviors</small></div>
+    </div>
+  </section>
+
+  <main>
+    <section id="personaGrid" class="grid" aria-live="polite"></section>
+    <div id="emptyState" class="empty">No personas match the current search.</div>
+  </main>
+
+  <footer>
+    Generated for Adobe integration with ChatGPT behavior testing.
+  </footer>
+
+  <script>
+    const personas = [
+      {
+        id: "P001",
+        name: "Maya Rodriguez",
+        title: "Brand-Safe Marketing Manager",
+        meta: ["en-US", "Intermediate", "Cautious but open"],
+        behaviors: [
+          {
+            name: "Brand compliance first",
+            description: "Checks whether every AI-generated suggestion stays within approved campaign tone, colors, and messaging before accepting it.",
+            chatgpt: "Asks ChatGPT to explain why each creative recommendation is safe for a corporate brand review.",
+            acceptance: "Accepts output only when the response includes a clear brand-safety rationale."
+          },
+          {
+            name: "Approval workflow mindset",
+            description: "Breaks creative work into reviewable steps so legal, brand, and regional teams can approve changes.",
+            chatgpt: "Requests numbered options with notes that can be copied into an approval ticket.",
+            acceptance: "Accepts output when each step is easy to review and defend."
+          },
+          {
+            name: "Risk-aware iteration",
+            description: "Prefers conservative variations before exploring bold creative changes.",
+            chatgpt: "Asks for low-risk, medium-risk, and high-risk creative alternatives.",
+            acceptance: "Accepts output when risk levels are labeled and tradeoffs are explicit."
+          },
+          {
+            name: "Campaign consistency checking",
+            description: "Compares generated assets against existing campaign language and rejects off-brand phrasing.",
+            chatgpt: "Requests a final checklist for tone, messaging, and visual consistency.",
+            acceptance: "Accepts output when it includes a reusable quality-control checklist."
+          }
+        ]
+      },
+      {
+        id: "P002",
+        name: "Ethan Brooks",
+        title: "Time-Pressed Sales Enablement Lead",
+        meta: ["en-GB", "Intermediate", "Pragmatic"],
+        behaviors: [
+          {
+            name: "Speed over exploration",
+            description: "Prioritizes the fastest usable creative output over broad ideation.",
+            chatgpt: "Uses short commands and asks for immediate first drafts.",
+            acceptance: "Accepts output when it can be used with minimal editing."
+          },
+          {
+            name: "Sales-message alignment",
+            description: "Checks that creative recommendations support a clear value proposition and call to action.",
+            chatgpt: "Requests headline, subheadline, and CTA variants in one response.",
+            acceptance: "Accepts output when each variant is relevant to a sales conversation."
+          },
+          {
+            name: "Reusable asset thinking",
+            description: "Prefers content that can be adapted across decks, one-pagers, and follow-up emails.",
+            chatgpt: "Asks ChatGPT to provide flexible copy blocks and layout notes.",
+            acceptance: "Accepts output when it includes modular assets."
+          },
+          {
+            name: "Low-tolerance correction",
+            description: "Rejects vague or lengthy responses and asks for sharper wording.",
+            chatgpt: "Prompts ChatGPT to shorten, simplify, or make the recommendation more commercial.",
+            acceptance: "Accepts output when it is concise and action-oriented."
+          }
+        ]
+      },
+      {
+        id: "P003",
+        name: "Priya Nair",
+        title: "Accessibility-Focused Learning Designer",
+        meta: ["en-IN", "Advanced", "High with verification"],
+        behaviors: [
+          {
+            name: "Accessibility by default",
+            description: "Evaluates creative output for readability, contrast, inclusive language, and assistive-technology support.",
+            chatgpt: "Asks ChatGPT to include alt text, reading-level notes, and accessibility checks.",
+            acceptance: "Accepts output when accessibility guidance is integrated, not appended."
+          },
+          {
+            name: "Learner empathy",
+            description: "Frames design choices around different learner needs and avoids exclusionary examples.",
+            chatgpt: "Requests variations for novice, multilingual, and visually impaired learners.",
+            acceptance: "Accepts output when it explains learner impact."
+          },
+          {
+            name: "Standards verification",
+            description: "Looks for explicit quality criteria and tests generated content against learning objectives.",
+            chatgpt: "Asks for a rubric or checklist tied to the design request.",
+            acceptance: "Accepts output when it includes measurable checks."
+          },
+          {
+            name: "Clear instruction preference",
+            description: "Prefers instructions that can be followed by non-designers and reviewed by stakeholders.",
+            chatgpt: "Requests plain-language steps and labels for each design decision.",
+            acceptance: "Accepts output when another teammate could reproduce the workflow."
+          }
+        ]
+      },
+      {
+        id: "P004",
+        name: "Lucas Chen",
+        title: "Experimental Social Media Creator",
+        meta: ["en-CA", "Advanced", "Very high"],
+        behaviors: [
+          {
+            name: "Trend-first ideation",
+            description: "Looks for bold hooks, dynamic composition, and platform-native language.",
+            chatgpt: "Asks ChatGPT for punchy ideas, remix angles, and visual hooks.",
+            acceptance: "Accepts output when it feels current and immediately postable."
+          },
+          {
+            name: "Rapid variation testing",
+            description: "Generates multiple versions quickly and compares them for engagement potential.",
+            chatgpt: "Requests several caption, style, and layout variants in one pass.",
+            acceptance: "Accepts output when there are enough variants to A/B test."
+          },
+          {
+            name: "Visual drama preference",
+            description: "Favors high contrast, motion cues, surprising crops, and energetic design language.",
+            chatgpt: "Uses expressive prompts that ask for dramatic visual direction.",
+            acceptance: "Accepts output when the idea has strong scroll-stopping potential."
+          },
+          {
+            name: "Audience reaction awareness",
+            description: "Evaluates output by imagining comments, shares, saves, and viewer retention.",
+            chatgpt: "Asks ChatGPT to explain why viewers would engage.",
+            acceptance: "Accepts output when engagement rationale is clear."
+          }
+        ]
+      },
+      {
+        id: "P005",
+        name: "Amina Hassan",
+        title: "Privacy-Conscious HR Communications Partner",
+        meta: ["en-AE", "Intermediate", "Low until controls are clear"],
+        behaviors: [
+          {
+            name: "Confidentiality filtering",
+            description: "Removes sensitive workplace context before asking for AI assistance.",
+            chatgpt: "States privacy boundaries at the start of each prompt.",
+            acceptance: "Accepts output when it does not infer or request sensitive details."
+          },
+          {
+            name: "Policy-safe tone",
+            description: "Chooses neutral wording that avoids promises, legal exposure, or exclusionary language.",
+            chatgpt: "Asks ChatGPT to flag risky phrasing and provide safer alternatives.",
+            acceptance: "Accepts output when sensitive claims are softened or removed."
+          },
+          {
+            name: "Employee empathy",
+            description: "Balances compliance with a respectful, people-centered communication style.",
+            chatgpt: "Requests warm but professional wording options.",
+            acceptance: "Accepts output when the message feels supportive without being casual."
+          },
+          {
+            name: "Review before use",
+            description: "Requires a final human-review reminder before using generated content.",
+            chatgpt: "Asks for review notes and escalation flags.",
+            acceptance: "Accepts output when it identifies what HR or legal should review."
+          }
+        ]
+      },
+      {
+        id: "P006",
+        name: "Noah Stein",
+        title: "Data-Led Product Marketer",
+        meta: ["en-US", "Advanced", "Moderate"],
+        behaviors: [
+          {
+            name: "Evidence-based selection",
+            description: "Compares creative options using audience fit, message clarity, and conversion intent.",
+            chatgpt: "Asks ChatGPT to score options against stated criteria.",
+            acceptance: "Accepts output when rankings include reasoning."
+          },
+          {
+            name: "Hypothesis framing",
+            description: "Treats each creative choice as a testable hypothesis rather than a final answer.",
+            chatgpt: "Requests hypotheses, expected outcomes, and measurement ideas.",
+            acceptance: "Accepts output when testing logic is explicit."
+          },
+          {
+            name: "Audience segmentation",
+            description: "Adapts tone and visual emphasis for different buyer roles without overpersonalizing.",
+            chatgpt: "Asks for variants by segment using anonymous audience labels.",
+            acceptance: "Accepts output when segments are distinct and privacy-safe."
+          },
+          {
+            name: "Message hierarchy control",
+            description: "Ensures the most important product benefit appears first and secondary proof points stay concise.",
+            chatgpt: "Requests hierarchy notes for headline, visual focus, and supporting copy.",
+            acceptance: "Accepts output when message order is clear."
+          }
+        ]
+      },
+      {
+        id: "P007",
+        name: "Sofia Alvarez",
+        title: "Nonprofit Campaign Coordinator",
+        meta: ["es-MX", "Basic", "Curious but needs guidance"],
+        behaviors: [
+          {
+            name: "Mission-first evaluation",
+            description: "Judges creative output by whether it supports the nonprofit mission with dignity and clarity.",
+            chatgpt: "Asks ChatGPT to keep the message respectful, hopeful, and community-centered.",
+            acceptance: "Accepts output when it avoids pity-based or sensational wording."
+          },
+          {
+            name: "Beginner-friendly workflow",
+            description: "Needs each step explained without design jargon.",
+            chatgpt: "Requests simple instructions and asks follow-up questions when terms are unclear.",
+            acceptance: "Accepts output when steps are easy for a volunteer to follow."
+          },
+          {
+            name: "Budget-sensitive reuse",
+            description: "Prefers outputs that can be reused for posters, emails, and social posts.",
+            chatgpt: "Asks for adaptable wording and layout ideas.",
+            acceptance: "Accepts output when it supports multiple low-cost channels."
+          },
+          {
+            name: "Community tone check",
+            description: "Reviews generated language for cultural respect and local relevance.",
+            chatgpt: "Requests Spanish-friendly phrasing and notes for localization.",
+            acceptance: "Accepts output when localization considerations are included."
+          }
+        ]
+      },
+      {
+        id: "P008",
+        name: "Oliver Grant",
+        title: "Legal Operations Reviewer",
+        meta: ["en-AU", "Intermediate", "Low"],
+        behaviors: [
+          {
+            name: "Assumption control",
+            description: "Rejects generated content that adds facts, claims, or guarantees not present in the prompt.",
+            chatgpt: "Asks ChatGPT to list assumptions and avoid inventing details.",
+            acceptance: "Accepts output when assumptions are explicit and minimal."
+          },
+          {
+            name: "Claim-risk detection",
+            description: "Reviews creative text for potentially risky claims, endorsements, or compliance-sensitive promises.",
+            chatgpt: "Requests a risk scan before any final wording.",
+            acceptance: "Accepts output when risky language is flagged with safer alternatives."
+          },
+          {
+            name: "Audit-friendly documentation",
+            description: "Needs a record of what was changed and why.",
+            chatgpt: "Asks for before-and-after notes and rationale.",
+            acceptance: "Accepts output when changes can be reviewed later."
+          },
+          {
+            name: "Strict privacy boundary",
+            description: "Keeps prompts generic and refuses to include privileged or confidential details.",
+            chatgpt: "Uses placeholders and reminds ChatGPT not to ask for confidential context.",
+            acceptance: "Accepts output when placeholders remain generic."
+          }
+        ]
+      },
+      {
+        id: "P009",
+        name: "Hana Kim",
+        title: "Global E-Commerce Merchandiser",
+        meta: ["ko-KR", "Intermediate", "High for drafting"],
+        behaviors: [
+          {
+            name: "Product-visual priority",
+            description: "Evaluates creative output by whether the product remains clear, desirable, and easy to understand.",
+            chatgpt: "Asks ChatGPT to keep visual hierarchy focused on the product.",
+            acceptance: "Accepts output when product clarity is not sacrificed for style."
+          },
+          {
+            name: "Marketplace localization",
+            description: "Adapts messaging for regional buying habits, formats, and cultural expectations.",
+            chatgpt: "Requests localization notes without using private customer data.",
+            acceptance: "Accepts output when localized wording feels natural and respectful."
+          },
+          {
+            name: "Comparison-driven choice",
+            description: "Prefers side-by-side options to choose the best image direction, headline, and offer framing.",
+            chatgpt: "Asks for comparison tables with pros and cons.",
+            acceptance: "Accepts output when tradeoffs are easy to compare."
+          },
+          {
+            name: "Mobile storefront check",
+            description: "Reviews output for short copy, clear contrast, and fast comprehension on small screens.",
+            chatgpt: "Requests mobile-first copy and layout guidance.",
+            acceptance: "Accepts output when it works at small display sizes."
+          }
+        ]
+      },
+      {
+        id: "P010",
+        name: "Grace Williams",
+        title: "Executive Communications Director",
+        meta: ["en-US", "Basic", "Selective"],
+        behaviors: [
+          {
+            name: "Reputation protection",
+            description: "Reviews creative choices for executive tone, public perception, and stakeholder sensitivity.",
+            chatgpt: "Asks ChatGPT to identify reputational risks and offer refined alternatives.",
+            acceptance: "Accepts output when it sounds polished and avoids controversy."
+          },
+          {
+            name: "Minimal-input delegation",
+            description: "Provides concise direction and expects ChatGPT to produce a complete, polished draft.",
+            chatgpt: "Uses brief prompts and asks for executive-ready output.",
+            acceptance: "Accepts output when it needs little rewriting."
+          },
+          {
+            name: "Stakeholder lens",
+            description: "Considers how employees, customers, partners, and press might interpret the creative message.",
+            chatgpt: "Requests tone checks for multiple stakeholder groups.",
+            acceptance: "Accepts output when stakeholder reactions are considered."
+          },
+          {
+            name: "Executive brevity",
+            description: "Prefers short, high-impact language over detailed explanations.",
+            chatgpt: "Asks ChatGPT to shorten copy without losing authority.",
+            acceptance: "Accepts output when it is concise, confident, and clear."
+          }
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("personaGrid");
+    const emptyState = document.getElementById("emptyState");
+    const searchInput = document.getElementById("searchInput");
+    const personaCount = document.getElementById("personaCount");
+    const behaviorCount = document.getElementById("behaviorCount");
+
+    function behaviorText(persona, behavior, index) {
+      return [
+        `${persona.id} - ${persona.name}`,
+        `Behavior ${index + 1}: ${behavior.name}`,
+        `Description: ${behavior.description}`,
+        `ChatGPT Interaction: ${behavior.chatgpt}`,
+        `Acceptance Signal: ${behavior.acceptance}`
+      ].join("\n");
+    }
+
+    function renderPersonas(items) {
+      grid.innerHTML = "";
+      const totalBehaviors = items.reduce((sum, persona) => sum + persona.behaviors.length, 0);
+      personaCount.textContent = items.length;
+      behaviorCount.textContent = totalBehaviors;
+      emptyState.style.display = items.length ? "none" : "block";
+
+      items.forEach((persona) => {
+        const article = document.createElement("article");
+        article.className = "persona";
+        article.innerHTML = `
+          <div class="persona-header">
+            <span class="persona-id">${persona.id}</span>
+            <h2>${persona.name}</h2>
+            <p class="persona-title">${persona.title}</p>
+          </div>
+          <div class="persona-meta">
+            ${persona.meta.map((item) => `<span class="chip">${item}</span>`).join("")}
+          </div>
+          <div class="behaviors">
+            ${persona.behaviors.map((behavior, index) => `
+              <details class="behavior" open>
+                <summary>
+                  <span class="behavior-number">${index + 1}</span>
+                  <h3>${behavior.name}</h3>
+                </summary>
+                <div class="behavior-content">
+                  <p><span class="label">Behavior:</span> ${behavior.description}</p>
+                  <p><span class="label">ChatGPT interaction:</span> ${behavior.chatgpt}</p>
+                  <p><span class="label">Acceptance signal:</span> ${behavior.acceptance}</p>
+                  <div class="copy-row">
+                    <button type="button" data-persona="${persona.id}" data-index="${index}">Copy behavior</button>
+                  </div>
+                </div>
+              </details>
+            `).join("")}
+          </div>
+        `;
+        grid.appendChild(article);
+      });
+
+      document.querySelectorAll("button[data-persona]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const persona = personas.find((item) => item.id === button.dataset.persona);
+          const index = Number(button.dataset.index);
+          const text = behaviorText(persona, persona.behaviors[index], index);
+          await navigator.clipboard.writeText(text);
+          const original = button.textContent;
+          button.textContent = "Copied";
+          window.setTimeout(() => {
+            button.textContent = original;
+          }, 1200);
+        });
+      });
+    }
+
+    function filterPersonas(query) {
+      const normalized = query.trim().toLowerCase();
+      if (!normalized) {
+        return personas;
+      }
+
+      return personas.filter((persona) => {
+        const searchableText = [
+          persona.id,
+          persona.name,
+          persona.title,
+          ...persona.meta,
+          ...persona.behaviors.flatMap((behavior) => [
+            behavior.name,
+            behavior.description,
+            behavior.chatgpt,
+            behavior.acceptance
+          ])
+        ].join(" ").toLowerCase();
+        return searchableText.includes(normalized);
+      });
+    }
+
+    searchInput.addEventListener("input", (event) => {
+      renderPersonas(filterPersonas(event.target.value));
+    });
+
+    renderPersonas(personas);
+  </script>
+</body>
+</html>
