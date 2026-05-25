@@ -1,0 +1,467 @@
+{
+  "project": "Adobe Integration with ChatGPT Persona Behavior Tests",
+  "scope": "Synthetic personas and behavior-only test profiles. No Adobe feature mapping is included.",
+  "persona_count": 10,
+  "personas": [
+    {
+      "id": "P-001",
+      "name": "Maya Chen",
+      "persona_type": "Time-Pressed Social Media Manager",
+      "age": 29,
+      "occupation": "Social Media Manager",
+      "locale": "en-US",
+      "technical_skill": "High",
+      "ai_trust_level": "Medium-high",
+      "accessibility_needs": "Prefers keyboard shortcuts and skimmable content",
+      "privacy_posture": "Avoids sharing unpublished campaign names or client launch dates",
+      "communication_style": "Fast, directive, and outcome-focused",
+      "prompt_style": "Short commands with bullets, quick revisions, and clear deadlines",
+      "behaviors": [
+        {
+          "label": "Rapid iteration",
+          "description": "Requests several quick variations before choosing one direction.",
+          "example_instruction": "Give me three options, keep each caption under 12 words, and make the visual feel launch-ready."
+        },
+        {
+          "label": "Brand-safe caution",
+          "description": "Checks wording for tone, legal sensitivity, and social backlash risk before approving.",
+          "example_instruction": "Flag anything that could sound exaggerated, misleading, or off-brand."
+        },
+        {
+          "label": "Mobile-first review",
+          "description": "Prioritizes whether the creative reads clearly on a phone screen.",
+          "example_instruction": "Make the main idea visible in the first glance and avoid tiny text."
+        },
+        {
+          "label": "Deadline pressure",
+          "description": "Pushes for concise recommendations and skips long explanations.",
+          "example_instruction": "Only tell me the edit I should make next and why it matters."
+        }
+      ],
+      "acceptance_criteria": [
+        "Receives concise creative guidance",
+        "Can compare multiple options quickly",
+        "Gets warnings for risky or off-brand wording"
+      ],
+      "avoid_list": [
+        "Long theory explanations",
+        "Unverified performance claims",
+        "Sharing confidential campaign details"
+      ]
+    },
+    {
+      "id": "P-002",
+      "name": "Oliver Grant",
+      "persona_type": "Detail-Oriented Enterprise Brand Lead",
+      "age": 42,
+      "occupation": "Brand Governance Director",
+      "locale": "en-GB",
+      "technical_skill": "Medium",
+      "ai_trust_level": "Cautious",
+      "accessibility_needs": "Needs clear hierarchy and readable contrast",
+      "privacy_posture": "Strict; avoids uploading unreleased brand assets unless usage is clearly justified",
+      "communication_style": "Formal, precise, and policy-aware",
+      "prompt_style": "Structured requests with constraints, approvals, and compliance checks",
+      "behaviors": [
+        {
+          "label": "Policy validation",
+          "description": "Asks for every recommendation to align with brand standards and approval rules.",
+          "example_instruction": "Check whether the suggested copy follows our tone: authoritative, calm, and never playful."
+        },
+        {
+          "label": "Evidence seeking",
+          "description": "Requires a short reason for each creative decision before accepting it.",
+          "example_instruction": "Explain the reason for the layout change in one sentence."
+        },
+        {
+          "label": "Risk review",
+          "description": "Looks for legal, accessibility, and reputational risks in generated outputs.",
+          "example_instruction": "Identify anything that might be inaccessible, non-compliant, or visually inconsistent."
+        },
+        {
+          "label": "Approval gating",
+          "description": "Separates draft exploration from final-ready recommendations.",
+          "example_instruction": "Label the result as draft, review-needed, or ready-for-approval."
+        }
+      ],
+      "acceptance_criteria": [
+        "Creative output respects governance constraints",
+        "Risk items are clearly marked",
+        "Recommendations include concise rationale"
+      ],
+      "avoid_list": [
+        "Casual slang",
+        "Unapproved brand tone",
+        "Skipping compliance checks"
+      ]
+    },
+    {
+      "id": "P-003",
+      "name": "Aisha Rahman",
+      "persona_type": "Accessibility-Focused Nonprofit Coordinator",
+      "age": 36,
+      "occupation": "Community Outreach Coordinator",
+      "locale": "en-CA",
+      "technical_skill": "Medium-low",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Requires plain language, alt text guidance, and high-contrast recommendations",
+      "privacy_posture": "Protects beneficiary names, faces, and sensitive community details",
+      "communication_style": "Warm, inclusive, and careful",
+      "prompt_style": "Plain-language prompts that ask for step-by-step help",
+      "behaviors": [
+        {
+          "label": "Inclusive language review",
+          "description": "Requests wording that is respectful, people-first, and easy to understand.",
+          "example_instruction": "Rewrite this so it feels welcoming and avoids stereotypes."
+        },
+        {
+          "label": "Accessibility checking",
+          "description": "Asks for contrast, readability, and alt text suggestions before finalizing.",
+          "example_instruction": "Suggest alt text and tell me if any text may be too small or low contrast."
+        },
+        {
+          "label": "Step-by-step confidence building",
+          "description": "Needs guided actions instead of abstract creative advice.",
+          "example_instruction": "Give me the next three steps only, using simple wording."
+        },
+        {
+          "label": "Privacy protection",
+          "description": "Avoids identifying real participants or community locations.",
+          "example_instruction": "Use generic descriptions and do not include personal details."
+        }
+      ],
+      "acceptance_criteria": [
+        "Instructions are easy to follow",
+        "Accessibility considerations are visible",
+        "Sensitive identities remain protected"
+      ],
+      "avoid_list": [
+        "Jargon",
+        "Ableist phrasing",
+        "Specific private community identifiers"
+      ]
+    },
+    {
+      "id": "P-004",
+      "name": "Diego Santos",
+      "persona_type": "Experimental Freelance Visual Designer",
+      "age": 31,
+      "occupation": "Freelance Designer",
+      "locale": "es-MX",
+      "technical_skill": "Very high",
+      "ai_trust_level": "High for ideation, medium for final production",
+      "accessibility_needs": "No declared needs; prefers visual-first instructions",
+      "privacy_posture": "Comfortable sharing mock assets but withholds client names and contracts",
+      "communication_style": "Creative, energetic, and visual",
+      "prompt_style": "Exploratory prompts with style references, mood words, and visual constraints",
+      "behaviors": [
+        {
+          "label": "Style exploration",
+          "description": "Pushes for bold alternatives, unusual palettes, and unexpected composition ideas.",
+          "example_instruction": "Give me a cinematic, surreal, and editorial direction, each with a different mood."
+        },
+        {
+          "label": "Selective control",
+          "description": "Accepts AI suggestions for brainstorming but manually chooses final details.",
+          "example_instruction": "Suggest options, but mark which elements I should manually refine."
+        },
+        {
+          "label": "Visual vocabulary",
+          "description": "Uses design terms such as negative space, focal point, grain, depth, and contrast.",
+          "example_instruction": "Increase depth, make the focal point more dramatic, and keep the background textured."
+        },
+        {
+          "label": "Fast critique loop",
+          "description": "Asks for direct critique and alternative directions without reassurance.",
+          "example_instruction": "Tell me what feels weak and propose two stronger visual treatments."
+        }
+      ],
+      "acceptance_criteria": [
+        "Receives varied creative directions",
+        "Keeps control over final design decisions",
+        "Can request direct critique and refinement"
+      ],
+      "avoid_list": [
+        "Generic stock-photo language",
+        "Overly safe design choices",
+        "Exposing client identity"
+      ]
+    },
+    {
+      "id": "P-005",
+      "name": "Priya Nair",
+      "persona_type": "Data-Driven Ecommerce Marketer",
+      "age": 38,
+      "occupation": "Ecommerce Marketing Manager",
+      "locale": "en-IN",
+      "technical_skill": "High",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Prefers tables, summaries, and comparison views",
+      "privacy_posture": "Does not disclose revenue, customer lists, or unreleased pricing",
+      "communication_style": "Analytical, practical, and conversion-oriented",
+      "prompt_style": "Requests ranked options, measurable hypotheses, and A/B test variants",
+      "behaviors": [
+        {
+          "label": "Variant comparison",
+          "description": "Asks for side-by-side creative options that can be tested.",
+          "example_instruction": "Create three headline directions and label the conversion hypothesis for each."
+        },
+        {
+          "label": "Performance framing",
+          "description": "Evaluates creative choices based on clarity, urgency, and buyer motivation.",
+          "example_instruction": "Rank these versions by likely click intent and explain the top choice briefly."
+        },
+        {
+          "label": "Information density control",
+          "description": "Prefers clean messaging with one primary benefit and one action.",
+          "example_instruction": "Remove extra claims and keep only the strongest benefit."
+        },
+        {
+          "label": "Confidentiality filter",
+          "description": "Checks that private pricing or customer data is not included.",
+          "example_instruction": "Use placeholder pricing and do not mention real customer segments."
+        }
+      ],
+      "acceptance_criteria": [
+        "Output supports testable variants",
+        "Creative rationale is tied to conversion intent",
+        "Confidential commercial details are excluded"
+      ],
+      "avoid_list": [
+        "Unfounded metric promises",
+        "Private sales data",
+        "Too many competing calls to action"
+      ]
+    },
+    {
+      "id": "P-006",
+      "name": "Samuel Brooks",
+      "persona_type": "Low-Tech Small Business Owner",
+      "age": 55,
+      "occupation": "Cafe Owner",
+      "locale": "en-US",
+      "technical_skill": "Low",
+      "ai_trust_level": "Low-medium",
+      "accessibility_needs": "Needs plain instructions, large readable text, and minimal steps",
+      "privacy_posture": "Avoids sharing staff names, customer photos, and internal financial details",
+      "communication_style": "Friendly, direct, and practical",
+      "prompt_style": "Conversational requests with examples and confirmation checks",
+      "behaviors": [
+        {
+          "label": "Guided editing",
+          "description": "Needs clear instructions that explain where to click or what to change next.",
+          "example_instruction": "Walk me through this like I am new: first change the background, then check the text."
+        },
+        {
+          "label": "Confidence checks",
+          "description": "Asks whether the result looks professional enough before publishing.",
+          "example_instruction": "Tell me if this looks ready for customers or if I should fix something."
+        },
+        {
+          "label": "Plain copy preference",
+          "description": "Prefers simple, local, approachable wording over marketing jargon.",
+          "example_instruction": "Make the message sound neighborly and easy to understand."
+        },
+        {
+          "label": "Low-risk publishing",
+          "description": "Wants to avoid mistakes, clutter, and anything that feels too experimental.",
+          "example_instruction": "Keep it simple, readable, and not too flashy."
+        }
+      ],
+      "acceptance_criteria": [
+        "Instructions are beginner-friendly",
+        "The result feels professional but simple",
+        "No private business or customer details are used"
+      ],
+      "avoid_list": [
+        "Technical design jargon",
+        "Complex multi-step workflows",
+        "Customer-identifying details"
+      ]
+    },
+    {
+      "id": "P-007",
+      "name": "Hana Kim",
+      "persona_type": "Privacy-Conscious Legal Operations Specialist",
+      "age": 45,
+      "occupation": "Legal Operations Specialist",
+      "locale": "en-US",
+      "technical_skill": "Medium-high",
+      "ai_trust_level": "Low",
+      "accessibility_needs": "Prefers concise checklists and explicit risk notes",
+      "privacy_posture": "Very strict; avoids confidential documents, names, case facts, and personal data",
+      "communication_style": "Controlled, skeptical, and compliance-first",
+      "prompt_style": "Constraint-heavy prompts with redaction requirements and refusal boundaries",
+      "behaviors": [
+        {
+          "label": "Redaction first",
+          "description": "Requires sensitive details to be removed or replaced before creative work begins.",
+          "example_instruction": "Before you suggest anything, list any information that should be redacted."
+        },
+        {
+          "label": "Minimal disclosure",
+          "description": "Uses placeholders instead of real names, locations, or matter details.",
+          "example_instruction": "Use [CLIENT], [DATE], and [LOCATION] placeholders only."
+        },
+        {
+          "label": "Risk labeling",
+          "description": "Wants clear warnings when a prompt or output may expose confidential information.",
+          "example_instruction": "Mark each risk as privacy, legal, or reputational."
+        },
+        {
+          "label": "Audit-friendly output",
+          "description": "Prefers repeatable steps and a short decision log.",
+          "example_instruction": "Give me a checklist and a one-line reason for each decision."
+        }
+      ],
+      "acceptance_criteria": [
+        "Private information is never required",
+        "Risks are labeled explicitly",
+        "Outputs can be reviewed later for compliance"
+      ],
+      "avoid_list": [
+        "Requesting confidential documents",
+        "Real legal matter details",
+        "Speculative legal claims"
+      ]
+    },
+    {
+      "id": "P-008",
+      "name": "Luca Moretti",
+      "persona_type": "Multilingual Hospitality Campaign Producer",
+      "age": 34,
+      "occupation": "Hotel Marketing Producer",
+      "locale": "it-IT",
+      "technical_skill": "Medium",
+      "ai_trust_level": "Medium-high",
+      "accessibility_needs": "Needs translation checks and culturally clear wording",
+      "privacy_posture": "Avoids guest names, booking details, and internal occupancy data",
+      "communication_style": "Polished, visual, and guest-experience focused",
+      "prompt_style": "Requests bilingual copy, tone matching, and localization checks",
+      "behaviors": [
+        {
+          "label": "Localization awareness",
+          "description": "Checks whether language feels natural in multiple markets.",
+          "example_instruction": "Give me English and Italian versions, then flag any phrase that feels culturally awkward."
+        },
+        {
+          "label": "Experience-led storytelling",
+          "description": "Frames creative around guest emotions and destination appeal.",
+          "example_instruction": "Make the design feel calm, premium, and easy to imagine as a weekend escape."
+        },
+        {
+          "label": "Tone consistency",
+          "description": "Wants the same level of warmth and polish across languages.",
+          "example_instruction": "Keep both language versions elegant and not overly salesy."
+        },
+        {
+          "label": "Guest privacy",
+          "description": "Avoids identifiable guest stories or booking information.",
+          "example_instruction": "Use fictional guest scenarios only and no booking numbers."
+        }
+      ],
+      "acceptance_criteria": [
+        "Copy works across languages",
+        "Hospitality tone feels polished",
+        "Guest privacy remains protected"
+      ],
+      "avoid_list": [
+        "Literal awkward translations",
+        "Guest-identifying details",
+        "Overly aggressive sales tone"
+      ]
+    },
+    {
+      "id": "P-009",
+      "name": "Nora Williams",
+      "persona_type": "Education Content Creator",
+      "age": 27,
+      "occupation": "Instructional Designer",
+      "locale": "en-AU",
+      "technical_skill": "Medium-high",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Needs readable layouts, learner-friendly sequencing, and inclusive examples",
+      "privacy_posture": "Does not use student names, grades, schools, or protected learning data",
+      "communication_style": "Supportive, structured, and learner-centered",
+      "prompt_style": "Asks for learning objectives, examples, and comprehension checks",
+      "behaviors": [
+        {
+          "label": "Learning objective alignment",
+          "description": "Connects creative choices to a teaching purpose.",
+          "example_instruction": "State what the learner should notice first and why."
+        },
+        {
+          "label": "Cognitive load reduction",
+          "description": "Removes clutter and sequences information from simple to complex.",
+          "example_instruction": "Reduce the visual load and keep one idea per section."
+        },
+        {
+          "label": "Inclusive examples",
+          "description": "Requests wording and visuals that avoid stereotypes and support diverse learners.",
+          "example_instruction": "Check that the example is inclusive and age-appropriate."
+        },
+        {
+          "label": "Student data protection",
+          "description": "Avoids real student work or private school details.",
+          "example_instruction": "Use fictional learner data and do not mention a real classroom."
+        }
+      ],
+      "acceptance_criteria": [
+        "Creative output supports a clear learning purpose",
+        "Information is easy to scan",
+        "No student-identifying details are included"
+      ],
+      "avoid_list": [
+        "Real student information",
+        "Dense text blocks",
+        "Stereotyped examples"
+      ]
+    },
+    {
+      "id": "P-010",
+      "name": "Ethan Parker",
+      "persona_type": "Executive Communications Strategist",
+      "age": 48,
+      "occupation": "Executive Communications Lead",
+      "locale": "en-US",
+      "technical_skill": "Medium",
+      "ai_trust_level": "Medium-low",
+      "accessibility_needs": "Prefers executive summaries, crisp language, and clean layouts",
+      "privacy_posture": "Protects internal strategy, executive names, financial outlooks, and embargoed announcements",
+      "communication_style": "Concise, strategic, and reputation-aware",
+      "prompt_style": "Requests polished language, risk checks, and stakeholder-ready options",
+      "behaviors": [
+        {
+          "label": "Executive polish",
+          "description": "Asks for refined language that is confident without sounding exaggerated.",
+          "example_instruction": "Make this sound executive-ready, calm, and credible."
+        },
+        {
+          "label": "Stakeholder sensitivity",
+          "description": "Reviews creative for investor, employee, customer, and media interpretation.",
+          "example_instruction": "Tell me how this might be read by employees, customers, and press."
+        },
+        {
+          "label": "Message discipline",
+          "description": "Keeps one core message and removes distracting supporting points.",
+          "example_instruction": "Tighten this to one main point with one supporting phrase."
+        },
+        {
+          "label": "Embargo protection",
+          "description": "Avoids unreleased strategic details or named executive references.",
+          "example_instruction": "Use generic leadership wording and do not reveal embargoed details."
+        }
+      ],
+      "acceptance_criteria": [
+        "Output is concise and stakeholder-ready",
+        "Reputational risks are identified",
+        "Embargoed or internal details are excluded"
+      ],
+      "avoid_list": [
+        "Overpromising",
+        "Internal strategic details",
+        "Named executives without approval"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adobe + ChatGPT Persona Behavior Profiles</title>
+  <style>
+    :root {
+      --ink: #182033;
+      --muted: #667085;
+      --card: rgba(255, 255, 255, 0.92);
+      --line: rgba(24, 32, 51, 0.12);
+      --blue: #3563ff;
+      --pink: #e3408b;
+      --orange: #ff9d2e;
+      --green: #1faa76;
+      --purple: #7c4dff;
+      --shadow: 0 20px 60px rgba(24, 32, 51, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(53, 99, 255, 0.22), transparent 34rem),
+        radial-gradient(circle at top right, rgba(227, 64, 139, 0.18), transparent 34rem),
+        linear-gradient(135deg, #f7f8ff 0%, #fff6e8 52%, #eefcf7 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 56px 24px 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 22px auto 14px;
+      font-size: clamp(34px, 6vw, 70px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      padding: 18px 24px;
+      background: rgba(247, 248, 255, 0.78);
+      border-block: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(18px);
+    }
+
+    .search {
+      width: min(760px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(24, 32, 51, 0.08);
+    }
+
+    .search span {
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      color: var(--ink);
+      font-size: 16px;
+      background: transparent;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 36px));
+      margin: 34px auto 70px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+    }
+
+    .persona-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .persona-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 9px;
+      background: linear-gradient(90deg, var(--blue), var(--pink), var(--orange));
+    }
+
+    .card-inner {
+      padding: 30px;
+    }
+
+    .persona-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(53, 99, 255, 0.1);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -0.03em;
+    }
+
+    .persona-type {
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .meta {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .behavior-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .behavior {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.62));
+    }
+
+    .behavior strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--purple);
+      font-size: 15px;
+    }
+
+    .behavior p {
+      margin: 0 0 10px;
+      color: #344054;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .example {
+      border-left: 4px solid var(--orange);
+      padding-left: 12px;
+      color: #475467;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .copy-button {
+      width: 100%;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 16px;
+      padding: 13px 16px;
+      color: white;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .copy-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(53, 99, 255, 0.2);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      padding: 0 24px 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Behavior-only persona set</div>
+    <h1>Adobe Integration with ChatGPT Personas</h1>
+    <p class="subtitle">
+      Ten synthetic personas for testing Adobe integration workflows with ChatGPT. This showcase focuses
+      only on persona details and behavior patterns.
+    </p>
+  </header>
+
+  <section class="toolbar" aria-label="Persona search">
+    <label class="search">
+      <span aria-hidden="true">Search</span>
+      <input id="searchInput" type="search" placeholder="Search by name, role, locale, behavior, or prompt style..." />
+    </label>
+  </section>
+
+  <main>
+    <section id="personaGrid" class="grid" aria-label="Persona behavior cards"></section>
+  </main>
+
+  <footer>
+    Generated as a behavior-only persona deliverable for Adobe + ChatGPT integration testing.
+  </footer>
+
+  <script>
+    const personas = [
+      {
+        id: "P-001",
+        name: "Maya Chen",
+        type: "Time-Pressed Social Media Manager",
+        locale: "en-US",
+        style: "Fast, directive, and outcome-focused",
+        promptStyle: "Short commands with bullets, quick revisions, and clear deadlines",
+        privacy: "Avoids sharing unpublished campaign names or client launch dates",
+        behaviors: [
+          ["Rapid iteration", "Requests several quick variations before choosing one direction.", "Give me three options, keep each caption under 12 words, and make the visual feel launch-ready."],
+          ["Brand-safe caution", "Checks wording for tone, legal sensitivity, and social backlash risk before approving.", "Flag anything that could sound exaggerated, misleading, or off-brand."],
+          ["Mobile-first review", "Prioritizes whether the creative reads clearly on a phone screen.", "Make the main idea visible in the first glance and avoid tiny text."],
+          ["Deadline pressure", "Pushes for concise recommendations and skips long explanations.", "Only tell me the edit I should make next and why it matters."]
+        ]
+      },
+      {
+        id: "P-002",
+        name: "Oliver Grant",
+        type: "Detail-Oriented Enterprise Brand Lead",
+        locale: "en-GB",
+        style: "Formal, precise, and policy-aware",
+        promptStyle: "Structured requests with constraints, approvals, and compliance checks",
+        privacy: "Strict; avoids uploading unreleased brand assets unless usage is clearly justified",
+        behaviors: [
+          ["Policy validation", "Asks for every recommendation to align with brand standards and approval rules.", "Check whether the suggested copy follows our tone: authoritative, calm, and never playful."],
+          ["Evidence seeking", "Requires a short reason for each creative decision before accepting it.", "Explain the reason for the layout change in one sentence."],
+          ["Risk review", "Looks for legal, accessibility, and reputational risks in generated outputs.", "Identify anything that might be inaccessible, non-compliant, or visually inconsistent."],
+          ["Approval gating", "Separates draft exploration from final-ready recommendations.", "Label the result as draft, review-needed, or ready-for-approval."]
+        ]
+      },
+      {
+        id: "P-003",
+        name: "Aisha Rahman",
+        type: "Accessibility-Focused Nonprofit Coordinator",
+        locale: "en-CA",
+        style: "Warm, inclusive, and careful",
+        promptStyle: "Plain-language prompts that ask for step-by-step help",
+        privacy: "Protects beneficiary names, faces, and sensitive community details",
+        behaviors: [
+          ["Inclusive language review", "Requests wording that is respectful, people-first, and easy to understand.", "Rewrite this so it feels welcoming and avoids stereotypes."],
+          ["Accessibility checking", "Asks for contrast, readability, and alt text suggestions before finalizing.", "Suggest alt text and tell me if any text may be too small or low contrast."],
+          ["Step-by-step confidence building", "Needs guided actions instead of abstract creative advice.", "Give me the next three steps only, using simple wording."],
+          ["Privacy protection", "Avoids identifying real participants or community locations.", "Use generic descriptions and do not include personal details."]
+        ]
+      },
+      {
+        id: "P-004",
+        name: "Diego Santos",
+        type: "Experimental Freelance Visual Designer",
+        locale: "es-MX",
+        style: "Creative, energetic, and visual",
+        promptStyle: "Exploratory prompts with style references, mood words, and visual constraints",
+        privacy: "Comfortable sharing mock assets but withholds client names and contracts",
+        behaviors: [
+          ["Style exploration", "Pushes for bold alternatives, unusual palettes, and unexpected composition ideas.", "Give me a cinematic, surreal, and editorial direction, each with a different mood."],
+          ["Selective control", "Accepts AI suggestions for brainstorming but manually chooses final details.", "Suggest options, but mark which elements I should manually refine."],
+          ["Visual vocabulary", "Uses design terms such as negative space, focal point, grain, depth, and contrast.", "Increase depth, make the focal point more dramatic, and keep the background textured."],
+          ["Fast critique loop", "Asks for direct critique and alternative directions without reassurance.", "Tell me what feels weak and propose two stronger visual treatments."]
+        ]
+      },
+      {
+        id: "P-005",
+        name: "Priya Nair",
+        type: "Data-Driven Ecommerce Marketer",
+        locale: "en-IN",
+        style: "Analytical, practical, and conversion-oriented",
+        promptStyle: "Requests ranked options, measurable hypotheses, and A/B test variants",
+        privacy: "Does not disclose revenue, customer lists, or unreleased pricing",
+        behaviors: [
+          ["Variant comparison", "Asks for side-by-side creative options that can be tested.", "Create three headline directions and label the conversion hypothesis for each."],
+          ["Performance framing", "Evaluates creative choices based on clarity, urgency, and buyer motivation.", "Rank these versions by likely click intent and explain the top choice briefly."],
+          ["Information density control", "Prefers clean messaging with one primary benefit and one action.", "Remove extra claims and keep only the strongest benefit."],
+          ["Confidentiality filter", "Checks that private pricing or customer data is not included.", "Use placeholder pricing and do not mention real customer segments."]
+        ]
+      },
+      {
+        id: "P-006",
+        name: "Samuel Brooks",
+        type: "Low-Tech Small Business Owner",
+        locale: "en-US",
+        style: "Friendly, direct, and practical",
+        promptStyle: "Conversational requests with examples and confirmation checks",
+        privacy: "Avoids sharing staff names, customer photos, and internal financial details",
+        behaviors: [
+          ["Guided editing", "Needs clear instructions that explain where to click or what to change next.", "Walk me through this like I am new: first change the background, then check the text."],
+          ["Confidence checks", "Asks whether the result looks professional enough before publishing.", "Tell me if this looks ready for customers or if I should fix something."],
+          ["Plain copy preference", "Prefers simple, local, approachable wording over marketing jargon.", "Make the message sound neighborly and easy to understand."],
+          ["Low-risk publishing", "Wants to avoid mistakes, clutter, and anything that feels too experimental.", "Keep it simple, readable, and not too flashy."]
+        ]
+      },
+      {
+        id: "P-007",
+        name: "Hana Kim",
+        type: "Privacy-Conscious Legal Operations Specialist",
+        locale: "en-US",
+        style: "Controlled, skeptical, and compliance-first",
+        promptStyle: "Constraint-heavy prompts with redaction requirements and refusal boundaries",
+        privacy: "Very strict; avoids confidential documents, names, case facts, and personal data",
+        behaviors: [
+          ["Redaction first", "Requires sensitive details to be removed or replaced before creative work begins.", "Before you suggest anything, list any information that should be redacted."],
+          ["Minimal disclosure", "Uses placeholders instead of real names, locations, or matter details.", "Use [CLIENT], [DATE], and [LOCATION] placeholders only."],
+          ["Risk labeling", "Wants clear warnings when a prompt or output may expose confidential information.", "Mark each risk as privacy, legal, or reputational."],
+          ["Audit-friendly output", "Prefers repeatable steps and a short decision log.", "Give me a checklist and a one-line reason for each decision."]
+        ]
+      },
+      {
+        id: "P-008",
+        name: "Luca Moretti",
+        type: "Multilingual Hospitality Campaign Producer",
+        locale: "it-IT",
+        style: "Polished, visual, and guest-experience focused",
+        promptStyle: "Requests bilingual copy, tone matching, and localization checks",
+        privacy: "Avoids guest names, booking details, and internal occupancy data",
+        behaviors: [
+          ["Localization awareness", "Checks whether language feels natural in multiple markets.", "Give me English and Italian versions, then flag any phrase that feels culturally awkward."],
+          ["Experience-led storytelling", "Frames creative around guest emotions and destination appeal.", "Make the design feel calm, premium, and easy to imagine as a weekend escape."],
+          ["Tone consistency", "Wants the same level of warmth and polish across languages.", "Keep both language versions elegant and not overly salesy."],
+          ["Guest privacy", "Avoids identifiable guest stories or booking information.", "Use fictional guest scenarios only and no booking numbers."]
+        ]
+      },
+      {
+        id: "P-009",
+        name: "Nora Williams",
+        type: "Education Content Creator",
+        locale: "en-AU",
+        style: "Supportive, structured, and learner-centered",
+        promptStyle: "Asks for learning objectives, examples, and comprehension checks",
+        privacy: "Does not use student names, grades, schools, or protected learning data",
+        behaviors: [
+          ["Learning objective alignment", "Connects creative choices to a teaching purpose.", "State what the learner should notice first and why."],
+          ["Cognitive load reduction", "Removes clutter and sequences information from simple to complex.", "Reduce the visual load and keep one idea per section."],
+          ["Inclusive examples", "Requests wording and visuals that avoid stereotypes and support diverse learners.", "Check that the example is inclusive and age-appropriate."],
+          ["Student data protection", "Avoids real student work or private school details.", "Use fictional learner data and do not mention a real classroom."]
+        ]
+      },
+      {
+        id: "P-010",
+        name: "Ethan Parker",
+        type: "Executive Communications Strategist",
+        locale: "en-US",
+        style: "Concise, strategic, and reputation-aware",
+        promptStyle: "Requests polished language, risk checks, and stakeholder-ready options",
+        privacy: "Protects internal strategy, executive names, financial outlooks, and embargoed announcements",
+        behaviors: [
+          ["Executive polish", "Asks for refined language that is confident without sounding exaggerated.", "Make this sound executive-ready, calm, and credible."],
+          ["Stakeholder sensitivity", "Reviews creative for investor, employee, customer, and media interpretation.", "Tell me how this might be read by employees, customers, and press."],
+          ["Message discipline", "Keeps one core message and removes distracting supporting points.", "Tighten this to one main point with one supporting phrase."],
+          ["Embargo protection", "Avoids unreleased strategic details or named executive references.", "Use generic leadership wording and do not reveal embargoed details."]
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("personaGrid");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderPersonas(items) {
+      grid.innerHTML = items.map((persona) => {
+        const behaviorItems = persona.behaviors.map(([label, description, example]) => `
+          <li class="behavior">
+            <strong>${label}</strong>
+            <p>${description}</p>
+            <div class="example">Example behavior prompt: "${example}"</div>
+          </li>
+        `).join("");
+
+        const copyText = [
+          `${persona.id} - ${persona.name}`,
+          persona.type,
+          `Locale: ${persona.locale}`,
+          `Communication style: ${persona.style}`,
+          `Prompt style: ${persona.promptStyle}`,
+          `Privacy posture: ${persona.privacy}`,
+          "Behaviors:",
+          ...persona.behaviors.map(([label, description, example]) => `- ${label}: ${description} Example: ${example}`)
+        ].join("\\n");
+
+        return `
+          <article class="persona-card" data-search="${copyText.toLowerCase().replace(/"/g, "&quot;")}">
+            <div class="card-inner">
+              <div class="persona-topline">
+                <div>
+                  <h2>${persona.name}</h2>
+                  <div class="persona-type">${persona.type}</div>
+                </div>
+                <span class="badge">${persona.id}</span>
+              </div>
+              <div class="meta">
+                <div class="meta-row"><span class="meta-label">Locale</span><span>${persona.locale}</span></div>
+                <div class="meta-row"><span class="meta-label">Style</span><span>${persona.style}</span></div>
+                <div class="meta-row"><span class="meta-label">Prompt</span><span>${persona.promptStyle}</span></div>
+                <div class="meta-row"><span class="meta-label">Privacy</span><span>${persona.privacy}</span></div>
+              </div>
+              <ul class="behavior-list">${behaviorItems}</ul>
+              <button class="copy-button" type="button" data-copy="${copyText.replace(/"/g, "&quot;")}">Copy persona behavior</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      document.querySelectorAll(".copy-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(button.dataset.copy);
+          const previous = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(() => {
+            button.textContent = previous;
+          }, 1200);
+        });
+      });
+    }
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = personas.filter((persona) => {
+        const haystack = JSON.stringify(persona).toLowerCase();
+        return haystack.includes(query);
+      });
+      renderPersonas(filtered);
+    });
+
+    renderPersonas(personas);
+  </script>
+</body>
+</html>
