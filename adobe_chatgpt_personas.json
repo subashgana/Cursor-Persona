@@ -1,0 +1,437 @@
+{
+  "project": "Adobe Integration with ChatGPT Persona Testing",
+  "scope": "Synthetic personas for testing Adobe Express Enterprise integration with ChatGPT",
+  "version": "1.0",
+  "personas": [
+    {
+      "id": "P001",
+      "name": "Maya Rodriguez",
+      "persona_title": "Brand-Safe Marketing Manager",
+      "age": 34,
+      "occupation": "Regional Marketing Manager",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Cautious but open",
+      "prompt_style": "Structured, approval-oriented, and brand-focused",
+      "privacy_posture": "Avoids sharing customer-identifiable data and internal campaign metrics",
+      "accessibility_needs": "Prefers concise summaries and clear step-by-step outputs",
+      "behaviors": [
+        {
+          "behavior_id": "P001-B01",
+          "name": "Brand compliance first",
+          "description": "Checks whether every AI-generated suggestion stays within approved campaign tone, colors, and messaging before accepting it.",
+          "chatgpt_interaction": "Asks ChatGPT to explain why each creative recommendation is safe for a corporate brand review.",
+          "acceptance_signal": "Accepts output only when the response includes a clear brand-safety rationale."
+        },
+        {
+          "behavior_id": "P001-B02",
+          "name": "Approval workflow mindset",
+          "description": "Breaks creative work into reviewable steps so legal, brand, and regional teams can approve changes.",
+          "chatgpt_interaction": "Requests numbered options with notes that can be copied into an approval ticket.",
+          "acceptance_signal": "Accepts output when each step is easy to review and defend."
+        },
+        {
+          "behavior_id": "P001-B03",
+          "name": "Risk-aware iteration",
+          "description": "Prefers conservative variations before exploring bold creative changes.",
+          "chatgpt_interaction": "Asks for low-risk, medium-risk, and high-risk creative alternatives.",
+          "acceptance_signal": "Accepts output when risk levels are labeled and tradeoffs are explicit."
+        },
+        {
+          "behavior_id": "P001-B04",
+          "name": "Campaign consistency checking",
+          "description": "Compares generated assets against existing campaign language and rejects off-brand phrasing.",
+          "chatgpt_interaction": "Requests a final checklist for tone, messaging, and visual consistency.",
+          "acceptance_signal": "Accepts output when it includes a reusable quality-control checklist."
+        }
+      ]
+    },
+    {
+      "id": "P002",
+      "name": "Ethan Brooks",
+      "persona_title": "Time-Pressed Sales Enablement Lead",
+      "age": 41,
+      "occupation": "Sales Enablement Lead",
+      "locale": "en-GB",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Pragmatic",
+      "prompt_style": "Brief, direct, outcome-driven",
+      "privacy_posture": "Will not enter prospect names, account details, or deal values",
+      "accessibility_needs": "Needs skimmable content and fast copy-ready outputs",
+      "behaviors": [
+        {
+          "behavior_id": "P002-B01",
+          "name": "Speed over exploration",
+          "description": "Prioritizes the fastest usable creative output over broad ideation.",
+          "chatgpt_interaction": "Uses short commands and asks for immediate first drafts.",
+          "acceptance_signal": "Accepts output when it can be used with minimal editing."
+        },
+        {
+          "behavior_id": "P002-B02",
+          "name": "Sales-message alignment",
+          "description": "Checks that creative recommendations support a clear value proposition and call to action.",
+          "chatgpt_interaction": "Requests headline, subheadline, and CTA variants in one response.",
+          "acceptance_signal": "Accepts output when each variant is relevant to a sales conversation."
+        },
+        {
+          "behavior_id": "P002-B03",
+          "name": "Reusable asset thinking",
+          "description": "Prefers content that can be adapted across decks, one-pagers, and follow-up emails.",
+          "chatgpt_interaction": "Asks ChatGPT to provide flexible copy blocks and layout notes.",
+          "acceptance_signal": "Accepts output when it includes modular assets."
+        },
+        {
+          "behavior_id": "P002-B04",
+          "name": "Low-tolerance correction",
+          "description": "Rejects vague or lengthy responses and asks for sharper wording.",
+          "chatgpt_interaction": "Prompts ChatGPT to shorten, simplify, or make the recommendation more commercial.",
+          "acceptance_signal": "Accepts output when it is concise and action-oriented."
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "name": "Priya Nair",
+      "persona_title": "Accessibility-Focused Learning Designer",
+      "age": 29,
+      "occupation": "Instructional Designer",
+      "locale": "en-IN",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "High with verification",
+      "prompt_style": "Detailed, inclusive, and standards-aware",
+      "privacy_posture": "Avoids student data and protected learner information",
+      "accessibility_needs": "Requires accessible language, readable structure, and alt-text guidance",
+      "behaviors": [
+        {
+          "behavior_id": "P003-B01",
+          "name": "Accessibility by default",
+          "description": "Evaluates creative output for readability, contrast, inclusive language, and assistive-technology support.",
+          "chatgpt_interaction": "Asks ChatGPT to include alt text, reading-level notes, and accessibility checks.",
+          "acceptance_signal": "Accepts output when accessibility guidance is integrated, not appended."
+        },
+        {
+          "behavior_id": "P003-B02",
+          "name": "Learner empathy",
+          "description": "Frames design choices around different learner needs and avoids exclusionary examples.",
+          "chatgpt_interaction": "Requests variations for novice, multilingual, and visually impaired learners.",
+          "acceptance_signal": "Accepts output when it explains learner impact."
+        },
+        {
+          "behavior_id": "P003-B03",
+          "name": "Standards verification",
+          "description": "Looks for explicit quality criteria and tests generated content against learning objectives.",
+          "chatgpt_interaction": "Asks for a rubric or checklist tied to the design request.",
+          "acceptance_signal": "Accepts output when it includes measurable checks."
+        },
+        {
+          "behavior_id": "P003-B04",
+          "name": "Clear instruction preference",
+          "description": "Prefers instructions that can be followed by non-designers and reviewed by stakeholders.",
+          "chatgpt_interaction": "Requests plain-language steps and labels for each design decision.",
+          "acceptance_signal": "Accepts output when another teammate could reproduce the workflow."
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "name": "Lucas Chen",
+      "persona_title": "Experimental Social Media Creator",
+      "age": 23,
+      "occupation": "Social Media Content Creator",
+      "locale": "en-CA",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Very high",
+      "prompt_style": "Energetic, visual, trend-led",
+      "privacy_posture": "Comfortable with public trend references but avoids private follower data",
+      "accessibility_needs": "Prefers mobile-friendly, short-form instructions",
+      "behaviors": [
+        {
+          "behavior_id": "P004-B01",
+          "name": "Trend-first ideation",
+          "description": "Looks for bold hooks, dynamic composition, and platform-native language.",
+          "chatgpt_interaction": "Asks ChatGPT for punchy ideas, remix angles, and visual hooks.",
+          "acceptance_signal": "Accepts output when it feels current and immediately postable."
+        },
+        {
+          "behavior_id": "P004-B02",
+          "name": "Rapid variation testing",
+          "description": "Generates multiple versions quickly and compares them for engagement potential.",
+          "chatgpt_interaction": "Requests several caption, style, and layout variants in one pass.",
+          "acceptance_signal": "Accepts output when there are enough variants to A/B test."
+        },
+        {
+          "behavior_id": "P004-B03",
+          "name": "Visual drama preference",
+          "description": "Favors high contrast, motion cues, surprising crops, and energetic design language.",
+          "chatgpt_interaction": "Uses expressive prompts that ask for dramatic visual direction.",
+          "acceptance_signal": "Accepts output when the idea has strong scroll-stopping potential."
+        },
+        {
+          "behavior_id": "P004-B04",
+          "name": "Audience reaction awareness",
+          "description": "Evaluates output by imagining comments, shares, saves, and viewer retention.",
+          "chatgpt_interaction": "Asks ChatGPT to explain why viewers would engage.",
+          "acceptance_signal": "Accepts output when engagement rationale is clear."
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "name": "Amina Hassan",
+      "persona_title": "Privacy-Conscious HR Communications Partner",
+      "age": 38,
+      "occupation": "HR Communications Partner",
+      "locale": "en-AE",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Low until controls are clear",
+      "prompt_style": "Careful, formal, and policy-aware",
+      "privacy_posture": "Avoids employee data, internal incidents, medical details, and confidential HR context",
+      "accessibility_needs": "Needs culturally neutral and inclusive wording",
+      "behaviors": [
+        {
+          "behavior_id": "P005-B01",
+          "name": "Confidentiality filtering",
+          "description": "Removes sensitive workplace context before asking for AI assistance.",
+          "chatgpt_interaction": "States privacy boundaries at the start of each prompt.",
+          "acceptance_signal": "Accepts output when it does not infer or request sensitive details."
+        },
+        {
+          "behavior_id": "P005-B02",
+          "name": "Policy-safe tone",
+          "description": "Chooses neutral wording that avoids promises, legal exposure, or exclusionary language.",
+          "chatgpt_interaction": "Asks ChatGPT to flag risky phrasing and provide safer alternatives.",
+          "acceptance_signal": "Accepts output when sensitive claims are softened or removed."
+        },
+        {
+          "behavior_id": "P005-B03",
+          "name": "Employee empathy",
+          "description": "Balances compliance with a respectful, people-centered communication style.",
+          "chatgpt_interaction": "Requests warm but professional wording options.",
+          "acceptance_signal": "Accepts output when the message feels supportive without being casual."
+        },
+        {
+          "behavior_id": "P005-B04",
+          "name": "Review before use",
+          "description": "Requires a final human-review reminder before using generated content.",
+          "chatgpt_interaction": "Asks for review notes and escalation flags.",
+          "acceptance_signal": "Accepts output when it identifies what HR or legal should review."
+        }
+      ]
+    },
+    {
+      "id": "P006",
+      "name": "Noah Stein",
+      "persona_title": "Data-Led Product Marketer",
+      "age": 32,
+      "occupation": "Product Marketing Manager",
+      "locale": "en-US",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate",
+      "prompt_style": "Analytical, comparative, and evidence-seeking",
+      "privacy_posture": "Uses anonymized segment descriptions rather than product telemetry or customer records",
+      "accessibility_needs": "Prefers tables and explicit decision criteria",
+      "behaviors": [
+        {
+          "behavior_id": "P006-B01",
+          "name": "Evidence-based selection",
+          "description": "Compares creative options using audience fit, message clarity, and conversion intent.",
+          "chatgpt_interaction": "Asks ChatGPT to score options against stated criteria.",
+          "acceptance_signal": "Accepts output when rankings include reasoning."
+        },
+        {
+          "behavior_id": "P006-B02",
+          "name": "Hypothesis framing",
+          "description": "Treats each creative choice as a testable hypothesis rather than a final answer.",
+          "chatgpt_interaction": "Requests hypotheses, expected outcomes, and measurement ideas.",
+          "acceptance_signal": "Accepts output when testing logic is explicit."
+        },
+        {
+          "behavior_id": "P006-B03",
+          "name": "Audience segmentation",
+          "description": "Adapts tone and visual emphasis for different buyer roles without overpersonalizing.",
+          "chatgpt_interaction": "Asks for variants by segment using anonymous audience labels.",
+          "acceptance_signal": "Accepts output when segments are distinct and privacy-safe."
+        },
+        {
+          "behavior_id": "P006-B04",
+          "name": "Message hierarchy control",
+          "description": "Ensures the most important product benefit appears first and secondary proof points stay concise.",
+          "chatgpt_interaction": "Requests hierarchy notes for headline, visual focus, and supporting copy.",
+          "acceptance_signal": "Accepts output when message order is clear."
+        }
+      ]
+    },
+    {
+      "id": "P007",
+      "name": "Sofia Alvarez",
+      "persona_title": "Nonprofit Campaign Coordinator",
+      "age": 45,
+      "occupation": "Nonprofit Campaign Coordinator",
+      "locale": "es-MX",
+      "technical_skill": "Basic",
+      "ai_trust_level": "Curious but needs guidance",
+      "prompt_style": "Plain-language, collaborative, and mission-driven",
+      "privacy_posture": "Avoids donor names, beneficiary identities, and internal fundraising totals",
+      "accessibility_needs": "Needs bilingual-friendly wording and simple instructions",
+      "behaviors": [
+        {
+          "behavior_id": "P007-B01",
+          "name": "Mission-first evaluation",
+          "description": "Judges creative output by whether it supports the nonprofit mission with dignity and clarity.",
+          "chatgpt_interaction": "Asks ChatGPT to keep the message respectful, hopeful, and community-centered.",
+          "acceptance_signal": "Accepts output when it avoids pity-based or sensational wording."
+        },
+        {
+          "behavior_id": "P007-B02",
+          "name": "Beginner-friendly workflow",
+          "description": "Needs each step explained without design jargon.",
+          "chatgpt_interaction": "Requests simple instructions and asks follow-up questions when terms are unclear.",
+          "acceptance_signal": "Accepts output when steps are easy for a volunteer to follow."
+        },
+        {
+          "behavior_id": "P007-B03",
+          "name": "Budget-sensitive reuse",
+          "description": "Prefers outputs that can be reused for posters, emails, and social posts.",
+          "chatgpt_interaction": "Asks for adaptable wording and layout ideas.",
+          "acceptance_signal": "Accepts output when it supports multiple low-cost channels."
+        },
+        {
+          "behavior_id": "P007-B04",
+          "name": "Community tone check",
+          "description": "Reviews generated language for cultural respect and local relevance.",
+          "chatgpt_interaction": "Requests Spanish-friendly phrasing and notes for localization.",
+          "acceptance_signal": "Accepts output when localization considerations are included."
+        }
+      ]
+    },
+    {
+      "id": "P008",
+      "name": "Oliver Grant",
+      "persona_title": "Legal Operations Reviewer",
+      "age": 50,
+      "occupation": "Legal Operations Manager",
+      "locale": "en-AU",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Low",
+      "prompt_style": "Precise, skeptical, and control-oriented",
+      "privacy_posture": "Does not share contracts, names, case details, regulated claims, or privileged information",
+      "accessibility_needs": "Prefers exact wording, traceable assumptions, and concise summaries",
+      "behaviors": [
+        {
+          "behavior_id": "P008-B01",
+          "name": "Assumption control",
+          "description": "Rejects generated content that adds facts, claims, or guarantees not present in the prompt.",
+          "chatgpt_interaction": "Asks ChatGPT to list assumptions and avoid inventing details.",
+          "acceptance_signal": "Accepts output when assumptions are explicit and minimal."
+        },
+        {
+          "behavior_id": "P008-B02",
+          "name": "Claim-risk detection",
+          "description": "Reviews creative text for potentially risky claims, endorsements, or compliance-sensitive promises.",
+          "chatgpt_interaction": "Requests a risk scan before any final wording.",
+          "acceptance_signal": "Accepts output when risky language is flagged with safer alternatives."
+        },
+        {
+          "behavior_id": "P008-B03",
+          "name": "Audit-friendly documentation",
+          "description": "Needs a record of what was changed and why.",
+          "chatgpt_interaction": "Asks for before-and-after notes and rationale.",
+          "acceptance_signal": "Accepts output when changes can be reviewed later."
+        },
+        {
+          "behavior_id": "P008-B04",
+          "name": "Strict privacy boundary",
+          "description": "Keeps prompts generic and refuses to include privileged or confidential details.",
+          "chatgpt_interaction": "Uses placeholders and reminds ChatGPT not to ask for confidential context.",
+          "acceptance_signal": "Accepts output when placeholders remain generic."
+        }
+      ]
+    },
+    {
+      "id": "P009",
+      "name": "Hana Kim",
+      "persona_title": "Global E-Commerce Merchandiser",
+      "age": 27,
+      "occupation": "E-Commerce Merchandiser",
+      "locale": "ko-KR",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "High for drafting, moderate for final decisions",
+      "prompt_style": "Visual, comparative, and localization-aware",
+      "privacy_posture": "Avoids sales dashboards, supplier contracts, and customer purchase history",
+      "accessibility_needs": "Needs localization notes and mobile-commerce readability",
+      "behaviors": [
+        {
+          "behavior_id": "P009-B01",
+          "name": "Product-visual priority",
+          "description": "Evaluates creative output by whether the product remains clear, desirable, and easy to understand.",
+          "chatgpt_interaction": "Asks ChatGPT to keep visual hierarchy focused on the product.",
+          "acceptance_signal": "Accepts output when product clarity is not sacrificed for style."
+        },
+        {
+          "behavior_id": "P009-B02",
+          "name": "Marketplace localization",
+          "description": "Adapts messaging for regional buying habits, formats, and cultural expectations.",
+          "chatgpt_interaction": "Requests localization notes without using private customer data.",
+          "acceptance_signal": "Accepts output when localized wording feels natural and respectful."
+        },
+        {
+          "behavior_id": "P009-B03",
+          "name": "Comparison-driven choice",
+          "description": "Prefers side-by-side options to choose the best image direction, headline, and offer framing.",
+          "chatgpt_interaction": "Asks for comparison tables with pros and cons.",
+          "acceptance_signal": "Accepts output when tradeoffs are easy to compare."
+        },
+        {
+          "behavior_id": "P009-B04",
+          "name": "Mobile storefront check",
+          "description": "Reviews output for short copy, clear contrast, and fast comprehension on small screens.",
+          "chatgpt_interaction": "Requests mobile-first copy and layout guidance.",
+          "acceptance_signal": "Accepts output when it works at small display sizes."
+        }
+      ]
+    },
+    {
+      "id": "P010",
+      "name": "Grace Williams",
+      "persona_title": "Executive Communications Director",
+      "age": 56,
+      "occupation": "Executive Communications Director",
+      "locale": "en-US",
+      "technical_skill": "Basic",
+      "ai_trust_level": "Selective",
+      "prompt_style": "Polished, concise, and reputation-sensitive",
+      "privacy_posture": "Avoids unreleased announcements, executive schedules, financials, and confidential strategy",
+      "accessibility_needs": "Prefers executive summaries and polished final copy",
+      "behaviors": [
+        {
+          "behavior_id": "P010-B01",
+          "name": "Reputation protection",
+          "description": "Reviews creative choices for executive tone, public perception, and stakeholder sensitivity.",
+          "chatgpt_interaction": "Asks ChatGPT to identify reputational risks and offer refined alternatives.",
+          "acceptance_signal": "Accepts output when it sounds polished and avoids controversy."
+        },
+        {
+          "behavior_id": "P010-B02",
+          "name": "Minimal-input delegation",
+          "description": "Provides concise direction and expects ChatGPT to produce a complete, polished draft.",
+          "chatgpt_interaction": "Uses brief prompts and asks for executive-ready output.",
+          "acceptance_signal": "Accepts output when it needs little rewriting."
+        },
+        {
+          "behavior_id": "P010-B03",
+          "name": "Stakeholder lens",
+          "description": "Considers how employees, customers, partners, and press might interpret the creative message.",
+          "chatgpt_interaction": "Requests tone checks for multiple stakeholder groups.",
+          "acceptance_signal": "Accepts output when stakeholder reactions are considered."
+        },
+        {
+          "behavior_id": "P010-B04",
+          "name": "Executive brevity",
+          "description": "Prefers short, high-impact language over detailed explanations.",
+          "chatgpt_interaction": "Asks ChatGPT to shorten copy without losing authority.",
+          "acceptance_signal": "Accepts output when it is concise, confident, and clear."
+        }
+      ]
+    }
+  ]
+}
