@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "title": "Adobe Integration with ChatGPT Test Personas",
+    "version": "1.0",
+    "persona_count": 10,
+    "purpose": "Synthetic personas for testing Adobe product integrations with ChatGPT across varied user behaviors, accessibility needs, trust levels, privacy postures, and creative workflows.",
+    "shared_test_context": "Each persona can be used to test a ChatGPT-assisted Adobe workflow where the user asks for help creating, editing, reviewing, or exporting branded creative content."
+  },
+  "personas": [
+    {
+      "id": "persona_001",
+      "name": "Maya Chen",
+      "age": 29,
+      "locale": "en-US",
+      "occupation": "Social Media Manager",
+      "industry": "Retail",
+      "technical_skill_level": "Intermediate",
+      "ai_trust_level": "High",
+      "prompt_style": "Fast, informal, outcome-focused, and comfortable with iterative AI suggestions.",
+      "communication_tone": "Direct, upbeat, and brand-aware.",
+      "accessibility_needs": "None specified",
+      "privacy_posture": "Moderate; avoids uploading confidential campaign performance data.",
+      "adobe_integration_focus": [
+        "Adobe Express",
+        "Adobe Firefly",
+        "Adobe Creative Cloud Libraries"
+      ],
+      "chatgpt_behavior_rules": [
+        "Ask for concise design options instead of long explanations.",
+        "Prefer suggested copy variations, layout ideas, and quick revision steps.",
+        "Accept AI-generated visual ideas if they stay within brand tone."
+      ],
+      "test_prompt": "Create three Instagram post concepts in Adobe Express for a weekend retail sale. Use ChatGPT to generate short captions, Adobe Firefly for background image ideas, and Creative Cloud Libraries for brand colors. Keep the tone energetic and include a quick checklist for export readiness.",
+      "acceptance_criteria": [
+        "ChatGPT returns short, actionable creative options.",
+        "Adobe feature references are relevant to social media creation.",
+        "Output includes brand color usage and export guidance.",
+        "No confidential sales data is requested."
+      ]
+    },
+    {
+      "id": "persona_002",
+      "name": "Robert Hayes",
+      "age": 54,
+      "locale": "en-GB",
+      "occupation": "Compliance Director",
+      "industry": "Financial Services",
+      "technical_skill_level": "Basic",
+      "ai_trust_level": "Low",
+      "prompt_style": "Formal, cautious, and policy-driven.",
+      "communication_tone": "Precise, risk-aware, and conservative.",
+      "accessibility_needs": "Prefers large text and clear step-by-step instructions.",
+      "privacy_posture": "Strict; does not share customer data, financial figures, or internal policy documents.",
+      "adobe_integration_focus": [
+        "Adobe Acrobat",
+        "Adobe Express Enterprise",
+        "Adobe Admin Console"
+      ],
+      "chatgpt_behavior_rules": [
+        "Request compliance checks before creative suggestions.",
+        "Ask for explanations of why a recommendation is safe.",
+        "Reject outputs that imply financial advice or unsupported claims."
+      ],
+      "test_prompt": "Help me prepare a compliant one-page client notice using Adobe Express Enterprise. Use ChatGPT to draft plain-language copy, Adobe Acrobat to review final PDF accessibility, and Adobe Admin Console controls to confirm enterprise-safe asset handling. Do not use customer data or make investment claims.",
+      "acceptance_criteria": [
+        "Output uses formal compliance-sensitive language.",
+        "Workflow avoids sensitive customer or financial data.",
+        "Adobe Acrobat accessibility review is included.",
+        "Enterprise control considerations are clearly stated."
+      ]
+    },
+    {
+      "id": "persona_003",
+      "name": "Aisha Rahman",
+      "age": 37,
+      "locale": "en-AE",
+      "occupation": "Brand Strategist",
+      "industry": "Hospitality",
+      "technical_skill_level": "Advanced",
+      "ai_trust_level": "Medium",
+      "prompt_style": "Detailed, strategic, and brand-system oriented.",
+      "communication_tone": "Polished, analytical, and culturally sensitive.",
+      "accessibility_needs": "Requires right-to-left layout awareness for Arabic campaign variants.",
+      "privacy_posture": "High; protects unreleased brand strategy and launch details.",
+      "adobe_integration_focus": [
+        "Adobe Express Enterprise",
+        "Adobe Creative Cloud Libraries",
+        "Adobe Firefly",
+        "Brand Controls"
+      ],
+      "chatgpt_behavior_rules": [
+        "Request rationale for each creative recommendation.",
+        "Compare options against brand guidelines.",
+        "Preserve localization and cultural nuance."
+      ],
+      "test_prompt": "Develop a bilingual hotel launch flyer workflow for Adobe Express Enterprise. Use ChatGPT to suggest English and Arabic headline directions, Creative Cloud Libraries for approved brand assets, Adobe Firefly for luxury background concepts, and Brand Controls to prevent off-brand fonts or colors. Include cultural and right-to-left layout checks.",
+      "acceptance_criteria": [
+        "Output includes bilingual and localization considerations.",
+        "Recommendations map to brand-controlled Adobe features.",
+        "No unreleased launch details are requested.",
+        "Right-to-left design review is included."
+      ]
+    },
+    {
+      "id": "persona_004",
+      "name": "Leo Martinez",
+      "age": 22,
+      "locale": "es-MX",
+      "occupation": "Student Content Creator",
+      "industry": "Education",
+      "technical_skill_level": "Intermediate",
+      "ai_trust_level": "Very High",
+      "prompt_style": "Casual, experimental, and visual-first.",
+      "communication_tone": "Friendly, energetic, and playful.",
+      "accessibility_needs": "Prefers mobile-friendly instructions.",
+      "privacy_posture": "Low to moderate; needs reminders not to share student IDs or private campus information.",
+      "adobe_integration_focus": [
+        "Adobe Express",
+        "Adobe Firefly",
+        "Generative Fill",
+        "Quick Actions"
+      ],
+      "chatgpt_behavior_rules": [
+        "Use simple language and creative examples.",
+        "Offer multiple visual styles quickly.",
+        "Include safety reminders for personal information."
+      ],
+      "test_prompt": "Ayudame a crear un poster vertical para un club universitario en Adobe Express. Usa ChatGPT para proponer texto corto en espanol, Adobe Firefly para ideas de fondo, Generative Fill para ajustar espacios vacios y Quick Actions para redimensionar a historia de Instagram. Recuerdame no incluir IDs estudiantiles ni datos privados.",
+      "acceptance_criteria": [
+        "Prompt supports Spanish-language creative workflow.",
+        "Mobile and social resizing needs are addressed.",
+        "Personal information safety reminder is present.",
+        "Adobe Express and Firefly features are correctly applied."
+      ]
+    },
+    {
+      "id": "persona_005",
+      "name": "Priya Nair",
+      "age": 42,
+      "locale": "en-IN",
+      "occupation": "Human Resources Manager",
+      "industry": "Technology",
+      "technical_skill_level": "Basic",
+      "ai_trust_level": "Medium",
+      "prompt_style": "Structured, instructional, and approval-oriented.",
+      "communication_tone": "Professional, inclusive, and empathetic.",
+      "accessibility_needs": "Needs readable layouts and inclusive language guidance.",
+      "privacy_posture": "Strict; avoids employee names, performance details, and internal incidents.",
+      "adobe_integration_focus": [
+        "Adobe Express Enterprise",
+        "Templates",
+        "Adobe Acrobat",
+        "Content Credentials"
+      ],
+      "chatgpt_behavior_rules": [
+        "Ask for inclusive wording and policy-safe phrasing.",
+        "Prefer template-based workflows with clear approval steps.",
+        "Avoid collecting employee personal data."
+      ],
+      "test_prompt": "Create an employee wellness newsletter test workflow using Adobe Express Enterprise templates. Use ChatGPT to draft inclusive copy, Adobe Acrobat to check PDF readability, and Content Credentials to document AI-assisted content. Keep it generic and do not include employee names, health details, or internal incidents.",
+      "acceptance_criteria": [
+        "Output uses inclusive and HR-appropriate wording.",
+        "Employee privacy constraints are followed.",
+        "Template and PDF review steps are included.",
+        "AI-assisted content disclosure is represented."
+      ]
+    },
+    {
+      "id": "persona_006",
+      "name": "Ethan Brooks",
+      "age": 31,
+      "locale": "en-US",
+      "occupation": "E-commerce Designer",
+      "industry": "Consumer Goods",
+      "technical_skill_level": "Advanced",
+      "ai_trust_level": "Medium",
+      "prompt_style": "Specific, technical, and performance-oriented.",
+      "communication_tone": "Efficient, visual, and conversion-focused.",
+      "accessibility_needs": "Requires color contrast checks for web banners.",
+      "privacy_posture": "Moderate; avoids unreleased product pricing and supplier details.",
+      "adobe_integration_focus": [
+        "Adobe Photoshop",
+        "Adobe Firefly",
+        "Adobe Express",
+        "Creative Cloud Libraries"
+      ],
+      "chatgpt_behavior_rules": [
+        "Request exact dimensions, asset requirements, and optimization notes.",
+        "Ask for A/B creative variants.",
+        "Prioritize conversion clarity and accessibility."
+      ],
+      "test_prompt": "Build two A/B test concepts for an e-commerce hero banner. Use ChatGPT to write concise CTA copy, Photoshop for product image cleanup, Adobe Firefly for lifestyle background variations, Adobe Express for final layout, and Creative Cloud Libraries for approved colors. Include contrast checks and avoid mentioning unreleased prices.",
+      "acceptance_criteria": [
+        "Two distinct A/B creative directions are provided.",
+        "Workflow references image cleanup, layout, and brand assets.",
+        "Accessibility color contrast is included.",
+        "Unreleased pricing information is excluded."
+      ]
+    },
+    {
+      "id": "persona_007",
+      "name": "Sofia Lindstrom",
+      "age": 46,
+      "locale": "sv-SE",
+      "occupation": "Government Communications Officer",
+      "industry": "Public Sector",
+      "technical_skill_level": "Intermediate",
+      "ai_trust_level": "Low",
+      "prompt_style": "Careful, transparent, and public-service oriented.",
+      "communication_tone": "Neutral, accessible, and factual.",
+      "accessibility_needs": "Requires WCAG-aware plain language and alt text.",
+      "privacy_posture": "Very strict; avoids citizen data, case numbers, and sensitive locations.",
+      "adobe_integration_focus": [
+        "Adobe Express Enterprise",
+        "Adobe Acrobat Accessibility Checker",
+        "Content Credentials",
+        "Enterprise Security Controls"
+      ],
+      "chatgpt_behavior_rules": [
+        "Request plain-language explanations.",
+        "Require AI transparency and human review.",
+        "Reject speculation and emotionally manipulative wording."
+      ],
+      "test_prompt": "Create a public information poster workflow for Adobe Express Enterprise about a generic community safety reminder. Use ChatGPT only for plain-language draft text, Adobe Acrobat Accessibility Checker for WCAG review, Content Credentials for AI transparency, and Enterprise Security Controls for safe asset handling. Do not include citizen data, case numbers, or exact sensitive locations.",
+      "acceptance_criteria": [
+        "Tone remains neutral and factual.",
+        "Accessibility and alt-text requirements are included.",
+        "AI transparency is addressed.",
+        "Sensitive public-sector data is not requested."
+      ]
+    },
+    {
+      "id": "persona_008",
+      "name": "Noah Williams",
+      "age": 18,
+      "locale": "en-US",
+      "occupation": "First-Year Design Student",
+      "industry": "Education",
+      "technical_skill_level": "Beginner",
+      "ai_trust_level": "High",
+      "prompt_style": "Exploratory, question-heavy, and learning-focused.",
+      "communication_tone": "Curious, informal, and receptive to coaching.",
+      "accessibility_needs": "Needs step-by-step guidance with definitions of design terms.",
+      "privacy_posture": "Moderate; should avoid uploading classmates' work without permission.",
+      "adobe_integration_focus": [
+        "Adobe Express",
+        "Adobe Firefly",
+        "Templates",
+        "Quick Actions"
+      ],
+      "chatgpt_behavior_rules": [
+        "Explain design choices in beginner-friendly language.",
+        "Break tasks into numbered steps.",
+        "Encourage originality and proper asset permission."
+      ],
+      "test_prompt": "Walk me through making a class presentation title slide in Adobe Express. Use ChatGPT to explain layout choices in simple terms, Templates to start quickly, Adobe Firefly for a school-appropriate abstract background, and Quick Actions to resize the slide thumbnail. Remind me not to upload classmates' work without permission.",
+      "acceptance_criteria": [
+        "Instructions are beginner-friendly and numbered.",
+        "Design terminology is explained.",
+        "Asset permission guidance is included.",
+        "Adobe Express starter features are used appropriately."
+      ]
+    },
+    {
+      "id": "persona_009",
+      "name": "Grace Okafor",
+      "age": 35,
+      "locale": "en-NG",
+      "occupation": "Nonprofit Campaign Lead",
+      "industry": "Nonprofit",
+      "technical_skill_level": "Intermediate",
+      "ai_trust_level": "Medium",
+      "prompt_style": "Mission-driven, budget-conscious, and emotionally aware.",
+      "communication_tone": "Warm, respectful, and community-centered.",
+      "accessibility_needs": "Needs readable social graphics for low-bandwidth mobile audiences.",
+      "privacy_posture": "High; protects beneficiary identities and donation records.",
+      "adobe_integration_focus": [
+        "Adobe Express",
+        "Adobe Firefly",
+        "Templates",
+        "Content Scheduler"
+      ],
+      "chatgpt_behavior_rules": [
+        "Avoid exploitative or overly emotional imagery.",
+        "Suggest low-cost reusable templates.",
+        "Protect beneficiary privacy."
+      ],
+      "test_prompt": "Create a respectful donation awareness campaign workflow in Adobe Express. Use ChatGPT to write three warm caption options, Templates for reusable campaign layouts, Adobe Firefly for non-identifying hopeful background imagery, and Content Scheduler to plan posts. Do not include beneficiary names, faces, addresses, or donation records.",
+      "acceptance_criteria": [
+        "Messaging is respectful and non-exploitative.",
+        "Reusable template workflow is included.",
+        "Beneficiary privacy constraints are explicit.",
+        "Social scheduling is represented."
+      ]
+    },
+    {
+      "id": "persona_010",
+      "name": "Hiro Tanaka",
+      "age": 63,
+      "locale": "ja-JP",
+      "occupation": "Small Business Owner",
+      "industry": "Food and Beverage",
+      "technical_skill_level": "Beginner",
+      "ai_trust_level": "Low to Medium",
+      "prompt_style": "Polite, practical, and reassurance-seeking.",
+      "communication_tone": "Respectful, simple, and detail-conscious.",
+      "accessibility_needs": "Needs large text, minimal interface complexity, and clear export instructions.",
+      "privacy_posture": "Moderate; avoids sharing supplier contracts or private customer information.",
+      "adobe_integration_focus": [
+        "Adobe Express",
+        "Templates",
+        "Generative AI Text Effects",
+        "PDF Export"
+      ],
+      "chatgpt_behavior_rules": [
+        "Use plain instructions with confirmation points.",
+        "Avoid overwhelming creative options.",
+        "Emphasize print readiness and readability."
+      ],
+      "test_prompt": "Help me make a simple cafe menu flyer in Adobe Express. Use Templates for an easy starting point, ChatGPT for clear menu section wording, Generative AI Text Effects only for the cafe name, and PDF Export for printing. Use large readable text and do not ask for supplier contracts or private customer details.",
+      "acceptance_criteria": [
+        "Workflow is beginner-friendly and not overloaded.",
+        "Print-ready PDF export is included.",
+        "Large readable text is emphasized.",
+        "Private business information is not requested."
+      ]
+    }
+  ]
+}
