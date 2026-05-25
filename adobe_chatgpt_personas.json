@@ -1,0 +1,322 @@
+{
+  "project": "Adobe Express Integration with ChatGPT - Synthetic Personas",
+  "version": "1.0",
+  "created_for": "Persona-isolated Adobe integration testing",
+  "notes": [
+    "This file defines 10 distinct personas for testing Adobe Express interactions through ChatGPT.",
+    "Feature mapping is intentionally excluded per request.",
+    "Each persona includes behavior-driving attributes that can be used to generate isolated test prompts and workflows."
+  ],
+  "personas": [
+    {
+      "id": "persona_001",
+      "name": "Maya Srinivasan",
+      "age": 28,
+      "occupation": "Social Media Manager",
+      "locale": "en-IN",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Short, energetic, action-oriented instructions",
+      "ai_trust_level": "Medium-high",
+      "accessibility_needs": "Prefers clear visual hierarchy and readable contrast for mobile review",
+      "privacy_posture": "Avoids sharing unreleased campaign data or client names",
+      "communication_tone": "Fast, upbeat, brand-aware",
+      "testing_context": "Uses ChatGPT to speed up Adobe Express campaign asset creation and variation review.",
+      "behavior_rules": [
+        "Requests quick options before committing to a design direction.",
+        "Asks for captions, layout checks, and visual polish in the same conversation.",
+        "Prefers mobile-first decisions and clear social platform fit.",
+        "Uses informal wording but expects professional final output."
+      ],
+      "avoid_list": [
+        "Long explanations before design action",
+        "Generic social copy",
+        "Low-contrast text",
+        "References to confidential client campaigns"
+      ],
+      "acceptance_criteria": [
+        "Receives at least three distinct creative directions.",
+        "Can identify the strongest option for a social post quickly.",
+        "Final guidance is concise enough to use during a fast campaign review."
+      ]
+    },
+    {
+      "id": "persona_002",
+      "name": "Robert Chen",
+      "age": 46,
+      "occupation": "Enterprise Brand Governance Lead",
+      "locale": "en-US",
+      "technical_skill": "Advanced",
+      "prompt_style": "Structured, compliance-first, checklist-driven instructions",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Requires accessible contrast and alternative text guidance",
+      "privacy_posture": "Strict; avoids external exposure of brand assets, campaign plans, and employee data",
+      "communication_tone": "Precise, formal, risk-aware",
+      "testing_context": "Uses ChatGPT to validate Adobe Express output against enterprise brand and compliance expectations.",
+      "behavior_rules": [
+        "Starts by asking for constraints, permitted assets, and review checkpoints.",
+        "Requests numbered steps and audit-friendly rationale.",
+        "Flags anything that may break brand standards or accessibility rules.",
+        "Requires confirmation before using sensitive or restricted content."
+      ],
+      "avoid_list": [
+        "Unapproved logo usage",
+        "Unverified claims",
+        "Informal brand language",
+        "Design shortcuts that bypass review"
+      ],
+      "acceptance_criteria": [
+        "Receives a compliance-oriented behavior flow.",
+        "Output includes review checkpoints and risk notes.",
+        "No confidential or restricted brand information is invented."
+      ]
+    },
+    {
+      "id": "persona_003",
+      "name": "Elena Garcia",
+      "age": 35,
+      "occupation": "Freelance Illustrator",
+      "locale": "es-ES",
+      "technical_skill": "Advanced creative user",
+      "prompt_style": "Descriptive, exploratory, visual mood-based prompts",
+      "ai_trust_level": "Medium-high",
+      "accessibility_needs": "Prefers examples with visual descriptions and composition notes",
+      "privacy_posture": "Protects original artwork and client sketches from unnecessary reuse",
+      "communication_tone": "Creative, expressive, detail-rich",
+      "testing_context": "Uses ChatGPT to brainstorm visual treatments and translate artistic intent into Adobe Express actions.",
+      "behavior_rules": [
+        "Explores mood, color, texture, and visual metaphor before choosing a path.",
+        "Asks for multiple art-direction options rather than one finished answer.",
+        "Iterates heavily on composition, balance, and emotional tone.",
+        "Wants suggestions that preserve her own creative authorship."
+      ],
+      "avoid_list": [
+        "Copying a living artist's exact style",
+        "Flattening creative nuance into generic templates",
+        "Using client sketches without permission",
+        "Overly corporate language"
+      ],
+      "acceptance_criteria": [
+        "Receives varied visual behavior paths with distinct moods.",
+        "Can keep creative control while using AI assistance.",
+        "No prompt asks to imitate protected artist styles exactly."
+      ]
+    },
+    {
+      "id": "persona_004",
+      "name": "Aisha Bello",
+      "age": 41,
+      "occupation": "Nonprofit Communications Director",
+      "locale": "en-NG",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Mission-focused, plain-language, outcome-oriented prompts",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Needs inclusive wording and readability for broad community audiences",
+      "privacy_posture": "Very careful with beneficiary identities, donation records, and location details",
+      "communication_tone": "Warm, respectful, community-centered",
+      "testing_context": "Uses ChatGPT with Adobe Express to create public awareness material without exposing sensitive nonprofit data.",
+      "behavior_rules": [
+        "Frames design work around audience empathy and community impact.",
+        "Asks for language that is respectful and easy to understand.",
+        "Checks whether images or wording could unintentionally stereotype people.",
+        "Prefers practical output that a small team can execute quickly."
+      ],
+      "avoid_list": [
+        "Poverty stereotypes",
+        "Real beneficiary names",
+        "Donation amounts tied to individuals",
+        "Jargon-heavy campaign language"
+      ],
+      "acceptance_criteria": [
+        "Receives behavior flows that protect sensitive community data.",
+        "Output supports a respectful public-facing message.",
+        "Language remains accessible to non-specialist audiences."
+      ]
+    },
+    {
+      "id": "persona_005",
+      "name": "Hiro Tanaka",
+      "age": 52,
+      "occupation": "Manufacturing Training Manager",
+      "locale": "ja-JP",
+      "technical_skill": "Beginner-intermediate",
+      "prompt_style": "Step-by-step, cautious, procedure-oriented prompts",
+      "ai_trust_level": "Low-medium",
+      "accessibility_needs": "Needs simple wording, clear sequencing, and low visual clutter",
+      "privacy_posture": "Avoids sharing proprietary process diagrams and supplier information",
+      "communication_tone": "Careful, practical, verification-focused",
+      "testing_context": "Uses ChatGPT to help create Adobe Express training material while validating each instruction.",
+      "behavior_rules": [
+        "Requests one step at a time and asks for confirmation points.",
+        "Prefers practical instructions over creative exploration.",
+        "Wants plain explanations for why a suggested design choice matters.",
+        "Double-checks safety, accuracy, and training clarity before finalizing."
+      ],
+      "avoid_list": [
+        "Unverified safety instructions",
+        "Dense design terminology",
+        "Proprietary machinery details",
+        "Too many simultaneous choices"
+      ],
+      "acceptance_criteria": [
+        "Receives a predictable step sequence.",
+        "Can verify each behavior before moving forward.",
+        "Output avoids confidential operational details."
+      ]
+    },
+    {
+      "id": "persona_006",
+      "name": "Priya Nair",
+      "age": 32,
+      "occupation": "E-commerce Founder",
+      "locale": "en-IN",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Conversion-focused, direct, experiment-driven prompts",
+      "ai_trust_level": "High for ideation, medium for final decisions",
+      "accessibility_needs": "Needs legible product text and clear calls to action on small screens",
+      "privacy_posture": "Does not share customer records, supplier terms, or unpublished pricing",
+      "communication_tone": "Commercial, decisive, metrics-aware",
+      "testing_context": "Uses ChatGPT and Adobe Express to create and compare promotional product visuals quickly.",
+      "behavior_rules": [
+        "Asks for variants that can be tested against each other.",
+        "Prioritizes product clarity, price visibility, and call-to-action strength.",
+        "Requests concise rationale tied to buyer behavior.",
+        "Wants fast iteration without losing brand consistency."
+      ],
+      "avoid_list": [
+        "False scarcity claims",
+        "Customer personal data",
+        "Overdecorated designs that hide the product",
+        "Unsupported performance promises"
+      ],
+      "acceptance_criteria": [
+        "Receives multiple behavior paths for comparing promotional options.",
+        "Each path keeps product visibility and CTA clarity central.",
+        "No customer or supplier-sensitive information is included."
+      ]
+    },
+    {
+      "id": "persona_007",
+      "name": "Thomas Weber",
+      "age": 59,
+      "occupation": "University Professor",
+      "locale": "de-DE",
+      "technical_skill": "Beginner",
+      "prompt_style": "Detailed, explanatory, academically cautious prompts",
+      "ai_trust_level": "Low-medium",
+      "accessibility_needs": "Needs readable layouts, captions, and support for older learners",
+      "privacy_posture": "Strict about student data, unpublished research, and copyrighted course material",
+      "communication_tone": "Formal, reflective, evidence-seeking",
+      "testing_context": "Uses ChatGPT to create Adobe Express learning aids while checking accuracy and citation sensitivity.",
+      "behavior_rules": [
+        "Asks for explanations of design decisions in educational terms.",
+        "Prefers a calm sequence with definitions and examples.",
+        "Checks whether content could be misleading or unsupported.",
+        "Requests accessibility considerations for classroom projection and handouts."
+      ],
+      "avoid_list": [
+        "Student names or grades",
+        "Uncited academic claims",
+        "Tiny text",
+        "Overly playful tone for serious course material"
+      ],
+      "acceptance_criteria": [
+        "Receives classroom-suitable behavior flows.",
+        "Design behaviors emphasize clarity and accuracy.",
+        "No student or unpublished research information is exposed."
+      ]
+    },
+    {
+      "id": "persona_008",
+      "name": "Nadia Okafor",
+      "age": 24,
+      "occupation": "Accessibility QA Analyst",
+      "locale": "en-GB",
+      "technical_skill": "Advanced",
+      "prompt_style": "Test-case oriented, edge-case heavy, accessibility-first prompts",
+      "ai_trust_level": "Medium",
+      "accessibility_needs": "Uses screen reader review habits and WCAG-oriented checks",
+      "privacy_posture": "Avoids user test participant details and accessibility accommodation records",
+      "communication_tone": "Analytical, direct, inclusive",
+      "testing_context": "Uses ChatGPT to pressure-test Adobe Express output for accessibility and inclusive interaction behavior.",
+      "behavior_rules": [
+        "Asks for keyboard, screen reader, contrast, and plain-language considerations.",
+        "Looks for failure modes rather than only happy paths.",
+        "Requests testable observations and remediation suggestions.",
+        "Challenges vague claims about accessibility."
+      ],
+      "avoid_list": [
+        "Decorative text embedded only in images",
+        "Color-only meaning",
+        "Unlabeled controls",
+        "Real participant accessibility records"
+      ],
+      "acceptance_criteria": [
+        "Receives behavior variations that include accessibility edge cases.",
+        "Each behavior is observable and testable.",
+        "No private participant data is used."
+      ]
+    },
+    {
+      "id": "persona_009",
+      "name": "Lucas Martins",
+      "age": 19,
+      "occupation": "Student Content Creator",
+      "locale": "pt-BR",
+      "technical_skill": "Intermediate-high",
+      "prompt_style": "Casual, trend-aware, rapid iteration prompts",
+      "ai_trust_level": "High",
+      "accessibility_needs": "Prefers captions and visual clarity for short-form mobile viewing",
+      "privacy_posture": "May overshare by default; needs reminders not to include personal IDs or private chats",
+      "communication_tone": "Playful, fast, informal",
+      "testing_context": "Uses ChatGPT with Adobe Express for quick creator assets, thumbnails, and short social edits.",
+      "behavior_rules": [
+        "Asks for bold ideas and quick remix options.",
+        "Uses slang and wants a conversational response style.",
+        "Prioritizes thumb-stopping visuals and short captions.",
+        "Needs privacy nudges when personal context is unnecessary."
+      ],
+      "avoid_list": [
+        "Personal IDs",
+        "Private chat screenshots",
+        "Copyrighted music references as if licensed",
+        "Overly corporate tone"
+      ],
+      "acceptance_criteria": [
+        "Receives energetic behavior options that stay safe for public posting.",
+        "Output supports fast iteration and mobile readability.",
+        "Prompts redirect away from oversharing private information."
+      ]
+    },
+    {
+      "id": "persona_010",
+      "name": "Fatima Al Mansoori",
+      "age": 38,
+      "occupation": "Government Public Information Officer",
+      "locale": "ar-AE",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Formal, approval-aware, bilingual-readiness prompts",
+      "ai_trust_level": "Medium-low",
+      "accessibility_needs": "Needs clear language, right-to-left review awareness, and high contrast",
+      "privacy_posture": "Very strict; avoids non-public policy details, citizen data, and internal approvals",
+      "communication_tone": "Official, calm, public-service oriented",
+      "testing_context": "Uses ChatGPT to prepare Adobe Express public information materials that require careful review.",
+      "behavior_rules": [
+        "Requests neutral, official wording with approval checkpoints.",
+        "Checks whether content could be interpreted as policy before release.",
+        "Asks for bilingual layout awareness without inventing translations as final approved text.",
+        "Prefers conservative visuals that prioritize public clarity."
+      ],
+      "avoid_list": [
+        "Citizen personal data",
+        "Unannounced policy details",
+        "Political persuasion",
+        "Final legal or official translations without review"
+      ],
+      "acceptance_criteria": [
+        "Receives cautious public-service behavior flows.",
+        "Output includes approval and review reminders.",
+        "No restricted government information is introduced."
+      ]
+    }
+  ]
+}
