@@ -1,0 +1,597 @@
+{
+  "document_title": "Adobe Express Integrated with ChatGPT - 10 Persona Test Dataset",
+  "version": "1.0",
+  "created_date": "2026-05-25",
+  "requested_save_location": "C:\\Users\\subash.b\\OneDrive - Qualitest Group\\Desktop\\adobe_chatgpt_test_personas_10.json",
+  "creative_task": {
+    "task_id": "shared-eagle-yellow-background",
+    "description": "Use ChatGPT with Adobe Express to create a professional creative asset featuring an eagle image on a yellow background.",
+    "common_success_result": "A completed Adobe Express design with an eagle as the primary visual, a yellow background, persona-appropriate layout decisions, and export-ready quality."
+  },
+  "adobe_express_capability_catalog": [
+    {
+      "feature_name": "Conversational Design Creation",
+      "purpose": "Create or modify Adobe Express designs through natural-language instructions from ChatGPT."
+    },
+    {
+      "feature_name": "AI-Powered Editing",
+      "purpose": "Apply AI-assisted edits such as background adjustment, object placement, cleanup, and style refinement."
+    },
+    {
+      "feature_name": "Generate Image",
+      "purpose": "Generate or refine visual assets when a suitable source image is not provided."
+    },
+    {
+      "feature_name": "Enterprise Brand Control",
+      "purpose": "Apply approved fonts, colors, logos, brand kits, and locked templates."
+    },
+    {
+      "feature_name": "Security & Compliance",
+      "purpose": "Protect enterprise data, avoid sensitive content exposure, and maintain policy-compliant workflows."
+    },
+    {
+      "feature_name": "Resize and Repurpose",
+      "purpose": "Adapt the final design to multiple channels such as social posts, slides, flyers, and banners."
+    },
+    {
+      "feature_name": "Collaboration and Comments",
+      "purpose": "Share drafts, request feedback, and document review comments inside the design workflow."
+    },
+    {
+      "feature_name": "Accessibility Checks",
+      "purpose": "Assess readability, contrast, alt text, and accessible layout quality."
+    },
+    {
+      "feature_name": "Quick Actions",
+      "purpose": "Perform fast design operations such as background removal, crop, format conversion, and export."
+    },
+    {
+      "feature_name": "Template Library",
+      "purpose": "Start from professionally designed Adobe Express templates that fit the persona's channel and use case."
+    }
+  ],
+  "personas": [
+    {
+      "si_no": 1,
+      "persona_id": "ae-chatgpt-p01-enterprise-marketing-manager",
+      "name": "Maya Srinivasan",
+      "age": 38,
+      "occupation": "Enterprise Marketing Manager",
+      "locale": "en-IN",
+      "technical_skill": "Advanced",
+      "prompt_style": "Structured, brand-first, outcome-oriented",
+      "ai_trust_level": "Medium-high; trusts AI drafts after brand and compliance review",
+      "accessibility_needs": "Requires readable contrast and mobile-safe text sizing",
+      "privacy_posture": "Do not upload confidential campaign plans, customer lists, or unreleased brand assets unless approved",
+      "communication_tone": "Professional, decisive, and specific",
+      "avoid_list": [
+        "off-brand colors",
+        "unapproved logos",
+        "generic motivational copy",
+        "unverified claims"
+      ],
+      "acceptance_criteria": [
+        "Eagle is the central visual element",
+        "Yellow background uses an approved brand shade",
+        "Design follows enterprise brand kit",
+        "Copy is concise and campaign-ready",
+        "Final asset is ready for review and export"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Enterprise Brand Control",
+          "behavior_driven_reason": "Maya prioritizes brand consistency and needs the yellow background, fonts, and logo placement to match approved enterprise standards."
+        },
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "Her prompt style is structured, so she can efficiently direct ChatGPT to create the design in Adobe Express with clear campaign constraints."
+        },
+        {
+          "feature_name": "Collaboration and Comments",
+          "behavior_driven_reason": "Her workflow requires stakeholder review before publishing."
+        },
+        {
+          "feature_name": "Resize and Repurpose",
+          "behavior_driven_reason": "Marketing assets often need variations for LinkedIn, email headers, and internal slides."
+        }
+      ],
+      "yellow_background_recommendation": "Use a warm enterprise-approved yellow, such as #FFD447, with dark navy or charcoal text for readability.",
+      "prompt_points": [
+        "Open an Adobe Express brand-approved template",
+        "Add or generate an eagle image as the hero visual",
+        "Set the background to approved yellow",
+        "Apply brand fonts and logo rules",
+        "Prepare social and presentation exports"
+      ],
+      "isolated_test_prompt": "You are assisting an enterprise marketing manager. In Adobe Express, use Conversational Design Creation to build a campaign-ready design with an eagle as the main subject on a yellow background. Apply Enterprise Brand Control so the yellow, fonts, and logo placement follow the brand kit. Use AI-Powered Editing only to improve the eagle placement, clean edges, and balance the composition. Add a short confident headline, keep all copy brand-safe, and avoid unapproved claims. Use Collaboration and Comments to mark the draft for stakeholder review, then use Resize and Repurpose to prepare LinkedIn post and presentation-slide versions."
+    },
+    {
+      "si_no": 2,
+      "persona_id": "ae-chatgpt-p02-accessibility-qa-analyst",
+      "name": "Jordan Lee",
+      "age": 31,
+      "occupation": "Accessibility QA Analyst",
+      "locale": "en-US",
+      "technical_skill": "Advanced",
+      "prompt_style": "Checklist-driven, precise, evidence-based",
+      "ai_trust_level": "Medium; accepts AI suggestions only after measurable accessibility checks",
+      "accessibility_needs": "Screen-reader compatibility, high contrast, keyboard-friendly review flow, meaningful alt text",
+      "privacy_posture": "Avoid personal data in prompts and do not expose internal audit findings",
+      "communication_tone": "Exact, neutral, and audit-ready",
+      "avoid_list": [
+        "low contrast text",
+        "text embedded without alt text",
+        "decorative-only meaning",
+        "flashing or visually crowded layouts"
+      ],
+      "acceptance_criteria": [
+        "Contrast is checked for all text on yellow background",
+        "Eagle image has concise alt text",
+        "Design has clear reading order",
+        "No information is communicated by color alone",
+        "Accessibility notes are included for review"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Accessibility Checks",
+          "behavior_driven_reason": "Jordan's core behavior is validation against accessibility requirements, so contrast, alt text, and reading order must be explicitly checked."
+        },
+        {
+          "feature_name": "AI-Powered Editing",
+          "behavior_driven_reason": "AI edits can improve visual clarity, but Jordan requires measurable quality checks afterward."
+        },
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "Jordan uses direct checklist prompts to instruct ChatGPT and Adobe Express without ambiguity."
+        },
+        {
+          "feature_name": "Collaboration and Comments",
+          "behavior_driven_reason": "Accessibility findings need to be documented for designers and product stakeholders."
+        }
+      ],
+      "yellow_background_recommendation": "Use #F7C948 or similar yellow with #111111 text, avoiding pale yellow behind white text.",
+      "prompt_points": [
+        "Create a clean eagle design",
+        "Set high-contrast yellow background",
+        "Add descriptive alt text",
+        "Check text contrast",
+        "Document accessibility review notes"
+      ],
+      "isolated_test_prompt": "Act as an accessibility QA analyst testing Adobe Express with ChatGPT. Use Conversational Design Creation to make a simple design featuring one eagle image on a yellow background. Use AI-Powered Editing to keep the eagle edges clean and reduce visual clutter. Run Accessibility Checks for contrast, reading order, and alt text; use dark text on the yellow background and do not rely on color alone to communicate meaning. Add the alt text: 'Eagle centered on a bright yellow background.' Use Collaboration and Comments to record any accessibility concerns before export."
+    },
+    {
+      "si_no": 3,
+      "persona_id": "ae-chatgpt-p03-legal-compliance-officer",
+      "name": "Elena Martinez",
+      "age": 45,
+      "occupation": "Legal and Compliance Officer",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Risk-aware, formal, constraint-heavy",
+      "ai_trust_level": "Low; requires conservative outputs and reviewable reasoning",
+      "accessibility_needs": "Clear text hierarchy and readable compliance notes",
+      "privacy_posture": "No confidential documents, regulated data, personal data, or third-party copyrighted assets in prompts",
+      "communication_tone": "Formal, cautious, and policy-oriented",
+      "avoid_list": [
+        "copyrighted eagle images without usage rights",
+        "legal claims",
+        "policy promises",
+        "sensitive company data",
+        "unreviewed AI-generated copy"
+      ],
+      "acceptance_criteria": [
+        "Uses licensed or generated eagle imagery",
+        "No confidential or regulated data appears in the design",
+        "Design includes review placeholder instead of legal claims",
+        "Compliance review step is visible",
+        "Asset is not marked final until approved"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Security & Compliance",
+          "behavior_driven_reason": "Elena's low AI trust and legal role require strong controls around source assets, sensitive data, and review status."
+        },
+        {
+          "feature_name": "Generate Image",
+          "behavior_driven_reason": "Generating a new eagle image reduces dependency on questionable third-party copyrighted material."
+        },
+        {
+          "feature_name": "Enterprise Brand Control",
+          "behavior_driven_reason": "Approved templates and brand settings reduce compliance risk in enterprise communications."
+        },
+        {
+          "feature_name": "Collaboration and Comments",
+          "behavior_driven_reason": "Legal review needs documented comments and sign-off before the design is treated as final."
+        }
+      ],
+      "yellow_background_recommendation": "Use a muted corporate yellow, such as #F2C94C, with conservative spacing and no urgent visual language.",
+      "prompt_points": [
+        "Use generated or licensed eagle image only",
+        "Apply yellow background",
+        "Avoid legal claims",
+        "Add review placeholder",
+        "Flag asset as compliance review required"
+      ],
+      "isolated_test_prompt": "Support a legal and compliance officer using Adobe Express with ChatGPT. Create a draft-only design with a generated or properly licensed eagle image on a muted yellow background. Use Generate Image if no approved eagle asset is available. Apply Enterprise Brand Control for approved colors and fonts, and use Security & Compliance rules: do not include confidential data, personal data, legal promises, or third-party copyrighted content. Add a small footer note that says 'Draft for compliance review.' Use Collaboration and Comments to request legal approval before export."
+    },
+    {
+      "si_no": 4,
+      "persona_id": "ae-chatgpt-p04-social-media-creator",
+      "name": "Tyler Brooks",
+      "age": 24,
+      "occupation": "Social Media Content Creator",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Casual, visual, fast-iteration",
+      "ai_trust_level": "High; comfortable with AI-generated variations",
+      "accessibility_needs": "Readable captions for mobile viewing",
+      "privacy_posture": "Avoid sharing account credentials, unreleased sponsor details, or private audience data",
+      "communication_tone": "Energetic, informal, and trend-aware",
+      "avoid_list": [
+        "corporate jargon",
+        "tiny text",
+        "flat composition",
+        "overly formal copy"
+      ],
+      "acceptance_criteria": [
+        "Bold eagle visual catches attention on mobile",
+        "Yellow background feels vibrant",
+        "Text is short and readable",
+        "Design is exportable for Instagram and TikTok",
+        "At least two visual variations are produced"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Template Library",
+          "behavior_driven_reason": "Tyler moves quickly and benefits from starting with a modern social template."
+        },
+        {
+          "feature_name": "AI-Powered Editing",
+          "behavior_driven_reason": "He trusts AI for quick visual refinements and attention-grabbing edits."
+        },
+        {
+          "feature_name": "Resize and Repurpose",
+          "behavior_driven_reason": "The same creative needs to work across Instagram posts, stories, and TikTok covers."
+        },
+        {
+          "feature_name": "Quick Actions",
+          "behavior_driven_reason": "Fast background cleanup, crop, and export operations match his speed-focused workflow."
+        }
+      ],
+      "yellow_background_recommendation": "Use a vivid yellow, such as #FFD400, with oversized black or deep purple text for mobile impact.",
+      "prompt_points": [
+        "Choose a social media template",
+        "Place a dramatic eagle image",
+        "Use bright yellow background",
+        "Add short punchy text",
+        "Export square and vertical formats"
+      ],
+      "isolated_test_prompt": "Help a social media creator make a bold Adobe Express asset fast. Start from the Template Library with a social post layout, then place a dramatic eagle image on a vivid yellow background. Use AI-Powered Editing to sharpen the eagle, add energy, and make the composition pop without crowding the design. Keep the text short, mobile-readable, and informal. Use Quick Actions for crop and cleanup, then Resize and Repurpose the result for Instagram square, Instagram story, and TikTok cover formats."
+    },
+    {
+      "si_no": 5,
+      "persona_id": "ae-chatgpt-p05-high-school-teacher",
+      "name": "Priya Nair",
+      "age": 42,
+      "occupation": "High School Teacher",
+      "locale": "en-IN",
+      "technical_skill": "Beginner-intermediate",
+      "prompt_style": "Step-by-step, plain language, educational",
+      "ai_trust_level": "Medium; wants AI help but needs clear explanations",
+      "accessibility_needs": "Readable text for classroom projection and printed handouts",
+      "privacy_posture": "Do not include student names, grades, school IDs, or private classroom information",
+      "communication_tone": "Patient, clear, and instructional",
+      "avoid_list": [
+        "advanced design jargon",
+        "student personal information",
+        "small text",
+        "violent or aggressive eagle imagery"
+      ],
+      "acceptance_criteria": [
+        "Teacher can follow each step",
+        "Eagle visual is classroom-appropriate",
+        "Yellow background is bright but not distracting",
+        "Text can be read from the back of a classroom",
+        "Design can be printed or shown on a slide"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "Priya needs simple natural-language steps that guide her through the design process."
+        },
+        {
+          "feature_name": "Template Library",
+          "behavior_driven_reason": "A classroom-friendly template reduces design complexity for a less technical user."
+        },
+        {
+          "feature_name": "Accessibility Checks",
+          "behavior_driven_reason": "Projected classroom materials need strong readability and contrast."
+        },
+        {
+          "feature_name": "Resize and Repurpose",
+          "behavior_driven_reason": "The same design may be used as a slide and as a printable handout."
+        }
+      ],
+      "yellow_background_recommendation": "Use a soft classroom-friendly yellow, such as #FFE680, with large dark text.",
+      "prompt_points": [
+        "Use simple guided steps",
+        "Select classroom template",
+        "Add friendly eagle image",
+        "Use soft yellow background",
+        "Create slide and printable versions"
+      ],
+      "isolated_test_prompt": "Guide me like a teacher who is new to Adobe Express. Use Conversational Design Creation to make a classroom-safe design with a friendly eagle image on a soft yellow background. Start with a simple education template from the Template Library. Give me clear steps: add the image, check the background color, add a large title, and verify readability. Run Accessibility Checks so the text can be seen on a projector. Do not include student names or private school information. Resize and Repurpose the final design as one slide and one printable handout."
+    },
+    {
+      "si_no": 6,
+      "persona_id": "ae-chatgpt-p06-global-hr-communications-lead",
+      "name": "Ahmed Khan",
+      "age": 36,
+      "occupation": "Global HR Communications Lead",
+      "locale": "en-GB",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Inclusive, audience-aware, structured",
+      "ai_trust_level": "Medium-high; uses AI for drafts but checks cultural fit",
+      "accessibility_needs": "Inclusive language, high readability, clear layout for multilingual audiences",
+      "privacy_posture": "Avoid employee personal data, internal HR cases, and confidential workforce information",
+      "communication_tone": "Warm, inclusive, and globally appropriate",
+      "avoid_list": [
+        "culture-specific idioms",
+        "employee personal data",
+        "exclusive language",
+        "dense text blocks"
+      ],
+      "acceptance_criteria": [
+        "Message is inclusive and globally understandable",
+        "Eagle image is symbolic but not nationalistic",
+        "Yellow background is optimistic and readable",
+        "Design supports translation or localization",
+        "No employee data appears in the asset"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Enterprise Brand Control",
+          "behavior_driven_reason": "Ahmed needs global HR messages to remain aligned with corporate brand standards."
+        },
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "He can specify inclusive language and audience constraints directly through ChatGPT."
+        },
+        {
+          "feature_name": "Accessibility Checks",
+          "behavior_driven_reason": "Global communications need readable layouts for diverse users and possible translation."
+        },
+        {
+          "feature_name": "Resize and Repurpose",
+          "behavior_driven_reason": "HR content is commonly distributed through email banners, intranet posts, and slides."
+        }
+      ],
+      "yellow_background_recommendation": "Use a welcoming golden yellow, such as #F9D65C, paired with dark neutral text and generous whitespace.",
+      "prompt_points": [
+        "Create inclusive HR announcement visual",
+        "Use non-nationalistic eagle imagery",
+        "Apply golden yellow background",
+        "Keep text localization-friendly",
+        "Prepare intranet and email formats"
+      ],
+      "isolated_test_prompt": "Create an Adobe Express design for a global HR communication. Use Conversational Design Creation to place a calm, symbolic eagle image on a golden yellow background. Apply Enterprise Brand Control for approved colors and fonts. Keep the message inclusive, short, and easy to translate; avoid culture-specific idioms and do not include employee personal data. Use Accessibility Checks to confirm readable contrast and spacing. Use Resize and Repurpose to create an intranet banner, email header, and presentation slide version."
+    },
+    {
+      "si_no": 7,
+      "persona_id": "ae-chatgpt-p07-nonprofit-outreach-coordinator",
+      "name": "Grace Williams",
+      "age": 29,
+      "occupation": "Nonprofit Outreach Coordinator",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Mission-focused, budget-conscious, emotionally clear",
+      "ai_trust_level": "Medium; welcomes AI ideas if they remain authentic",
+      "accessibility_needs": "Readable public-facing materials and clear call to action",
+      "privacy_posture": "Do not include donor records, beneficiary identities, or private volunteer information",
+      "communication_tone": "Hopeful, sincere, and practical",
+      "avoid_list": [
+        "manipulative emotional language",
+        "private donor details",
+        "expensive production assumptions",
+        "cluttered layouts"
+      ],
+      "acceptance_criteria": [
+        "Eagle communicates hope or resilience",
+        "Yellow background feels optimistic",
+        "Call to action is clear",
+        "Design can be reused for flyer and social post",
+        "No private donor or beneficiary data is present"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Template Library",
+          "behavior_driven_reason": "Grace needs professional results without heavy design effort or extra cost."
+        },
+        {
+          "feature_name": "AI-Powered Editing",
+          "behavior_driven_reason": "AI can polish the eagle image and layout while keeping the workflow efficient."
+        },
+        {
+          "feature_name": "Resize and Repurpose",
+          "behavior_driven_reason": "Nonprofit outreach often reuses one asset across flyers, social posts, and newsletters."
+        },
+        {
+          "feature_name": "Security & Compliance",
+          "behavior_driven_reason": "Her privacy posture requires keeping donor and beneficiary information out of AI prompts and designs."
+        }
+      ],
+      "yellow_background_recommendation": "Use an optimistic yellow, such as #FFDD66, with simple dark text and a clear call-to-action block.",
+      "prompt_points": [
+        "Select nonprofit-friendly template",
+        "Add hopeful eagle image",
+        "Use optimistic yellow background",
+        "Add clear call to action",
+        "Repurpose for flyer and social"
+      ],
+      "isolated_test_prompt": "Help a nonprofit outreach coordinator create a hopeful Adobe Express design. Start from the Template Library with a clean flyer or social layout, add an eagle image that suggests resilience, and set the background to optimistic yellow. Use AI-Powered Editing to polish the image and keep the design uncluttered. Add one sincere call to action without using manipulative wording. Follow Security & Compliance by excluding donor records, beneficiary names, and private volunteer details. Use Resize and Repurpose for a printable flyer and a square social post."
+    },
+    {
+      "si_no": 8,
+      "persona_id": "ae-chatgpt-p08-executive-assistant",
+      "name": "Naomi Chen",
+      "age": 40,
+      "occupation": "Executive Assistant",
+      "locale": "en-SG",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Concise, polished, deadline-focused",
+      "ai_trust_level": "Medium; values speed but checks executive tone",
+      "accessibility_needs": "Large readable text for meeting screens",
+      "privacy_posture": "Do not reveal executive schedules, attendee lists, confidential strategy, or meeting materials",
+      "communication_tone": "Polished, discreet, and efficient",
+      "avoid_list": [
+        "informal slang",
+        "confidential meeting details",
+        "busy visuals",
+        "unapproved executive quotes"
+      ],
+      "acceptance_criteria": [
+        "Design looks polished for executive viewing",
+        "Eagle image is refined, not aggressive",
+        "Yellow background is elegant and controlled",
+        "No confidential meeting information is included",
+        "Output is ready for presentation use"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "Naomi needs to issue concise instructions and receive a polished result quickly."
+        },
+        {
+          "feature_name": "Enterprise Brand Control",
+          "behavior_driven_reason": "Executive materials must look official and follow approved brand standards."
+        },
+        {
+          "feature_name": "Quick Actions",
+          "behavior_driven_reason": "Deadline pressure makes fast crop, cleanup, and export operations important."
+        },
+        {
+          "feature_name": "Security & Compliance",
+          "behavior_driven_reason": "She handles confidential executive information and must avoid exposing it in prompts or designs."
+        }
+      ],
+      "yellow_background_recommendation": "Use a restrained premium yellow, such as #EAC54F, with minimal copy and strong margins.",
+      "prompt_points": [
+        "Create polished executive slide visual",
+        "Use refined eagle image",
+        "Set restrained yellow background",
+        "Keep copy minimal",
+        "Export presentation-ready file"
+      ],
+      "isolated_test_prompt": "Create a polished executive-ready Adobe Express design. Use Conversational Design Creation to place a refined eagle image on a restrained yellow background with minimal copy. Apply Enterprise Brand Control for approved fonts, spacing, and colors. Use Quick Actions to crop and clean the eagle image quickly. Follow Security & Compliance: do not include executive schedules, attendee names, confidential strategy, or meeting details. Export a presentation-ready version with large readable text."
+    },
+    {
+      "si_no": 9,
+      "persona_id": "ae-chatgpt-p09-freelance-illustrator",
+      "name": "Leo Park",
+      "age": 27,
+      "occupation": "Freelance Illustrator",
+      "locale": "en-CA",
+      "technical_skill": "Expert",
+      "prompt_style": "Visual, experimental, detail-rich",
+      "ai_trust_level": "High for ideation; manually reviews final aesthetic choices",
+      "accessibility_needs": "Maintains visual hierarchy and legible typography despite artistic styling",
+      "privacy_posture": "Do not upload client-confidential sketches, paid references, or unreleased artwork",
+      "communication_tone": "Creative, specific, and exploratory",
+      "avoid_list": [
+        "generic stock-art look",
+        "copying living artists",
+        "client-confidential references",
+        "illegible decorative type"
+      ],
+      "acceptance_criteria": [
+        "Eagle has a distinctive art direction",
+        "Yellow background supports the illustration style",
+        "Design does not imitate a specific living artist",
+        "Typography remains legible",
+        "At least three style variations are generated"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Generate Image",
+          "behavior_driven_reason": "Leo wants distinctive visual exploration and can use generation for new eagle concepts."
+        },
+        {
+          "feature_name": "AI-Powered Editing",
+          "behavior_driven_reason": "He can refine composition, color, and image treatment while preserving artistic intent."
+        },
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "His detailed prompt style maps well to iterative creative direction through ChatGPT."
+        },
+        {
+          "feature_name": "Template Library",
+          "behavior_driven_reason": "Templates provide layout scaffolding while he customizes the illustration style."
+        }
+      ],
+      "yellow_background_recommendation": "Use layered yellow tones, such as #F6C945 and #FFE27A, to add depth without reducing text legibility.",
+      "prompt_points": [
+        "Generate original eagle art",
+        "Try three visual styles",
+        "Build layered yellow background",
+        "Keep type readable",
+        "Avoid copying named artists"
+      ],
+      "isolated_test_prompt": "Work with me as a freelance illustrator testing Adobe Express and ChatGPT. Use Generate Image to create three original eagle concepts on a layered yellow background: clean vector, textured poster, and minimal geometric. Do not imitate any specific living artist or use client-confidential references. Use Conversational Design Creation to compare the three options, then use AI-Powered Editing to refine the strongest design for balance, contrast, and legible typography. If a template helps, use the Template Library only as layout scaffolding, not as the final style."
+    },
+    {
+      "si_no": 10,
+      "persona_id": "ae-chatgpt-p10-it-security-administrator",
+      "name": "Marcus Brown",
+      "age": 47,
+      "occupation": "IT Security Administrator",
+      "locale": "en-US",
+      "technical_skill": "Expert",
+      "prompt_style": "Control-focused, technical, verification-oriented",
+      "ai_trust_level": "Low-medium; tests AI workflows for data handling and policy boundaries",
+      "accessibility_needs": "Clear audit notes and readable technical labels",
+      "privacy_posture": "No credentials, API keys, tenant identifiers, internal URLs, logs, or security incident details in prompts",
+      "communication_tone": "Direct, technical, and skeptical",
+      "avoid_list": [
+        "credentials or secrets",
+        "internal network details",
+        "unapproved external sharing",
+        "ambiguous data handling",
+        "policy bypass language"
+      ],
+      "acceptance_criteria": [
+        "Workflow avoids secrets and internal identifiers",
+        "Security and compliance controls are referenced",
+        "Eagle-on-yellow design is created without sensitive inputs",
+        "Export process is documented",
+        "No policy bypass is suggested"
+      ],
+      "mapped_adobe_express_features": [
+        {
+          "feature_name": "Security & Compliance",
+          "behavior_driven_reason": "Marcus is specifically testing whether the integration respects enterprise data handling and policy boundaries."
+        },
+        {
+          "feature_name": "Conversational Design Creation",
+          "behavior_driven_reason": "He needs reproducible prompts to verify how ChatGPT instructs Adobe Express."
+        },
+        {
+          "feature_name": "Enterprise Brand Control",
+          "behavior_driven_reason": "Brand-controlled assets reduce the need to upload uncontrolled files during security testing."
+        },
+        {
+          "feature_name": "Quick Actions",
+          "behavior_driven_reason": "Quick Actions allow controlled edits without exposing unnecessary data or complex asset flows."
+        }
+      ],
+      "yellow_background_recommendation": "Use a standard approved yellow, such as #FFD23F, and avoid embedding hidden metadata or sensitive labels.",
+      "prompt_points": [
+        "Create design with no sensitive inputs",
+        "Use approved brand assets only",
+        "Add eagle on yellow background",
+        "Document data-handling assumptions",
+        "Export without hidden confidential metadata"
+      ],
+      "isolated_test_prompt": "Run this as an IT security administrator validating Adobe Express integration with ChatGPT. Use Conversational Design Creation to create an eagle-on-yellow-background design using only approved non-sensitive assets. Apply Enterprise Brand Control and Security & Compliance settings. Do not include credentials, API keys, tenant IDs, internal URLs, logs, incident details, or any policy bypass instructions. Use Quick Actions only for crop, cleanup, and export. Add a small non-confidential note in the design comments: 'Security test asset - no sensitive data used.'"
+    }
+  ]
+}
