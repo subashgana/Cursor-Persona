@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adobe Express + ChatGPT Persona Behavior Showcase</title>
+  <style>
+    :root {
+      --ink: #18202f;
+      --muted: #5f6b7a;
+      --paper: #fffaf0;
+      --panel: #ffffff;
+      --yellow: #ffd84d;
+      --gold: #f5a623;
+      --coral: #ff6f61;
+      --violet: #6654d9;
+      --blue: #1677ff;
+      --green: #13a66f;
+      --shadow: 0 18px 45px rgba(24, 32, 47, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 216, 77, 0.72), transparent 34rem),
+        radial-gradient(circle at top right, rgba(102, 84, 217, 0.22), transparent 32rem),
+        linear-gradient(135deg, #fff7d1 0%, #f8fbff 52%, #fff0eb 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 56px 7vw 32px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .control-card,
+    .persona-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      background: linear-gradient(135deg, var(--yellow), var(--coral));
+      border-radius: 50%;
+      opacity: 0.28;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #1f2937;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 22px 0 14px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 900px;
+    }
+
+    .lead {
+      max-width: 900px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .stat {
+      min-height: 116px;
+      padding: 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff, #fff6c2);
+      border: 1px solid rgba(245, 166, 35, 0.28);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    main {
+      padding: 0 7vw 72px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 0 24px;
+      padding: 16px;
+      background: rgba(255, 250, 240, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 0 0 22px 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 28px rgba(24, 32, 47, 0.08);
+    }
+
+    .toolbar-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      border: 2px solid rgba(102, 84, 217, 0.18);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font: inherit;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input[type="search"]:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 4px rgba(102, 84, 217, 0.14);
+    }
+
+    .count-pill {
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: var(--violet);
+      color: #fff;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .persona-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-top {
+      padding: 24px;
+      background: linear-gradient(135deg, var(--accent, #ffd84d), #ffffff);
+      border-bottom: 1px solid rgba(24, 32, 47, 0.08);
+    }
+
+    .identity {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .identity h2 {
+      margin: 0 0 7px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+
+    .identity p {
+      margin: 0;
+      color: #3d4654;
+      font-weight: 700;
+    }
+
+    .persona-id {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(24, 32, 47, 0.08);
+      font-size: 12px;
+      font-weight: 800;
+      color: #263041;
+    }
+
+    .card-body {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      flex: 1;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      color: #111827;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .feature-list,
+    .behavior-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 9px;
+    }
+
+    .feature-list li,
+    .behavior-list li {
+      padding: 12px 13px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid #e8edf5;
+      line-height: 1.45;
+    }
+
+    .feature-list li {
+      display: inline-flex;
+      width: fit-content;
+      margin-right: 7px;
+      background: #fff9d7;
+      border-color: #ffe98a;
+      color: #6a4b00;
+      font-weight: 800;
+    }
+
+    .behavior-list strong {
+      color: var(--ink);
+    }
+
+    .recommendation {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff2a8, #ffffff);
+      border: 1px solid #ffe06a;
+      color: #5a4300;
+      line-height: 1.55;
+    }
+
+    .prompt-wrap {
+      position: relative;
+      border-radius: 18px;
+      background: #101828;
+      color: #f8fbff;
+      overflow: hidden;
+    }
+
+    .prompt-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .prompt-head span {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffe36e;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 12px;
+      cursor: pointer;
+      color: #101828;
+      background: var(--yellow);
+      font-weight: 900;
+    }
+
+    button:hover {
+      filter: brightness(0.96);
+      transform: translateY(-1px);
+    }
+
+    pre {
+      margin: 0;
+      padding: 16px;
+      white-space: pre-wrap;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      line-height: 1.62;
+    }
+
+    .empty {
+      display: none;
+      padding: 34px;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      text-align: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 26px 7vw 52px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid,
+      .toolbar-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .count-pill {
+        justify-self: start;
+      }
+    }
+
+    @media print {
+      .toolbar,
+      button {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .persona-card {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Adobe Express Enterprise + ChatGPT</span>
+        <h1>Persona-isolated behavior test showcase</h1>
+        <p class="lead">Ten synthetic personas for testing Adobe Express integration with ChatGPT. Each persona has a distinct trust model, prompt style, privacy posture, accessibility need, Adobe Express feature mapping, and multiple behavior scenarios for creating an eagle-themed yellow background asset.</p>
+      </div>
+      <aside class="control-card stats" aria-label="Showcase summary">
+        <div class="stat"><strong>10</strong><span>Personas</span></div>
+        <div class="stat"><strong>30</strong><span>Behavior cases</span></div>
+        <div class="stat"><strong>15</strong><span>Adobe features</span></div>
+        <div class="stat"><strong>1</strong><span>Shared creative task</span></div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="toolbar" aria-label="Search personas">
+      <div class="toolbar-inner">
+        <input id="search" type="search" placeholder="Search by persona, role, behavior, feature, locale, or prompt text...">
+        <span id="count" class="count-pill">Showing 10 personas</span>
+      </div>
+    </section>
+
+    <section id="cards" class="grid" aria-live="polite"></section>
+    <section id="empty" class="empty">No personas match the current search.</section>
+  </main>
+
+  <footer>
+    Created for Adobe Express Enterprise integration testing with ChatGPT. Source data is available in adobe_chatgpt_personas.json.
+  </footer>
+
+  <script>
+    const personas = [
+      {
+        id: "P-001",
+        name: "Maya Chen",
+        role: "Enterprise Social Media Manager",
+        locale: "en-US",
+        skill: "Advanced",
+        trust: "High with brand review",
+        accent: "#ffd84d",
+        summary: "Direct, metric-driven social marketer who wants campaign-ready output, safe headline space, and strict brand review before publication.",
+        features: ["Conversational Design Creation", "Enterprise Brand Control", "AI-Powered Editing", "Collaboration and Review", "Export and Publish"],
+        recommendation: "Use a warm yellow gradient with strong eagle contrast, reserve uncluttered headline space, and validate color contrast before social export.",
+        behaviors: [
+          "Campaign-first setup: choose square social layout, reserve safe headline space, and apply approved brand palette.",
+          "Engagement review: increase eagle contrast, keep the yellow field clean, and add marketing approval notes.",
+          "Publish readiness: export PNG plus editable Express file and include an alt-text recommendation."
+        ],
+        prompt: "Act as my Adobe Express Enterprise design assistant. I am Maya, an advanced social media manager who wants concise, campaign-ready guidance. Use Conversational Design Creation to build a square social background with a bold eagle as the hero and a warm yellow brand-safe gradient. Apply Enterprise Brand Control before suggesting colors, then use AI-Powered Editing to improve contrast and keep empty headline space. Do not invent metrics, mention competitors, or place text on busy feathers. Add Collaboration and Review notes for brand approval, include an accessibility contrast check, and finish with Export and Publish steps for PNG plus an editable Adobe Express file."
+      },
+      {
+        id: "P-002",
+        name: "Rafael Ortiz",
+        role: "Compliance-Focused Brand Director",
+        locale: "es-US",
+        skill: "Intermediate",
+        trust: "Medium; requires explainability",
+        accent: "#ffb347",
+        summary: "Formal, cautious brand leader who accepts AI assistance only when provenance, approval path, and compliance checks are visible.",
+        features: ["Enterprise Brand Control", "Security and Compliance", "Shared Libraries", "Version History", "Collaboration and Review"],
+        recommendation: "Use only approved yellow brand values or clearly label generated elements; include compliance checkpoints before export.",
+        behaviors: [
+          "Governed asset selection: select eagle imagery from Shared Libraries and state if generated elements are used.",
+          "Reviewer traceability: name the design version, summarize AI edits, and invite compliance reviewer feedback.",
+          "Risk-aware final check: confirm no restricted data, external logos, or unsupported claims are present."
+        ],
+        prompt: "You are assisting Rafael, a compliance-focused brand director, inside Adobe Express Enterprise. Use Enterprise Brand Control and Shared Libraries first: create a yellow eagle background only from approved assets or clearly labeled AI-generated elements. Explain each design choice formally, then use Security and Compliance checks to confirm no confidential data, external logos, or legal claims are present. Add Version History notes that describe every AI-assisted change, route the file through Collaboration and Review, and prepare export instructions only after approval is recorded."
+      },
+      {
+        id: "P-003",
+        name: "Aisha Khan",
+        role: "Learning and Development Specialist",
+        locale: "en-GB",
+        skill: "Intermediate",
+        trust: "Medium-high with transparent guidance",
+        accent: "#86efac",
+        summary: "Instructional training specialist who prefers numbered steps, reusable templates, inclusive language, and learner-friendly accessibility notes.",
+        features: ["Text to Template", "Conversational Design Creation", "Accessibility Checks", "Quick Actions", "Export and Publish"],
+        recommendation: "Create a calm yellow training-slide background with the eagle centered and wide, readable space for a module title.",
+        behaviors: [
+          "Teach-by-doing creation: generate a reusable template and explain how to add the eagle image.",
+          "Accessibility coaching: run contrast checks, recommend font sizing, and provide alt-text guidance.",
+          "Trainer-friendly export: save PNG and reusable template with simple non-designer editing steps."
+        ],
+        prompt: "Please guide Aisha through Adobe Express like a training coach. Use Text to Template and Conversational Design Creation to make a reusable course-slide background: yellow background, centered eagle image, calm open space for a module title, and a simple visual hierarchy. Give numbered steps for adding the image, checking the colour, and adjusting the eagle size. Use Accessibility Checks for contrast, font size, and alt text. Avoid employee names, internal records, clutter, and intimidating language. End with Quick Actions and Export and Publish instructions for a PNG and reusable template."
+      },
+      {
+        id: "P-004",
+        name: "Noah Williams",
+        role: "Junior Graphic Designer",
+        locale: "en-US",
+        skill: "Beginner-intermediate",
+        trust: "High for ideation, lower for final judgment",
+        accent: "#93c5fd",
+        summary: "Exploratory designer who wants creative variants, quick explanations, edge-cleanup guidance, and reminders not to overuse effects.",
+        features: ["AI-Powered Editing", "Generative Fill", "Remove Background", "Text Effects", "Version History"],
+        recommendation: "Generate exactly three yellow treatments, keep layers editable, and recommend the strongest option after comparison.",
+        behaviors: [
+          "Variant exploration: create three controlled yellow directions and choose one final concept.",
+          "Image cleanup: remove the eagle background, refine edges, and place the eagle with balanced margins.",
+          "Learning through versions: name every option in Version History and keep short rationale notes."
+        ],
+        prompt: "Help Noah explore a yellow eagle background in Adobe Express without overcomplicating it. Start with AI-Powered Editing and Generative Fill to create exactly three variations: bold sunrise yellow, clean corporate yellow, and dramatic golden spotlight. If I add an eagle image, use Remove Background and refine the edges before placing it. Suggest one tasteful Text Effects treatment only if it improves the design. Keep layers editable, name each option in Version History, remind me not to upload restricted client assets, and recommend the strongest final version with a short reason."
+      },
+      {
+        id: "P-005",
+        name: "Priya Nair",
+        role: "Executive Communications Lead",
+        locale: "en-IN",
+        skill: "Beginner",
+        trust: "Low-medium; wants human-readable controls",
+        accent: "#fca5a5",
+        summary: "Executive communicator who needs a polished, conservative visual, beginner-friendly controls, and explicit confidentiality review.",
+        features: ["Conversational Design Creation", "Quick Actions", "Enterprise Brand Control", "Collaboration and Review", "Security and Compliance"],
+        recommendation: "Use one refined yellow eagle composition with large clear headline space and minimal technical steps.",
+        behaviors: [
+          "Executive-ready simplicity: offer one recommended layout using approved brand colors.",
+          "Low-friction edits: use Quick Actions for crop, resize, and image cleanup only.",
+          "Confidential review: remove sensitive names, document privacy check, and route to reviewer."
+        ],
+        prompt: "Support Priya with a polished, executive-safe Adobe Express workflow. Use Conversational Design Creation to make one refined yellow eagle background suitable for a leadership slide or announcement. Keep the eagle elegant, leave large clear space for a headline, and apply Enterprise Brand Control so the yellow is approved. Use Quick Actions only for simple edits such as crop, resize, and image cleanup. Avoid casual wording, executive names, speculative claims, or confidential board details. Add a Security and Compliance check and send the design through Collaboration and Review before export."
+      },
+      {
+        id: "P-006",
+        name: "Lena Hoffmann",
+        role: "Localization Program Manager",
+        locale: "de-DE",
+        skill: "Advanced",
+        trust: "Medium; validates localization nuance",
+        accent: "#c4b5fd",
+        summary: "Structured localization owner who requires flexible text areas, locale-safe visuals, and version names that support regional handoff.",
+        features: ["Localization Support", "Text to Template", "Enterprise Brand Control", "Version History", "Export and Publish"],
+        recommendation: "Keep the yellow eagle background text-free and leave expanded safe areas for longer translated copy.",
+        behaviors: [
+          "Locale-flexible template: reserve expanded text area, avoid embedded English, and use universal visual symbolism.",
+          "Brand consistency across locales: keep yellow and eagle placement consistent while naming versions by locale.",
+          "Localized export package: provide editable master and locale-specific PNG variants."
+        ],
+        prompt: "Assist Lena in Adobe Express Enterprise with a localization-safe eagle background. Use Text to Template and Localization Support to build a yellow eagle design that keeps all text editable and leaves extra room for longer German and French copy. Apply Enterprise Brand Control so the yellow and typography remain consistent across markets. Do not use idioms, hard-coded English text, or launch-market details. Create Version History names with locale codes such as master-en, de-DE, and fr-FR, then provide Export and Publish instructions for an editable master plus localized PNG variants."
+      },
+      {
+        id: "P-007",
+        name: "Marcus Green",
+        role: "IT Security Administrator",
+        locale: "en-US",
+        skill: "Expert",
+        trust: "Low unless controls are explicit",
+        accent: "#67e8f9",
+        summary: "Policy-led security administrator who requires data boundaries, approved assets, restricted reviewers, and auditable AI edit logs.",
+        features: ["Security and Compliance", "Enterprise Brand Control", "Shared Libraries", "Version History", "Collaboration and Review"],
+        recommendation: "Create the yellow eagle background only within approved libraries or explicitly disclosed generated elements, with no public links.",
+        behaviors: [
+          "Data boundary enforcement: state no secrets, personal data, unreleased files, or public share links.",
+          "Controlled collaboration: restrict reviewer access and capture review comments.",
+          "Audit trail: identify generated elements, confirm brand control, and record version summaries."
+        ],
+        prompt: "Operate under Marcus's IT security rules for Adobe Express Enterprise. Before creating anything, state that no secrets, personal data, unreleased files, or public share links may be used. Build a yellow eagle background only with Shared Libraries or clearly identified generated elements. Use Security and Compliance to check data boundaries, Enterprise Brand Control for approved colors, and Version History to log each AI-assisted edit. Route Collaboration and Review only to restricted internal reviewers, then summarize the audit trail before any export guidance."
+      },
+      {
+        id: "P-008",
+        name: "Sofia Rossi",
+        role: "Event Marketing Producer",
+        locale: "it-IT",
+        skill: "Intermediate",
+        trust: "High for rapid production",
+        accent: "#fdba74",
+        summary: "Energetic event producer who needs fast, bold assets that work on event screens and social crops without sponsor or attendee risk.",
+        features: ["Quick Actions", "AI-Powered Editing", "Text Effects", "Export and Publish", "Collaboration and Review"],
+        recommendation: "Use a dramatic yellow eagle background with high projection contrast and a center-safe crop zone.",
+        behaviors: [
+          "Rapid event asset creation: create a widescreen layout and keep the center crop-safe.",
+          "High-impact treatment: apply one headline style and check projection contrast.",
+          "Multi-format delivery: export widescreen and social crop after stakeholder approval."
+        ],
+        prompt: "Help Sofia produce a high-energy Adobe Express event background. Use Quick Actions and AI-Powered Editing to create a dramatic yellow eagle visual that works on a widescreen event display and can be cropped for social. Make the eagle powerful but leave a clean center-safe area for event text. Use one tasteful Text Effects option for a headline only if contrast remains strong on a large screen. Do not add attendee data, unapproved sponsor logos, or low-contrast overlays. Finish with Collaboration and Review approval steps and Export and Publish outputs for widescreen plus social crop."
+      },
+      {
+        id: "P-009",
+        name: "Ethan Brooks",
+        role: "Accessibility QA Analyst",
+        locale: "en-CA",
+        skill: "Advanced",
+        trust: "Medium; requires verifiable checks",
+        accent: "#bef264",
+        summary: "Checklist-driven QA analyst who approves only when contrast, readability, alt text, and remediation evidence are documented.",
+        features: ["Accessibility Checks", "AI-Powered Editing", "Remove Background", "Collaboration and Review", "Export and Publish"],
+        recommendation: "Design the yellow eagle background around measurable accessibility checks, not only visual impact.",
+        behaviors: [
+          "Accessibility-first creation: define contrast targets and keep the text area separate from the eagle.",
+          "Image clarity remediation: remove distracting background and simplify the yellow field.",
+          "QA handoff: list pass/fail checks, remediation notes, and export a review copy."
+        ],
+        prompt: "Follow Ethan's accessibility QA approach in Adobe Express. Create a yellow eagle background using AI-Powered Editing, but design it around Accessibility Checks from the start. Keep any future text area separate from the eagle image, do not rely on color alone, and use Remove Background if the eagle creates visual clutter. Provide a pass/fail checklist for contrast, readability, alt text, and decorative versus meaningful image use. If anything fails, give remediation steps before export. Use Collaboration and Review for QA notes and Export and Publish only after checks pass."
+      },
+      {
+        id: "P-010",
+        name: "Hana Kim",
+        role: "Startup Founder and Product Marketer",
+        locale: "ko-KR",
+        skill: "Advanced",
+        trust: "Very high for rapid ideation",
+        accent: "#f0abfc",
+        summary: "Experimental founder who wants bold mobile-first launch assets, fast A/B naming, and protection for roadmap and investor details.",
+        features: ["Conversational Design Creation", "Generative Fill", "Text Effects", "Quick Actions", "Export and Publish"],
+        recommendation: "Use a vertical yellow eagle composition with strong mobile crop visibility and minimal launch-teaser copy space.",
+        behaviors: [
+          "Mobile-first ideation: create a vertical format with the eagle visible in the mobile crop.",
+          "Growth creative polish: add one bold style zone and prepare A/B test names.",
+          "Launch export: export mobile PNG, editable source, and growth hypothesis notes."
+        ],
+        prompt: "Work with Hana as a fast, mobile-first Adobe Express design partner. Use Conversational Design Creation and Generative Fill to create a vertical yellow eagle background for a launch teaser, with the eagle clearly visible in a mobile crop and space for a short headline. Keep it bold, minimal, and growth-test friendly. Use one Text Effects zone if it improves the hook, then use Quick Actions to resize for mobile placements. Do not mention investors, roadmap features, or private launch details. Finish with Export and Publish instructions for mobile PNG, editable source, and A/B test names."
+      }
+    ];
+
+    const cardsEl = document.querySelector("#cards");
+    const emptyEl = document.querySelector("#empty");
+    const searchEl = document.querySelector("#search");
+    const countEl = document.querySelector("#count");
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function renderCards(list) {
+      cardsEl.innerHTML = list.map((persona, index) => `
+        <article class="persona-card" style="--accent: ${persona.accent}">
+          <div class="card-top">
+            <div class="identity">
+              <div>
+                <h2>${persona.name}</h2>
+                <p>${persona.role}</p>
+              </div>
+              <span class="persona-id">${persona.id}</span>
+            </div>
+            <div class="meta">
+              <span class="chip">Locale: ${persona.locale}</span>
+              <span class="chip">Skill: ${persona.skill}</span>
+              <span class="chip">AI trust: ${persona.trust}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <section>
+              <h3 class="section-title">Persona summary</h3>
+              <p class="summary">${persona.summary}</p>
+            </section>
+            <section>
+              <h3 class="section-title">Mapped Adobe Express features</h3>
+              <ul class="feature-list">
+                ${persona.features.map(feature => `<li>${feature}</li>`).join("")}
+              </ul>
+            </section>
+            <section>
+              <h3 class="section-title">Yellow background recommendation</h3>
+              <div class="recommendation">${persona.recommendation}</div>
+            </section>
+            <section>
+              <h3 class="section-title">Behavior test points</h3>
+              <ul class="behavior-list">
+                ${persona.behaviors.map(item => {
+                  const [label, detail] = item.split(": ");
+                  return `<li><strong>${label}:</strong> ${detail || ""}</li>`;
+                }).join("")}
+              </ul>
+            </section>
+            <section class="prompt-wrap">
+              <div class="prompt-head">
+                <span>Unique isolated prompt</span>
+                <button type="button" data-copy-index="${index}">Copy prompt</button>
+              </div>
+              <pre id="prompt-${index}">${escapeHtml(persona.prompt)}</pre>
+            </section>
+          </div>
+        </article>
+      `).join("");
+
+      countEl.textContent = `Showing ${list.length} persona${list.length === 1 ? "" : "s"}`;
+      emptyEl.style.display = list.length ? "none" : "block";
+    }
+
+    function searchableText(persona) {
+      return [
+        persona.id,
+        persona.name,
+        persona.role,
+        persona.locale,
+        persona.skill,
+        persona.trust,
+        persona.summary,
+        persona.recommendation,
+        persona.features.join(" "),
+        persona.behaviors.join(" "),
+        persona.prompt
+      ].join(" ").toLowerCase();
+    }
+
+    searchEl.addEventListener("input", () => {
+      const query = searchEl.value.trim().toLowerCase();
+      const filtered = query
+        ? personas.filter(persona => searchableText(persona).includes(query))
+        : personas;
+      renderCards(filtered);
+    });
+
+    cardsEl.addEventListener("click", async (event) => {
+      const button = event.target.closest("button[data-copy-index]");
+      if (!button) return;
+
+      const prompt = personas[Number(button.dataset.copyIndex)].prompt;
+      await navigator.clipboard.writeText(prompt);
+      const original = button.textContent;
+      button.textContent = "Copied";
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1200);
+    });
+
+    renderCards(personas);
+  </script>
+</body>
+</html>
