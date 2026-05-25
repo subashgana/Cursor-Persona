@@ -639,7 +639,7 @@
     }
 
     function renderCards(list) {
-      cardsEl.innerHTML = list.map((persona, index) => `
+      cardsEl.innerHTML = list.map((persona) => `
         <article class="persona-card" style="--accent: ${persona.accent}">
           <div class="card-top">
             <div class="identity">
@@ -682,9 +682,9 @@
             <section class="prompt-wrap">
               <div class="prompt-head">
                 <span>Unique isolated prompt</span>
-                <button type="button" data-copy-index="${index}">Copy prompt</button>
+                <button type="button" data-copy-id="${persona.id}">Copy prompt</button>
               </div>
-              <pre id="prompt-${index}">${escapeHtml(persona.prompt)}</pre>
+              <pre id="prompt-${persona.id}">${escapeHtml(persona.prompt)}</pre>
             </section>
           </div>
         </article>
@@ -719,10 +719,13 @@
     });
 
     cardsEl.addEventListener("click", async (event) => {
-      const button = event.target.closest("button[data-copy-index]");
+      const button = event.target.closest("button[data-copy-id]");
       if (!button) return;
 
-      const prompt = personas[Number(button.dataset.copyIndex)].prompt;
+      const selectedPersona = personas.find(persona => persona.id === button.dataset.copyId);
+      if (!selectedPersona) return;
+
+      const prompt = selectedPersona.prompt;
       await navigator.clipboard.writeText(prompt);
       const original = button.textContent;
       button.textContent = "Copied";
