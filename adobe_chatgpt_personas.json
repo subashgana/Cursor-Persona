@@ -1,0 +1,522 @@
+{
+  "metadata": {
+    "title": "Adobe Express with ChatGPT Persona Test Set",
+    "version": "1.0",
+    "created_for": "Testing Adobe integration with ChatGPT",
+    "persona_count": 10,
+    "behavior_model": "Each persona includes multiple behavior scenarios for isolated testing.",
+    "scope_note": "This file defines personas and behavior patterns only. Adobe capability mapping is intentionally not included."
+  },
+  "personas": [
+    {
+      "id": "persona-001",
+      "name": "Maya Srinivasan",
+      "age_range": "24-30",
+      "occupation": "Social Media Coordinator",
+      "locale": "en-IN",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "High, but checks brand tone before accepting output",
+      "privacy_posture": "Avoids uploading customer names, internal campaign budgets, or unreleased launch details",
+      "accessibility_needs": "Prefers concise instructions and visual hierarchy in responses",
+      "communication_style": "Fast, direct, upbeat, and action oriented",
+      "testing_goal": "Validate whether ChatGPT can support quick creative iteration while keeping the user's campaign intent clear.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-001-b01",
+          "name": "Rapid campaign starter",
+          "trigger": "Needs a first draft for a short social campaign with minimal setup.",
+          "user_behavior": "Provides a compact brief, asks for a ready-to-edit creative direction, and expects the assistant to move quickly.",
+          "prompt_style": "Short imperative sentences with campaign keywords and a clear deadline.",
+          "expected_response_style": "Prioritized steps, punchy wording, and immediately usable creative copy.",
+          "validation_focus": "The assistant should not over-explain and should keep the workflow lightweight."
+        },
+        {
+          "behavior_id": "persona-001-b02",
+          "name": "Tone correction loop",
+          "trigger": "The first output sounds too formal or too generic for social media.",
+          "user_behavior": "Asks for more energetic wording, stronger hooks, and a friendlier caption style.",
+          "prompt_style": "Uses phrases like 'make it snappier', 'less corporate', and 'give me options'.",
+          "expected_response_style": "Multiple revised alternatives with clear differences in tone.",
+          "validation_focus": "The assistant should preserve the original campaign objective while changing tone."
+        },
+        {
+          "behavior_id": "persona-001-b03",
+          "name": "Brand-safe shortcut seeker",
+          "trigger": "Wants fast output but is worried about using the wrong brand phrase.",
+          "user_behavior": "Asks ChatGPT to flag risky wording and suggest safer replacements.",
+          "prompt_style": "Practical and checklist driven.",
+          "expected_response_style": "A concise risk check followed by replacement copy.",
+          "validation_focus": "The assistant should identify potentially risky claims without inventing policy details."
+        },
+        {
+          "behavior_id": "persona-001-b04",
+          "name": "Mobile-first reviewer",
+          "trigger": "Reviews the creative as if it will be consumed on a phone screen.",
+          "user_behavior": "Requests shorter text, stronger contrast guidance, and clearer hierarchy.",
+          "prompt_style": "Uses mobile design language and asks for quick scanability.",
+          "expected_response_style": "Compact recommendations ordered by visual priority.",
+          "validation_focus": "The assistant should emphasize clarity, brevity, and readability."
+        }
+      ]
+    },
+    {
+      "id": "persona-002",
+      "name": "Daniel Brooks",
+      "age_range": "38-45",
+      "occupation": "Enterprise Brand Manager",
+      "locale": "en-US",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate; accepts AI support after brand compliance review",
+      "privacy_posture": "Does not share embargoed brand guidelines, legal review notes, or partner contracts",
+      "accessibility_needs": "Prefers structured tables and explicit rationale",
+      "communication_style": "Precise, formal, and approval focused",
+      "testing_goal": "Validate whether ChatGPT can handle strict review behavior and maintain a controlled brand voice.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-002-b01",
+          "name": "Governed brief writer",
+          "trigger": "Starts from a formal brand request with compliance sensitivity.",
+          "user_behavior": "Provides approved claims, forbidden wording, required tone, and review checkpoints.",
+          "prompt_style": "Structured, policy-aware, and specific.",
+          "expected_response_style": "Organized sections with clear references to the user's stated constraints.",
+          "validation_focus": "The assistant should follow the given rules exactly and avoid adding unapproved claims."
+        },
+        {
+          "behavior_id": "persona-002-b02",
+          "name": "Approval gatekeeper",
+          "trigger": "Needs a pre-review checklist before sharing work with stakeholders.",
+          "user_behavior": "Requests a pass/fail style review for tone, claims, visual wording, and audience fit.",
+          "prompt_style": "Audit oriented and risk minimizing.",
+          "expected_response_style": "Checklist with explicit pass, revise, or verify recommendations.",
+          "validation_focus": "The assistant should distinguish between confirmed issues and items requiring human review."
+        },
+        {
+          "behavior_id": "persona-002-b03",
+          "name": "Version comparison analyst",
+          "trigger": "Compares several creative directions for executive review.",
+          "user_behavior": "Asks for pros, cons, and suitability by audience segment.",
+          "prompt_style": "Comparative and evidence seeking.",
+          "expected_response_style": "Side-by-side comparison with a clear recommendation.",
+          "validation_focus": "The assistant should explain tradeoffs without overstating certainty."
+        },
+        {
+          "behavior_id": "persona-002-b04",
+          "name": "Terminology enforcer",
+          "trigger": "Notices inconsistent product or campaign naming.",
+          "user_behavior": "Asks ChatGPT to standardize terms and rewrite the content consistently.",
+          "prompt_style": "Corrective and detail oriented.",
+          "expected_response_style": "Clean rewritten text plus a small terminology list.",
+          "validation_focus": "The assistant should preserve meaning while normalizing wording."
+        }
+      ]
+    },
+    {
+      "id": "persona-003",
+      "name": "Aisha Khan",
+      "age_range": "31-37",
+      "occupation": "Small Business Owner",
+      "locale": "en-GB",
+      "technical_skill": "Beginner",
+      "ai_trust_level": "Cautious but optimistic",
+      "privacy_posture": "Avoids sharing full customer lists, financial records, or supplier details",
+      "accessibility_needs": "Needs step-by-step language with minimal jargon",
+      "communication_style": "Plain spoken, practical, and budget aware",
+      "testing_goal": "Validate whether ChatGPT can guide a novice user through creative decisions without overwhelming them.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-003-b01",
+          "name": "Beginner guidance request",
+          "trigger": "Does not know how to start a promotional design.",
+          "user_behavior": "Explains the business goal in simple terms and asks what to do first.",
+          "prompt_style": "Conversational, uncertain, and help seeking.",
+          "expected_response_style": "Numbered beginner-friendly steps with simple creative choices.",
+          "validation_focus": "The assistant should avoid technical jargon and keep instructions manageable."
+        },
+        {
+          "behavior_id": "persona-003-b02",
+          "name": "Budget-sensitive editor",
+          "trigger": "Wants a professional result without commissioning extra design work.",
+          "user_behavior": "Asks for low-effort changes that make the design look polished.",
+          "prompt_style": "Cost conscious and outcome focused.",
+          "expected_response_style": "Practical edits ranked by impact.",
+          "validation_focus": "The assistant should suggest realistic improvements without implying paid external work is required."
+        },
+        {
+          "behavior_id": "persona-003-b03",
+          "name": "Confidence checker",
+          "trigger": "Feels unsure whether the design looks trustworthy.",
+          "user_behavior": "Asks whether the wording and layout feel credible to customers.",
+          "prompt_style": "Reassurance seeking with specific concerns.",
+          "expected_response_style": "Balanced feedback with supportive language and concrete revisions.",
+          "validation_focus": "The assistant should be encouraging while still identifying improvements."
+        },
+        {
+          "behavior_id": "persona-003-b04",
+          "name": "Simple reuse planner",
+          "trigger": "Needs to reuse one creative idea across several channels.",
+          "user_behavior": "Asks how to adapt the same message for a flyer, story post, and email header.",
+          "prompt_style": "Practical and multi-use.",
+          "expected_response_style": "Channel-specific guidance with short copy examples.",
+          "validation_focus": "The assistant should keep the core message consistent across formats."
+        }
+      ]
+    },
+    {
+      "id": "persona-004",
+      "name": "Leo Martinez",
+      "age_range": "19-23",
+      "occupation": "University Event Volunteer",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Very high; expects experimentation",
+      "privacy_posture": "Avoids sharing student ID numbers, private event attendee lists, or campus security details",
+      "accessibility_needs": "Prefers energetic phrasing and clear visual cues",
+      "communication_style": "Casual, playful, and trend aware",
+      "testing_goal": "Validate whether ChatGPT can respond to informal, experimental behavior without losing task clarity.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-004-b01",
+          "name": "Trend-inspired brainstormer",
+          "trigger": "Wants an event creative concept that feels current and fun.",
+          "user_behavior": "Asks for bold ideas, catchy slogans, and a youthful tone.",
+          "prompt_style": "Informal, emoji-like energy, and exploratory wording.",
+          "expected_response_style": "Several lively concepts with short explanations.",
+          "validation_focus": "The assistant should generate distinct options without relying on copyrighted trends."
+        },
+        {
+          "behavior_id": "persona-004-b02",
+          "name": "Last-minute fixer",
+          "trigger": "Discovers the event design needs changes shortly before posting.",
+          "user_behavior": "Asks for urgent fixes to date, venue, and call-to-action wording.",
+          "prompt_style": "Fast, informal, and slightly chaotic.",
+          "expected_response_style": "Direct correction list and a clean final version.",
+          "validation_focus": "The assistant should prioritize factual updates and avoid unnecessary redesign discussion."
+        },
+        {
+          "behavior_id": "persona-004-b03",
+          "name": "Peer feedback blender",
+          "trigger": "Receives conflicting feedback from several student organizers.",
+          "user_behavior": "Pastes short feedback notes and asks ChatGPT to combine them into one direction.",
+          "prompt_style": "Collaborative and informal.",
+          "expected_response_style": "A merged recommendation that resolves conflicts plainly.",
+          "validation_focus": "The assistant should preserve important constraints while simplifying conflicting input."
+        },
+        {
+          "behavior_id": "persona-004-b04",
+          "name": "Accessibility nudge acceptor",
+          "trigger": "A poster looks exciting but may be hard to read.",
+          "user_behavior": "Asks for help keeping the design fun while making it clearer.",
+          "prompt_style": "Open to guidance but protective of the energetic style.",
+          "expected_response_style": "Readability changes that retain a lively tone.",
+          "validation_focus": "The assistant should improve accessibility without flattening the creative personality."
+        }
+      ]
+    },
+    {
+      "id": "persona-005",
+      "name": "Nora Al-Fayed",
+      "age_range": "46-55",
+      "occupation": "Nonprofit Communications Director",
+      "locale": "en-AE",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Moderate; values human empathy and factual restraint",
+      "privacy_posture": "Does not share beneficiary identities, donor records, or sensitive case details",
+      "accessibility_needs": "Prefers inclusive language and respectful representation guidance",
+      "communication_style": "Warm, careful, and mission driven",
+      "testing_goal": "Validate whether ChatGPT can support emotionally sensitive communication with privacy-aware behavior.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-005-b01",
+          "name": "Mission-centered storyteller",
+          "trigger": "Needs a campaign message that inspires support without exploiting personal stories.",
+          "user_behavior": "Asks for empathetic wording and anonymized examples.",
+          "prompt_style": "Respectful, cautious, and values based.",
+          "expected_response_style": "Warm copy that avoids sensationalism and protects dignity.",
+          "validation_focus": "The assistant should avoid making up private beneficiary details."
+        },
+        {
+          "behavior_id": "persona-005-b02",
+          "name": "Donor trust reviewer",
+          "trigger": "Wants to ensure a design communicates credibility to donors.",
+          "user_behavior": "Asks for revisions that make impact claims feel transparent.",
+          "prompt_style": "Trust focused and careful.",
+          "expected_response_style": "Suggestions that separate verified facts from emotional messaging.",
+          "validation_focus": "The assistant should flag unsupported claims and suggest cautious alternatives."
+        },
+        {
+          "behavior_id": "persona-005-b03",
+          "name": "Inclusive language checker",
+          "trigger": "Reviews copy for language that may feel exclusionary or insensitive.",
+          "user_behavior": "Asks ChatGPT to soften wording and improve representation.",
+          "prompt_style": "Reflective and revision oriented.",
+          "expected_response_style": "Specific wording changes with short rationales.",
+          "validation_focus": "The assistant should improve sensitivity without diluting the message."
+        },
+        {
+          "behavior_id": "persona-005-b04",
+          "name": "Multilingual sensitivity planner",
+          "trigger": "Plans to adapt a message for audiences in different regions.",
+          "user_behavior": "Asks what should stay universal and what should be localized.",
+          "prompt_style": "Cross-cultural and careful.",
+          "expected_response_style": "Localization notes focused on tone, imagery, and phrase sensitivity.",
+          "validation_focus": "The assistant should not assume one culture or language fits all audiences."
+        }
+      ]
+    },
+    {
+      "id": "persona-006",
+      "name": "Hiro Tanaka",
+      "age_range": "29-35",
+      "occupation": "Product Marketing Manager",
+      "locale": "ja-JP",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate-high; expects strategic structure",
+      "privacy_posture": "Avoids sharing unreleased roadmap details, customer contracts, or internal metrics",
+      "accessibility_needs": "Prefers concise summaries followed by detail",
+      "communication_style": "Analytical, structured, and market focused",
+      "testing_goal": "Validate whether ChatGPT can support strategic campaign behavior while respecting incomplete information.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-006-b01",
+          "name": "Positioning strategist",
+          "trigger": "Needs creative messaging aligned to a product launch angle.",
+          "user_behavior": "Provides audience, value proposition, and differentiators while withholding confidential details.",
+          "prompt_style": "Structured and strategic.",
+          "expected_response_style": "Clear message hierarchy with assumptions called out.",
+          "validation_focus": "The assistant should not invent product facts beyond the provided brief."
+        },
+        {
+          "behavior_id": "persona-006-b02",
+          "name": "Audience segmentation thinker",
+          "trigger": "Wants variants for different buyer roles.",
+          "user_behavior": "Asks for adjusted emphasis for executives, practitioners, and evaluators.",
+          "prompt_style": "Segment based and concise.",
+          "expected_response_style": "Distinct audience variants with practical differences.",
+          "validation_focus": "The assistant should tailor motivations without stereotyping roles."
+        },
+        {
+          "behavior_id": "persona-006-b03",
+          "name": "Competitive caution checker",
+          "trigger": "Considers mentioning competitors or comparative claims.",
+          "user_behavior": "Asks for safer wording that avoids risky direct claims.",
+          "prompt_style": "Risk aware and precise.",
+          "expected_response_style": "Alternative copy that emphasizes strengths without unsupported comparisons.",
+          "validation_focus": "The assistant should avoid legal-sounding certainty and recommend verification for claims."
+        },
+        {
+          "behavior_id": "persona-006-b04",
+          "name": "Executive summary compressor",
+          "trigger": "Needs to summarize the creative rationale for leadership.",
+          "user_behavior": "Asks for a short executive-ready explanation of the creative direction.",
+          "prompt_style": "Brief, formal, and outcome oriented.",
+          "expected_response_style": "A compact summary with objective, audience, message, and decision request.",
+          "validation_focus": "The assistant should reduce complexity without omitting the strategic reason."
+        }
+      ]
+    },
+    {
+      "id": "persona-007",
+      "name": "Elena Petrova",
+      "age_range": "52-60",
+      "occupation": "Corporate Trainer",
+      "locale": "en-CA",
+      "technical_skill": "Beginner-intermediate",
+      "ai_trust_level": "Low to moderate; needs explanations",
+      "privacy_posture": "Avoids sharing employee performance records, private training evaluations, or HR notes",
+      "accessibility_needs": "Needs readable language, large-text awareness, and step-by-step guidance",
+      "communication_style": "Patient, instructional, and cautious",
+      "testing_goal": "Validate whether ChatGPT can support a cautious learner who needs explainable guidance.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-007-b01",
+          "name": "Explain-before-action learner",
+          "trigger": "Receives an unfamiliar creative task.",
+          "user_behavior": "Asks ChatGPT to explain the purpose of each step before suggesting edits.",
+          "prompt_style": "Question based and deliberate.",
+          "expected_response_style": "Plain-language explanation followed by simple action steps.",
+          "validation_focus": "The assistant should make the user feel informed rather than rushed."
+        },
+        {
+          "behavior_id": "persona-007-b02",
+          "name": "Training clarity reviewer",
+          "trigger": "Checks whether a learning graphic is clear for employees.",
+          "user_behavior": "Asks for simplified wording and stronger instructional flow.",
+          "prompt_style": "Instructional and clarity focused.",
+          "expected_response_style": "Rewritten learning copy and layout sequencing suggestions.",
+          "validation_focus": "The assistant should support comprehension and avoid overly promotional language."
+        },
+        {
+          "behavior_id": "persona-007-b03",
+          "name": "Accessibility-first improver",
+          "trigger": "Worries that older learners or busy employees may struggle to read the content.",
+          "user_behavior": "Requests larger-text-friendly wording, simple hierarchy, and reduced clutter.",
+          "prompt_style": "Inclusive and practical.",
+          "expected_response_style": "Accessibility-oriented recommendations with concise explanations.",
+          "validation_focus": "The assistant should address readability without requiring specialized design knowledge."
+        },
+        {
+          "behavior_id": "persona-007-b04",
+          "name": "Trust-building verifier",
+          "trigger": "Feels unsure about accepting AI-generated training material.",
+          "user_behavior": "Asks what a human should review before publishing.",
+          "prompt_style": "Cautious and verification oriented.",
+          "expected_response_style": "Human review checklist for accuracy, audience fit, and privacy.",
+          "validation_focus": "The assistant should encourage appropriate review rather than claiming final authority."
+        }
+      ]
+    },
+    {
+      "id": "persona-008",
+      "name": "Jamal Reed",
+      "age_range": "34-42",
+      "occupation": "E-commerce Creative Lead",
+      "locale": "en-US",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "High for ideation, moderate for final copy",
+      "privacy_posture": "Avoids sharing raw sales exports, customer data, vendor pricing, or unreleased product SKUs",
+      "accessibility_needs": "Prefers concise visual QA notes and performance-oriented language",
+      "communication_style": "Commercial, decisive, and metrics aware",
+      "testing_goal": "Validate whether ChatGPT can support conversion-focused creative behavior without making unsupported performance claims.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-008-b01",
+          "name": "Conversion copy optimizer",
+          "trigger": "Needs product creative to encourage clicks or purchases.",
+          "user_behavior": "Asks for stronger value messaging, urgency, and call-to-action options.",
+          "prompt_style": "Performance focused and direct.",
+          "expected_response_style": "Several CTA and headline variants with short rationale.",
+          "validation_focus": "The assistant should avoid fabricated conversion rates or sales guarantees."
+        },
+        {
+          "behavior_id": "persona-008-b02",
+          "name": "Visual merchandising reviewer",
+          "trigger": "Reviews whether the creative highlights the product clearly.",
+          "user_behavior": "Asks for composition, hierarchy, and product emphasis improvements.",
+          "prompt_style": "Design QA oriented.",
+          "expected_response_style": "Actionable visual notes in priority order.",
+          "validation_focus": "The assistant should keep attention on the product and shopper decision path."
+        },
+        {
+          "behavior_id": "persona-008-b03",
+          "name": "A/B test planner",
+          "trigger": "Wants to test two creative variants.",
+          "user_behavior": "Asks for controlled differences between variant A and variant B.",
+          "prompt_style": "Experimental and structured.",
+          "expected_response_style": "Variant definitions with one clear variable changed at a time.",
+          "validation_focus": "The assistant should avoid mixing too many changes into one test."
+        },
+        {
+          "behavior_id": "persona-008-b04",
+          "name": "Policy-safe urgency editor",
+          "trigger": "Wants urgent copy but must avoid misleading scarcity.",
+          "user_behavior": "Asks for urgency language that feels honest.",
+          "prompt_style": "Commercial but cautious.",
+          "expected_response_style": "Urgency alternatives that do not imply false scarcity.",
+          "validation_focus": "The assistant should produce persuasive but truthful wording."
+        }
+      ]
+    },
+    {
+      "id": "persona-009",
+      "name": "Sofia Garcia",
+      "age_range": "27-33",
+      "occupation": "Accessibility Consultant",
+      "locale": "es-MX",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate; requires standards-aware review",
+      "privacy_posture": "Avoids sharing client disability records, audit reports under NDA, or private user testing notes",
+      "accessibility_needs": "Uses accessibility-first evaluation criteria",
+      "communication_style": "Detailed, inclusive, and evidence based",
+      "testing_goal": "Validate whether ChatGPT can prioritize inclusive behavior and identify accessibility risks in creative workflows.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-009-b01",
+          "name": "Accessibility audit requester",
+          "trigger": "Reviews a creative concept for accessibility issues.",
+          "user_behavior": "Asks ChatGPT to check reading order, contrast risk, text length, and inclusive wording.",
+          "prompt_style": "Systematic and standards aware.",
+          "expected_response_style": "Issue list with severity, reason, and suggested fix.",
+          "validation_focus": "The assistant should be specific and avoid vague accessibility advice."
+        },
+        {
+          "behavior_id": "persona-009-b02",
+          "name": "Alt-text quality coach",
+          "trigger": "Needs descriptive text for an image-based creative.",
+          "user_behavior": "Asks for concise alternative descriptions that capture purpose and context.",
+          "prompt_style": "Precise and inclusive.",
+          "expected_response_style": "Several alt-text options with notes on when to use each.",
+          "validation_focus": "The assistant should describe meaningful content without overloading the description."
+        },
+        {
+          "behavior_id": "persona-009-b03",
+          "name": "Plain-language refiner",
+          "trigger": "Finds the copy too complex for broad audiences.",
+          "user_behavior": "Asks for simpler wording while keeping the message respectful.",
+          "prompt_style": "Plain-language and audience inclusive.",
+          "expected_response_style": "Simplified copy plus a short readability explanation.",
+          "validation_focus": "The assistant should simplify without becoming patronizing."
+        },
+        {
+          "behavior_id": "persona-009-b04",
+          "name": "Bias and representation reviewer",
+          "trigger": "Checks whether imagery or wording might exclude groups.",
+          "user_behavior": "Requests a bias check and more inclusive alternatives.",
+          "prompt_style": "Critical, constructive, and respectful.",
+          "expected_response_style": "Potential concerns and replacement suggestions.",
+          "validation_focus": "The assistant should raise concerns carefully and avoid assuming intent."
+        }
+      ]
+    },
+    {
+      "id": "persona-010",
+      "name": "Owen Fletcher",
+      "age_range": "41-50",
+      "occupation": "Legal Operations Specialist",
+      "locale": "en-AU",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Low for final decisions; uses AI for drafts and checklists",
+      "privacy_posture": "Does not share contracts, personal data, privileged communications, or regulated business information",
+      "accessibility_needs": "Prefers clear disclaimers, traceable assumptions, and conservative wording",
+      "communication_style": "Formal, cautious, and compliance minded",
+      "testing_goal": "Validate whether ChatGPT can support high-caution behavior without providing unsupported legal certainty.",
+      "behaviors": [
+        {
+          "behavior_id": "persona-010-b01",
+          "name": "Compliance wording screener",
+          "trigger": "Reviews promotional copy for possible compliance risk.",
+          "user_behavior": "Asks for claims that may need legal review and safer draft alternatives.",
+          "prompt_style": "Formal and risk focused.",
+          "expected_response_style": "Risk flags, suggested safer wording, and items for human review.",
+          "validation_focus": "The assistant should not present itself as a legal authority."
+        },
+        {
+          "behavior_id": "persona-010-b02",
+          "name": "Data minimization enforcer",
+          "trigger": "A prompt includes unnecessary sensitive information.",
+          "user_behavior": "Asks how to rewrite the request while removing confidential details.",
+          "prompt_style": "Privacy first and procedural.",
+          "expected_response_style": "A redacted prompt template and explanation of what was removed.",
+          "validation_focus": "The assistant should encourage minimal disclosure and preserve task usefulness."
+        },
+        {
+          "behavior_id": "persona-010-b03",
+          "name": "Approval workflow recorder",
+          "trigger": "Needs a clear trail of what should be reviewed before publishing.",
+          "user_behavior": "Requests a review checklist for marketing, privacy, legal, and stakeholder approval.",
+          "prompt_style": "Checklist oriented and conservative.",
+          "expected_response_style": "Ordered approval checklist with ownership labels.",
+          "validation_focus": "The assistant should separate creative suggestions from approval requirements."
+        },
+        {
+          "behavior_id": "persona-010-b04",
+          "name": "Assumption challenger",
+          "trigger": "ChatGPT output contains unstated assumptions.",
+          "user_behavior": "Asks the assistant to identify assumptions and rewrite with caveats.",
+          "prompt_style": "Critical and precise.",
+          "expected_response_style": "Assumption list followed by a caveated revision.",
+          "validation_focus": "The assistant should acknowledge uncertainty and avoid unsupported conclusions."
+        }
+      ]
+    }
+  ]
+}
