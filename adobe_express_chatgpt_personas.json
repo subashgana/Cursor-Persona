@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0",
+  "title": "Adobe Express Enterprise + ChatGPT Integration Test Personas",
+  "shared_test_goal": "Evaluate how ChatGPT can guide different enterprise users through Adobe Express workflows while respecting persona-specific behavior, accessibility, privacy, and brand-control needs.",
+  "personas": [
+    {
+      "id": "persona-001",
+      "name": "Aarav Mehta",
+      "age": 29,
+      "occupation": "Social Media Manager",
+      "industry": "Retail",
+      "locale": "en-IN",
+      "technical_skill": "advanced",
+      "prompt_style": "fast, direct, action-oriented, accepts concise bullet steps",
+      "ai_trust_level": "high",
+      "accessibility_needs": "none",
+      "privacy_posture": "comfortable with AI assistance but avoids sharing unreleased campaign names",
+      "communication_preferences": {
+        "tone": "energetic and concise",
+        "detail_level": "medium",
+        "avoid": [
+          "long explanations",
+          "basic software definitions",
+          "legal-heavy language"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Conversational Design Creation",
+        "Resize for Social Channels",
+        "AI-Powered Editing",
+        "Brand Kit"
+      ],
+      "acceptance_criteria": [
+        "Creates a reusable social post concept quickly",
+        "Maintains approved retail brand colors and logo placement",
+        "Provides export variants for Instagram, LinkedIn, and X",
+        "Uses short, campaign-ready copy"
+      ],
+      "sample_chatgpt_test_prompt": "Act as my Adobe Express assistant. I am a fast-moving social media manager for a retail brand, so give me concise steps only. Use Conversational Design Creation to make a bold eagle-themed yellow background post, apply our Brand Kit colors and logo placement, use AI-Powered Editing to improve contrast, and Resize for Social Channels for Instagram, LinkedIn, and X. Do not ask for unreleased campaign names; use placeholder campaign text."
+    },
+    {
+      "id": "persona-002",
+      "name": "Maya Thompson",
+      "age": 44,
+      "occupation": "Enterprise Brand Compliance Lead",
+      "industry": "Financial Services",
+      "locale": "en-US",
+      "technical_skill": "intermediate",
+      "prompt_style": "policy-focused, precise, prefers approvals and checkpoints",
+      "ai_trust_level": "medium",
+      "accessibility_needs": "requires clear visual hierarchy and readable contrast",
+      "privacy_posture": "strict; does not share client names, account data, or regulated claims",
+      "communication_preferences": {
+        "tone": "formal and controlled",
+        "detail_level": "high",
+        "avoid": [
+          "unapproved claims",
+          "casual slang",
+          "using financial performance language"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Enterprise Brand Control",
+        "Template Locking",
+        "Security & Compliance",
+        "Shared Libraries"
+      ],
+      "acceptance_criteria": [
+        "Uses only approved brand assets",
+        "Locks logo, disclaimer, and color areas",
+        "Includes a compliance review checkpoint",
+        "Avoids any financial advice or performance promise"
+      ],
+      "sample_chatgpt_test_prompt": "Guide me through Adobe Express as a brand compliance lead. Build an eagle-inspired yellow background asset using Enterprise Brand Control and Shared Libraries only. Apply Template Locking to protect the logo, disclaimer zone, and approved color palette. Include a Security & Compliance checkpoint before export. Avoid client names, account details, financial advice, and any performance claims."
+    },
+    {
+      "id": "persona-003",
+      "name": "Lucia Garcia",
+      "age": 36,
+      "occupation": "Field Sales Enablement Specialist",
+      "industry": "B2B Software",
+      "locale": "es-MX",
+      "technical_skill": "intermediate",
+      "prompt_style": "practical, example-driven, asks for ready-to-use talking points",
+      "ai_trust_level": "medium-high",
+      "accessibility_needs": "prefers bilingual copy blocks and large text for presentation use",
+      "privacy_posture": "cautious with customer names and sales pipeline details",
+      "communication_preferences": {
+        "tone": "friendly and practical",
+        "detail_level": "medium",
+        "avoid": [
+          "technical jargon",
+          "customer-specific data",
+          "overly artistic directions"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Presentation Templates",
+        "Translate",
+        "Text Effects",
+        "Brand Kit"
+      ],
+      "acceptance_criteria": [
+        "Creates a slide background usable in sales training",
+        "Includes English and Spanish headline options",
+        "Keeps text large enough for a meeting room",
+        "Preserves brand colors and typography"
+      ],
+      "sample_chatgpt_test_prompt": "Help me create an Adobe Express sales enablement slide background. Use Presentation Templates and Brand Kit to make a clean yellow eagle background that feels confident but not too artistic. Add large headline options in English and Spanish using Translate, then apply subtle Text Effects. Do not include customer names, pipeline numbers, or internal sales targets."
+    },
+    {
+      "id": "persona-004",
+      "name": "Noah Williams",
+      "age": 52,
+      "occupation": "Corporate Learning Designer",
+      "industry": "Healthcare",
+      "locale": "en-GB",
+      "technical_skill": "beginner",
+      "prompt_style": "step-by-step, reassurance-seeking, wants plain language",
+      "ai_trust_level": "low-medium",
+      "accessibility_needs": "needs dyslexia-friendly layout guidance and high contrast",
+      "privacy_posture": "very strict; never shares patient, staff, or clinical information",
+      "communication_preferences": {
+        "tone": "calm and supportive",
+        "detail_level": "high",
+        "avoid": [
+          "technical shortcuts",
+          "medical claims",
+          "dense paragraphs"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Guided Templates",
+        "Accessibility Checks",
+        "Text-to-Template",
+        "Security & Compliance"
+      ],
+      "acceptance_criteria": [
+        "Provides simple numbered steps",
+        "Checks readability and contrast",
+        "Uses a dyslexia-friendly layout",
+        "Avoids protected health information"
+      ],
+      "sample_chatgpt_test_prompt": "Please guide me slowly through Adobe Express in numbered steps. I need a yellow eagle background for a healthcare learning slide. Use Text-to-Template and Guided Templates, then run Accessibility Checks for dyslexia-friendly spacing, readable fonts, and strong contrast. Include a Security & Compliance reminder that no patient, staff, or clinical details should be entered."
+    },
+    {
+      "id": "persona-005",
+      "name": "Priya Nair",
+      "age": 41,
+      "occupation": "Internal Communications Director",
+      "industry": "Manufacturing",
+      "locale": "en-IN",
+      "technical_skill": "advanced",
+      "prompt_style": "strategic, narrative-led, asks for tone alternatives",
+      "ai_trust_level": "high",
+      "accessibility_needs": "requires inclusive language and mobile-friendly readability",
+      "privacy_posture": "moderate; can share general employee themes but not confidential restructuring information",
+      "communication_preferences": {
+        "tone": "warm, executive-ready, inclusive",
+        "detail_level": "medium-high",
+        "avoid": [
+          "fear-based language",
+          "confidential business changes",
+          "overly playful visuals"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Brand Kit",
+        "Generative Fill",
+        "Content Scheduler",
+        "Collaborative Review"
+      ],
+      "acceptance_criteria": [
+        "Produces an executive-ready internal announcement visual",
+        "Offers three tone options",
+        "Uses inclusive employee-facing wording",
+        "Supports stakeholder review before publishing"
+      ],
+      "sample_chatgpt_test_prompt": "Act as my Adobe Express partner for internal communications. Create a polished yellow eagle background that signals confidence and unity. Use Brand Kit, refine the visual with Generative Fill, prepare three inclusive headline tone options, and set up Collaborative Review before Content Scheduler publishing. Avoid confidential restructuring details, fear-based language, and anything too playful."
+    },
+    {
+      "id": "persona-006",
+      "name": "Ethan Brooks",
+      "age": 33,
+      "occupation": "Event Marketing Producer",
+      "industry": "Technology Conferences",
+      "locale": "en-CA",
+      "technical_skill": "advanced",
+      "prompt_style": "visual-first, deadline-driven, asks for asset variations",
+      "ai_trust_level": "high",
+      "accessibility_needs": "needs large-format legibility and alt text",
+      "privacy_posture": "cautious before speaker announcements are public",
+      "communication_preferences": {
+        "tone": "bold and production-oriented",
+        "detail_level": "medium",
+        "avoid": [
+          "speaker names unless provided",
+          "low-resolution export guidance",
+          "generic event copy"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Bulk Create",
+        "Resize for Social Channels",
+        "AI-Powered Editing",
+        "Export Options"
+      ],
+      "acceptance_criteria": [
+        "Creates event signage and social variants",
+        "Keeps type readable at large and small sizes",
+        "Includes alt text for digital assets",
+        "Avoids unannounced speaker information"
+      ],
+      "sample_chatgpt_test_prompt": "Work like an Adobe Express event production assistant. Design a high-impact yellow eagle background for a technology conference, then use AI-Powered Editing to sharpen the focal point. Create Bulk Create placeholders for session title, track, and date, use Resize for Social Channels, and specify Export Options for signage and digital posts. Do not include speaker names unless I provide approved names."
+    },
+    {
+      "id": "persona-007",
+      "name": "Sofia Rossi",
+      "age": 27,
+      "occupation": "Nonprofit Campaign Coordinator",
+      "industry": "Environmental Advocacy",
+      "locale": "it-IT",
+      "technical_skill": "beginner-intermediate",
+      "prompt_style": "mission-driven, asks for emotionally resonant copy",
+      "ai_trust_level": "medium",
+      "accessibility_needs": "needs simple language and screen-reader-friendly descriptions",
+      "privacy_posture": "protective of donor data and volunteer contact details",
+      "communication_preferences": {
+        "tone": "hopeful and human",
+        "detail_level": "medium",
+        "avoid": [
+          "guilt-heavy messaging",
+          "donor information",
+          "complex design terminology"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Templates",
+        "Text Effects",
+        "Remove Background",
+        "Accessibility Checks"
+      ],
+      "acceptance_criteria": [
+        "Creates an emotionally warm campaign visual",
+        "Uses plain-language copy",
+        "Includes alt text and contrast guidance",
+        "Does not expose donor or volunteer data"
+      ],
+      "sample_chatgpt_test_prompt": "Help me make a nonprofit campaign visual in Adobe Express. Use Templates to start a hopeful yellow eagle background, Remove Background if I add a bird image, and apply gentle Text Effects for the headline. Run Accessibility Checks and give me screen-reader-friendly alt text. Keep the wording simple and do not use donor names, volunteer contacts, or guilt-heavy messaging."
+    },
+    {
+      "id": "persona-008",
+      "name": "Kenji Sato",
+      "age": 48,
+      "occupation": "IT Security Manager",
+      "industry": "Pharmaceuticals",
+      "locale": "ja-JP",
+      "technical_skill": "expert",
+      "prompt_style": "risk-led, audit-focused, expects explicit controls",
+      "ai_trust_level": "low",
+      "accessibility_needs": "requires documented export and permission controls",
+      "privacy_posture": "highly restrictive; no proprietary research, trial, or employee data",
+      "communication_preferences": {
+        "tone": "precise and security-conscious",
+        "detail_level": "high",
+        "avoid": [
+          "unsupported assurances",
+          "sensitive research references",
+          "automatic publication"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Security & Compliance",
+        "Admin Controls",
+        "Enterprise Asset Permissions",
+        "Audit-Friendly Sharing"
+      ],
+      "acceptance_criteria": [
+        "Documents every data-safety assumption",
+        "Uses permission-restricted enterprise assets",
+        "Requires manual review before sharing",
+        "Avoids proprietary pharmaceutical information"
+      ],
+      "sample_chatgpt_test_prompt": "Act as a cautious Adobe Express assistant for an IT security manager. Create instructions for a generic yellow eagle background using Security & Compliance, Admin Controls, Enterprise Asset Permissions, and Audit-Friendly Sharing. State each data-safety assumption, require manual review before sharing, and do not reference proprietary research, clinical trials, employee data, or automatic publishing."
+    },
+    {
+      "id": "persona-009",
+      "name": "Amelia Johnson",
+      "age": 24,
+      "occupation": "Junior HR Recruiter",
+      "industry": "Hospitality",
+      "locale": "en-AU",
+      "technical_skill": "beginner",
+      "prompt_style": "friendly, asks for examples, prefers copy-paste-ready text",
+      "ai_trust_level": "medium-high",
+      "accessibility_needs": "needs inclusive language and simple mobile-first layouts",
+      "privacy_posture": "does not share candidate names, resumes, or interview notes",
+      "communication_preferences": {
+        "tone": "welcoming and upbeat",
+        "detail_level": "medium",
+        "avoid": [
+          "biased hiring language",
+          "candidate personal information",
+          "complex design terms"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Quick Actions",
+        "Templates",
+        "Brand Kit",
+        "Mobile Editing"
+      ],
+      "acceptance_criteria": [
+        "Creates a recruitment post background",
+        "Uses inclusive and welcoming copy",
+        "Works well on mobile",
+        "Avoids candidate personal data"
+      ],
+      "sample_chatgpt_test_prompt": "Guide me like a beginner using Adobe Express. I need a welcoming recruitment post with a bright yellow eagle background for hospitality hiring. Use Templates, Quick Actions, Brand Kit, and Mobile Editing. Give me copy-paste-ready inclusive headline and caption options. Do not include candidate names, resumes, interview notes, or biased hiring language."
+    },
+    {
+      "id": "persona-010",
+      "name": "Omar Haddad",
+      "age": 39,
+      "occupation": "Regional Franchise Owner",
+      "industry": "Food and Beverage",
+      "locale": "ar-AE",
+      "technical_skill": "intermediate",
+      "prompt_style": "business-focused, asks for localized options and approval-safe assets",
+      "ai_trust_level": "medium",
+      "accessibility_needs": "requires right-to-left layout support and clear color contrast",
+      "privacy_posture": "keeps sales figures, vendor pricing, and franchise agreements private",
+      "communication_preferences": {
+        "tone": "professional and locally relevant",
+        "detail_level": "medium",
+        "avoid": [
+          "private sales numbers",
+          "vendor pricing",
+          "unapproved franchise claims"
+        ]
+      },
+      "adobe_express_feature_focus": [
+        "Localized Templates",
+        "Right-to-Left Text Support",
+        "Brand Kit",
+        "Collaborative Review"
+      ],
+      "acceptance_criteria": [
+        "Creates an Arabic-ready local promotion visual",
+        "Maintains franchise brand standards",
+        "Supports approval review",
+        "Keeps financial and vendor information private"
+      ],
+      "sample_chatgpt_test_prompt": "Help me prepare an Adobe Express local promotion asset for a franchise. Use Localized Templates, Right-to-Left Text Support, Brand Kit, and Collaborative Review. Create a yellow eagle background with professional Arabic-ready layout guidance and strong contrast. Keep sales figures, vendor pricing, franchise agreements, and unapproved brand claims out of the prompt and design."
+    }
+  ]
+}
