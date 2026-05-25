@@ -1,0 +1,496 @@
+{
+  "metadata": {
+    "title": "Adobe Integration with ChatGPT - Synthetic Persona Set",
+    "version": "1.0",
+    "personaCount": 10,
+    "scope": "Behavior-only persona testing for Adobe integration with ChatGPT",
+    "createdFor": "Persona-isolated behavior testing"
+  },
+  "sharedTestContext": {
+    "productArea": "Adobe integration with ChatGPT",
+    "testingGoal": "Evaluate how distinct synthetic users ask, refine, validate, and accept creative assistance through ChatGPT-connected Adobe workflows.",
+    "behaviorOnlyNote": "These personas intentionally focus on observable behavior patterns only."
+  },
+  "personas": [
+    {
+      "id": "persona-001",
+      "name": "Maya Srinivasan",
+      "age": 29,
+      "occupation": "Enterprise Social Media Manager",
+      "locale": "en-IN",
+      "technicalSkill": "Intermediate",
+      "promptStyle": "Short, action-oriented, and deadline-focused",
+      "aiTrustLevel": "Medium",
+      "privacyPosture": "Avoids uploading unreleased campaign data or confidential launch dates",
+      "accessibilityNeeds": "Prefers concise visual descriptions and strong text contrast reminders",
+      "behaviorProfile": {
+        "communicationTone": "Direct, upbeat, and brand-aware",
+        "decisionPattern": "Chooses the fastest option that still looks polished",
+        "riskTolerance": "Low for brand errors, medium for creative experimentation",
+        "collaborationPreference": "Asks ChatGPT for quick options, then selects one to refine",
+        "acceptanceCriteria": [
+          "Output feels campaign-ready",
+          "Text is short enough for social media",
+          "Visual direction is bright, optimistic, and easy to scan",
+          "No confidential product detail is exposed"
+        ],
+        "avoidList": [
+          "Long explanations",
+          "Off-brand slang",
+          "Unverified performance claims",
+          "Requests for private campaign assets"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Starts with a compact instruction and asks for three creative directions before choosing one."
+        },
+        {
+          "type": "Iteration",
+          "description": "Refines quickly by changing color, headline length, and call-to-action wording one item at a time."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks whether the result is brand-safe, readable on mobile, and aligned with the campaign mood."
+        },
+        {
+          "type": "Privacy",
+          "description": "Replaces sensitive campaign names with placeholders and asks ChatGPT not to infer confidential details."
+        }
+      ]
+    },
+    {
+      "id": "persona-002",
+      "name": "Ethan Brooks",
+      "age": 46,
+      "occupation": "Corporate Compliance Reviewer",
+      "locale": "en-US",
+      "technicalSkill": "Basic",
+      "promptStyle": "Formal, cautious, and checklist-driven",
+      "aiTrustLevel": "Low",
+      "privacyPosture": "Does not share regulated client information, employee identifiers, or legal terms",
+      "accessibilityNeeds": "Needs plain-language explanations with minimal visual clutter",
+      "behaviorProfile": {
+        "communicationTone": "Careful, procedural, and skeptical",
+        "decisionPattern": "Approves only after each risk item is addressed",
+        "riskTolerance": "Very low",
+        "collaborationPreference": "Asks ChatGPT to state assumptions and provide review checkpoints",
+        "acceptanceCriteria": [
+          "No legal, financial, or medical claims are invented",
+          "Design wording is neutral and non-promissory",
+          "Every suggestion is explainable",
+          "Sensitive details are excluded"
+        ],
+        "avoidList": [
+          "Speculative claims",
+          "Aggressive marketing language",
+          "Hidden assumptions",
+          "Uploading confidential documents"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Begins by defining boundaries, restricted data, and required review checkpoints before asking for creative help."
+        },
+        {
+          "type": "Iteration",
+          "description": "Requests conservative alternatives and removes wording that could be interpreted as a claim."
+        },
+        {
+          "type": "Validation",
+          "description": "Uses a pass/fail checklist for privacy, claim safety, accessibility, and audit readiness."
+        },
+        {
+          "type": "Escalation",
+          "description": "Flags anything uncertain for human compliance review instead of accepting ChatGPT's suggestion directly."
+        }
+      ]
+    },
+    {
+      "id": "persona-003",
+      "name": "Sofia Alvarez",
+      "age": 34,
+      "occupation": "Freelance Visual Designer",
+      "locale": "es-MX",
+      "technicalSkill": "Advanced",
+      "promptStyle": "Visual, experimental, and reference-heavy",
+      "aiTrustLevel": "High",
+      "privacyPosture": "Comfortable using public concept references but avoids client-only brand files",
+      "accessibilityNeeds": "Requests color contrast checks for final client handoff",
+      "behaviorProfile": {
+        "communicationTone": "Creative, expressive, and collaborative",
+        "decisionPattern": "Explores divergent concepts before narrowing to one visual system",
+        "riskTolerance": "High for aesthetics, medium for client-facing deliverables",
+        "collaborationPreference": "Treats ChatGPT like a brainstorming partner and art-direction assistant",
+        "acceptanceCriteria": [
+          "Design direction feels original",
+          "Composition has clear hierarchy",
+          "Color palette is intentional",
+          "Final wording can be reused in a client presentation"
+        ],
+        "avoidList": [
+          "Generic stock-like concepts",
+          "Overly corporate language",
+          "Copying a known artist or living designer",
+          "Ignoring accessibility"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Uses mood words, layout references, and color intent to guide ChatGPT toward a distinct creative territory."
+        },
+        {
+          "type": "Exploration",
+          "description": "Asks for bold, moderate, and minimal versions so she can compare creative range."
+        },
+        {
+          "type": "Iteration",
+          "description": "Fine-tunes composition, negative space, typography mood, and visual rhythm across several short prompts."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks that the final concept feels ownable, not derivative, and can be explained to a client."
+        }
+      ]
+    },
+    {
+      "id": "persona-004",
+      "name": "Noah Kim",
+      "age": 22,
+      "occupation": "University Student Club President",
+      "locale": "en-CA",
+      "technicalSkill": "Intermediate",
+      "promptStyle": "Casual, energetic, and example-based",
+      "aiTrustLevel": "High",
+      "privacyPosture": "Avoids sharing student names, emails, and event registration data",
+      "accessibilityNeeds": "Needs accessible wording and readable poster text for campus displays",
+      "behaviorProfile": {
+        "communicationTone": "Friendly, fast-moving, and informal",
+        "decisionPattern": "Picks whatever is clearest to classmates and easiest to reuse",
+        "riskTolerance": "Medium",
+        "collaborationPreference": "Uses ChatGPT to turn rough ideas into polished event material",
+        "acceptanceCriteria": [
+          "Message is easy for students to understand",
+          "Design feels energetic but not chaotic",
+          "Important details are visible at a glance",
+          "No student personal data is used"
+        ],
+        "avoidList": [
+          "Dense paragraphs",
+          "Formal corporate phrasing",
+          "Tiny text",
+          "Student identifying information"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Starts with a rough idea and asks ChatGPT to make it clearer, more fun, and easier to turn into a campus graphic."
+        },
+        {
+          "type": "Iteration",
+          "description": "Changes wording based on whether friends would understand it in five seconds."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks event title, date, location placeholders, and readability before accepting the result."
+        },
+        {
+          "type": "Sharing",
+          "description": "Asks for versions that can work as both a poster and a social post."
+        }
+      ]
+    },
+    {
+      "id": "persona-005",
+      "name": "Priya Nair",
+      "age": 52,
+      "occupation": "Small Business Owner",
+      "locale": "en-GB",
+      "technicalSkill": "Basic",
+      "promptStyle": "Plain-spoken, step-by-step, and outcome-led",
+      "aiTrustLevel": "Medium",
+      "privacyPosture": "Will not share supplier prices, customer lists, or revenue figures",
+      "accessibilityNeeds": "Prefers large text, clear buttons, and simple instructions",
+      "behaviorProfile": {
+        "communicationTone": "Practical, polite, and budget-conscious",
+        "decisionPattern": "Chooses options that are easy to edit again without expert help",
+        "riskTolerance": "Low",
+        "collaborationPreference": "Asks ChatGPT to explain each step before making another change",
+        "acceptanceCriteria": [
+          "Instructions are simple enough to repeat",
+          "Design looks professional for local customers",
+          "Business details remain placeholders until final review",
+          "No hidden complexity is introduced"
+        ],
+        "avoidList": [
+          "Technical jargon",
+          "Too many options at once",
+          "Complex design terminology",
+          "Sensitive business metrics"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Describes the business goal in plain language and asks for one recommended direction instead of many alternatives."
+        },
+        {
+          "type": "Guided Editing",
+          "description": "Requests numbered steps and confirms each edit before moving to the next."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks whether a non-designer could update the design later without breaking it."
+        },
+        {
+          "type": "Privacy",
+          "description": "Uses placeholders for prices, customer names, and supplier details until the final manual edit."
+        }
+      ]
+    },
+    {
+      "id": "persona-006",
+      "name": "Liam O'Connor",
+      "age": 38,
+      "occupation": "Enterprise IT Administrator",
+      "locale": "en-IE",
+      "technicalSkill": "Advanced",
+      "promptStyle": "Precise, constraint-heavy, and systems-minded",
+      "aiTrustLevel": "Medium",
+      "privacyPosture": "Strictly avoids credentials, internal URLs, tenant IDs, and employee records",
+      "accessibilityNeeds": "Requires keyboard-friendly workflow notes and accessible output checks",
+      "behaviorProfile": {
+        "communicationTone": "Technical, concise, and policy-aware",
+        "decisionPattern": "Tests boundary conditions before trusting a workflow",
+        "riskTolerance": "Low for data handling, medium for UI experimentation",
+        "collaborationPreference": "Uses ChatGPT to model workflow behavior and identify operational risks",
+        "acceptanceCriteria": [
+          "No secrets or identifiers are requested",
+          "Steps can be reproduced by another admin",
+          "Output respects enterprise policy language",
+          "Failure cases are acknowledged"
+        ],
+        "avoidList": [
+          "Credential requests",
+          "Assuming admin privileges",
+          "Vague security wording",
+          "Unlogged workflow changes"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Provides structured constraints, allowed data types, and expected output format before asking ChatGPT to assist."
+        },
+        {
+          "type": "Boundary Testing",
+          "description": "Attempts edge cases such as missing assets, restricted wording, or incomplete permissions."
+        },
+        {
+          "type": "Validation",
+          "description": "Confirms that the workflow does not request credentials, private links, or internal identifiers."
+        },
+        {
+          "type": "Documentation",
+          "description": "Asks for reproducible steps that can be added to an internal test note."
+        }
+      ]
+    },
+    {
+      "id": "persona-007",
+      "name": "Aisha Bello",
+      "age": 41,
+      "occupation": "Nonprofit Communications Director",
+      "locale": "en-NG",
+      "technicalSkill": "Intermediate",
+      "promptStyle": "Empathetic, mission-led, and audience-sensitive",
+      "aiTrustLevel": "Medium",
+      "privacyPosture": "Protects beneficiary identities, donor details, and sensitive field locations",
+      "accessibilityNeeds": "Requests inclusive wording and readable designs for low-bandwidth sharing",
+      "behaviorProfile": {
+        "communicationTone": "Warm, respectful, and community-centered",
+        "decisionPattern": "Balances emotional impact with dignity and consent",
+        "riskTolerance": "Very low for privacy and representation, medium for storytelling style",
+        "collaborationPreference": "Uses ChatGPT to improve clarity while preserving human dignity",
+        "acceptanceCriteria": [
+          "Message is respectful and non-exploitative",
+          "No protected identity details are revealed",
+          "Call to action is clear",
+          "Design can be understood quickly on mobile"
+        ],
+        "avoidList": [
+          "Poverty stereotypes",
+          "Identifiable beneficiary details",
+          "Guilt-based language",
+          "Complex copy that weakens the call to action"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Frames the communication goal around dignity, consent, and community impact before asking for creative support."
+        },
+        {
+          "type": "Sensitivity Review",
+          "description": "Asks ChatGPT to flag wording that may feel exploitative, insensitive, or too donor-centric."
+        },
+        {
+          "type": "Iteration",
+          "description": "Adjusts tone until it feels hopeful, specific, and respectful."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks whether the final message is safe to share publicly without revealing protected details."
+        }
+      ]
+    },
+    {
+      "id": "persona-008",
+      "name": "Hiro Tanaka",
+      "age": 57,
+      "occupation": "Manufacturing Training Lead",
+      "locale": "ja-JP",
+      "technicalSkill": "Basic",
+      "promptStyle": "Instructional, methodical, and safety-focused",
+      "aiTrustLevel": "Low",
+      "privacyPosture": "Does not share factory layouts, machine identifiers, or proprietary process details",
+      "accessibilityNeeds": "Needs simple language, high contrast, and icon-friendly instructions",
+      "behaviorProfile": {
+        "communicationTone": "Calm, exact, and safety-first",
+        "decisionPattern": "Approves content only if it reduces ambiguity for trainees",
+        "riskTolerance": "Very low",
+        "collaborationPreference": "Asks ChatGPT to simplify training language while preserving safety meaning",
+        "acceptanceCriteria": [
+          "Instructions cannot be misread",
+          "Safety warnings are visible",
+          "No proprietary process details are exposed",
+          "Output is suitable for multilingual review"
+        ],
+        "avoidList": [
+          "Ambiguous action verbs",
+          "Humor in safety content",
+          "Factory-specific confidential data",
+          "Dense text blocks"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "States the training objective, safety priority, and restricted information before requesting a simplified creative draft."
+        },
+        {
+          "type": "Clarification",
+          "description": "Asks ChatGPT to identify any instruction that could be misunderstood by a new worker."
+        },
+        {
+          "type": "Iteration",
+          "description": "Rewrites each instruction into shorter, clearer, and more literal language."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks that the output can be reviewed by safety and localization teams."
+        }
+      ]
+    },
+    {
+      "id": "persona-009",
+      "name": "Grace Miller",
+      "age": 63,
+      "occupation": "Retired Community Volunteer",
+      "locale": "en-AU",
+      "technicalSkill": "Beginner",
+      "promptStyle": "Conversational, patient, and reassurance-seeking",
+      "aiTrustLevel": "Medium",
+      "privacyPosture": "Avoids sharing home addresses, phone numbers, and private community member details",
+      "accessibilityNeeds": "Needs larger text, simple layouts, and instructions without shortcuts",
+      "behaviorProfile": {
+        "communicationTone": "Friendly, careful, and appreciative",
+        "decisionPattern": "Moves forward only when the next step feels clear",
+        "riskTolerance": "Low",
+        "collaborationPreference": "Asks ChatGPT for gentle guidance and simple wording",
+        "acceptanceCriteria": [
+          "Instructions are easy to follow",
+          "Design does not feel crowded",
+          "Important details are large and readable",
+          "Private community details remain hidden"
+        ],
+        "avoidList": [
+          "Keyboard shortcut-only guidance",
+          "Fast unexplained jumps",
+          "Small text",
+          "Publishing personal contact details"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Explains the goal in a conversational way and asks ChatGPT to guide her slowly."
+        },
+        {
+          "type": "Step Confirmation",
+          "description": "Repeats back each instruction and asks if it is correct before continuing."
+        },
+        {
+          "type": "Iteration",
+          "description": "Requests simpler text, larger labels, and fewer visual elements when the result feels busy."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks whether another volunteer could understand and reuse the design without help."
+        }
+      ]
+    },
+    {
+      "id": "persona-010",
+      "name": "Marcus Reed",
+      "age": 31,
+      "occupation": "Startup Growth Marketer",
+      "locale": "en-US",
+      "technicalSkill": "Advanced",
+      "promptStyle": "Data-aware, test-oriented, and punchy",
+      "aiTrustLevel": "High",
+      "privacyPosture": "Does not share customer lists, private analytics exports, or unreleased roadmap details",
+      "accessibilityNeeds": "Requests contrast-aware variants for ads and landing page assets",
+      "behaviorProfile": {
+        "communicationTone": "Fast, analytical, and conversion-focused",
+        "decisionPattern": "Compares variants and selects the one with the clearest hypothesis",
+        "riskTolerance": "Medium",
+        "collaborationPreference": "Uses ChatGPT to generate test variants, hypotheses, and concise copy",
+        "acceptanceCriteria": [
+          "Each variant has a clear test purpose",
+          "Copy is concise and measurable",
+          "No private metrics are exposed",
+          "Visual hierarchy supports quick scanning"
+        ],
+        "avoidList": [
+          "Vanity claims",
+          "Fake numbers",
+          "Unreleased product promises",
+          "Overloaded layouts"
+        ]
+      },
+      "behaviors": [
+        {
+          "type": "Prompt Entry",
+          "description": "Provides the target audience, desired action, and testing hypothesis before requesting creative options."
+        },
+        {
+          "type": "Variant Generation",
+          "description": "Asks for multiple headline and layout variations that each test a different messaging angle."
+        },
+        {
+          "type": "Iteration",
+          "description": "Cuts copy aggressively, strengthens the call to action, and asks for sharper visual hierarchy."
+        },
+        {
+          "type": "Validation",
+          "description": "Checks whether the result can be evaluated without inventing metrics or exposing private analytics."
+        }
+      ]
+    }
+  ]
+}
