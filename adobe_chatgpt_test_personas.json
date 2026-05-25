@@ -1,0 +1,436 @@
+{
+  "dataset": "Adobe Express ChatGPT integration test personas",
+  "version": "1.0.0",
+  "creative_task": "Use ChatGPT with Adobe Express to create an eagle-themed design with a yellow background.",
+  "personas": [
+    {
+      "id": "persona-001",
+      "name": "Aarav Mehta",
+      "age": 19,
+      "occupation": "First-year marketing student",
+      "locale": "en-IN",
+      "technical_skill": "Beginner",
+      "prompt_style": "Short, step-by-step, asks for examples",
+      "ai_trust_level": "Curious but needs confirmation before applying changes",
+      "accessibility_needs": [
+        "Plain language instructions",
+        "High contrast visual guidance"
+      ],
+      "privacy_posture": "Avoids uploading personal photos or university-only assets",
+      "communication_tone": "Friendly, energetic, and direct",
+      "avoid_list": [
+        "Advanced design jargon",
+        "Unverified copyright claims",
+        "Using personal student data"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Conversational Design Creation",
+          "reason": "Beginner skill level requires ChatGPT to turn simple instructions into a guided Adobe Express workflow."
+        },
+        {
+          "feature": "Templates",
+          "reason": "A student can start from an existing layout instead of building a design from scratch."
+        },
+        {
+          "feature": "Generative Fill",
+          "reason": "Supports simple edits to place or refine an eagle image without complex manual masking."
+        }
+      ],
+      "acceptance_criteria": [
+        "Design includes a clear eagle image",
+        "Background is visibly yellow",
+        "Instructions are simple enough for a beginner",
+        "No personal student information is used"
+      ],
+      "chatgpt_prompt": "I am a beginner marketing student using Adobe Express with ChatGPT. Please guide me one step at a time to create an eagle-themed poster with a bright yellow background. Use Conversational Design Creation to help me pick a simple template, then use Templates and Generative Fill to add or improve the eagle image. Keep the language simple, tell me where to click, and ask me to confirm before making any major change. Do not use personal photos or university-only assets."
+    },
+    {
+      "id": "persona-002",
+      "name": "Maya Rodriguez",
+      "age": 24,
+      "occupation": "Freelance social media designer",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Creative brief with visual adjectives and platform requirements",
+      "ai_trust_level": "High trust for ideation, reviews final output manually",
+      "accessibility_needs": [
+        "Mobile-friendly layout checks"
+      ],
+      "privacy_posture": "Comfortable using licensed stock assets, avoids client-confidential material",
+      "communication_tone": "Trendy, concise, and visual",
+      "avoid_list": [
+        "Corporate-heavy wording",
+        "Low-resolution exports",
+        "Client names or unreleased campaign details"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Text to Image",
+          "reason": "Supports fast creative exploration for a stylized eagle visual."
+        },
+        {
+          "feature": "Resize",
+          "reason": "Needed to adapt the final design for social posts and stories."
+        },
+        {
+          "feature": "Design Assets",
+          "reason": "Provides decorative elements that match social media trends."
+        }
+      ],
+      "acceptance_criteria": [
+        "Square and story-ready versions are considered",
+        "Eagle image feels modern and social-media friendly",
+        "Yellow background remains dominant",
+        "No confidential client material appears"
+      ],
+      "chatgpt_prompt": "Act as my Adobe Express creative partner for a social campaign concept. I need a bold, scroll-stopping eagle graphic on a saturated yellow background. Use Text to Image for a modern eagle style, add Design Assets that feel energetic but not corporate, and remind me to use Resize for a square feed post and a vertical story. Keep the copy short and visual. Avoid client names, unreleased campaign details, and anything that could look low resolution."
+    },
+    {
+      "id": "persona-003",
+      "name": "Lena Schmidt",
+      "age": 31,
+      "occupation": "Enterprise brand manager",
+      "locale": "de-DE",
+      "technical_skill": "Advanced",
+      "prompt_style": "Structured, policy-aware, brand-compliance focused",
+      "ai_trust_level": "Moderate trust with strict review checkpoints",
+      "accessibility_needs": [
+        "Clear contrast validation",
+        "Readable typography"
+      ],
+      "privacy_posture": "Requires enterprise-approved assets and brand governance",
+      "communication_tone": "Precise, professional, and compliance-oriented",
+      "avoid_list": [
+        "Off-brand fonts",
+        "Unapproved colors",
+        "Externally sourced logos",
+        "Unreviewed generated claims"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Enterprise Brand Control",
+          "reason": "Ensures fonts, colors, and templates stay within approved brand rules."
+        },
+        {
+          "feature": "Brand Kits",
+          "reason": "Allows the yellow background and eagle design to be checked against approved brand assets."
+        },
+        {
+          "feature": "Security & Compliance",
+          "reason": "Matches the persona's strict privacy posture for enterprise workflows."
+        }
+      ],
+      "acceptance_criteria": [
+        "Uses only approved brand kit elements",
+        "Yellow background complies with brand guidance",
+        "Eagle asset source is reviewable",
+        "Design includes a final compliance checkpoint"
+      ],
+      "chatgpt_prompt": "Support me in Adobe Express as an enterprise brand manager. Create an eagle-themed design with a yellow background only if the color, typography, and layout can stay inside Enterprise Brand Control rules. Use Brand Kits to select approved fonts, colors, and templates, and apply Security & Compliance checks before suggesting export. Give me a structured workflow with review checkpoints for asset source, contrast, readability, and brand approval. Do not introduce off-brand fonts, external logos, or unsupported claims."
+    },
+    {
+      "id": "persona-004",
+      "name": "Noah Thompson",
+      "age": 37,
+      "occupation": "Small business owner",
+      "locale": "en-GB",
+      "technical_skill": "Basic",
+      "prompt_style": "Goal-focused, practical, asks for business-ready output",
+      "ai_trust_level": "Moderate trust when benefits are explained",
+      "accessibility_needs": [
+        "Minimal steps",
+        "Readable text size recommendations"
+      ],
+      "privacy_posture": "Avoids sharing customer data or private sales figures",
+      "communication_tone": "Practical, reassuring, and efficient",
+      "avoid_list": [
+        "Complex creative theory",
+        "Customer information",
+        "Overly experimental visuals"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Quick Actions",
+          "reason": "Supports a time-constrained user who needs fast background and image adjustments."
+        },
+        {
+          "feature": "Templates",
+          "reason": "Provides ready-made business layouts for posters or flyers."
+        },
+        {
+          "feature": "Background Remover",
+          "reason": "Helps place an eagle cleanly on a yellow background."
+        }
+      ],
+      "acceptance_criteria": [
+        "Workflow has minimal steps",
+        "Design is suitable for a business promotion",
+        "No customer data is included",
+        "Text remains easy to read"
+      ],
+      "chatgpt_prompt": "Help me make a business-ready Adobe Express flyer with an eagle on a yellow background. I want the quickest reliable path: choose a clean Template, use Background Remover if the eagle image has a messy background, and use Quick Actions for any fast resizing or cleanup. Keep the steps minimal and explain why each step matters. Do not include customer names, sales figures, or overly experimental design ideas."
+    },
+    {
+      "id": "persona-005",
+      "name": "Priya Nair",
+      "age": 43,
+      "occupation": "Human resources training lead",
+      "locale": "en-IN",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Instructional, inclusive, checklist-driven",
+      "ai_trust_level": "Cautious trust with accessibility review",
+      "accessibility_needs": [
+        "Alt text guidance",
+        "High contrast",
+        "Readable slide layout"
+      ],
+      "privacy_posture": "Does not include employee names, faces, or internal HR issues",
+      "communication_tone": "Inclusive, calm, and instructional",
+      "avoid_list": [
+        "Employee personal information",
+        "Insensitive metaphors",
+        "Tiny text",
+        "Low contrast color pairings"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Presentation Templates",
+          "reason": "Training lead needs slide-ready output for employee learning."
+        },
+        {
+          "feature": "Accessibility Checks",
+          "reason": "Accessibility needs require readable text, contrast, and alt text validation."
+        },
+        {
+          "feature": "Collaboration",
+          "reason": "Supports review by HR or training stakeholders before publishing."
+        }
+      ],
+      "acceptance_criteria": [
+        "Slide design includes an eagle and yellow background",
+        "Accessibility checklist is included",
+        "No employee personal information appears",
+        "Design is appropriate for workplace training"
+      ],
+      "chatgpt_prompt": "Guide me through creating an inclusive Adobe Express training slide with an eagle image and a yellow background. Use Presentation Templates for a clean learning layout, Accessibility Checks for contrast, readable text, and alt text, and Collaboration so another HR reviewer can approve it. Give me a checklist format and use calm instructional language. Do not include employee names, faces, HR cases, or insensitive eagle metaphors."
+    },
+    {
+      "id": "persona-006",
+      "name": "Jamal Carter",
+      "age": 52,
+      "occupation": "Nonprofit communications director",
+      "locale": "en-US",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Mission-led, narrative, asks for ethical asset use",
+      "ai_trust_level": "Selective trust after source and rights checks",
+      "accessibility_needs": [
+        "Screen-reader-friendly copy",
+        "Plain-language review"
+      ],
+      "privacy_posture": "Protects donor, volunteer, and beneficiary identities",
+      "communication_tone": "Warm, mission-centered, and responsible",
+      "avoid_list": [
+        "Donor names",
+        "Beneficiary images without consent",
+        "Manipulative fundraising language",
+        "Unlicensed imagery"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Adobe Stock Integration",
+          "reason": "Helps select rights-cleared eagle imagery for public nonprofit communications."
+        },
+        {
+          "feature": "Content Scheduler",
+          "reason": "Useful for planning nonprofit campaign publishing once the design is complete."
+        },
+        {
+          "feature": "Accessibility Checks",
+          "reason": "Supports plain language and screen-reader-friendly content."
+        }
+      ],
+      "acceptance_criteria": [
+        "Eagle asset has clear usage rights",
+        "Yellow background supports readable text",
+        "No donor or beneficiary identity is exposed",
+        "Message remains ethical and mission-led"
+      ],
+      "chatgpt_prompt": "Help me create a responsible Adobe Express nonprofit campaign graphic featuring an eagle against a yellow background. Use Adobe Stock Integration so the eagle image is rights-cleared, then use Accessibility Checks for readable text and screen-reader-friendly wording. Include a reminder that Content Scheduler can be used after approval. Keep the message warm and mission-led, and avoid donor names, beneficiary images without consent, manipulative language, or unlicensed imagery."
+    },
+    {
+      "id": "persona-007",
+      "name": "Elena Petrova",
+      "age": 58,
+      "occupation": "Legal operations manager",
+      "locale": "en-CA",
+      "technical_skill": "Advanced",
+      "prompt_style": "Risk-based, audit-friendly, documentation-heavy",
+      "ai_trust_level": "Low trust unless decisions are traceable",
+      "accessibility_needs": [
+        "Detailed written steps",
+        "Export review checklist"
+      ],
+      "privacy_posture": "Requires confidential information controls and auditability",
+      "communication_tone": "Formal, careful, and evidence-based",
+      "avoid_list": [
+        "Confidential matter details",
+        "Legal advice wording",
+        "Untracked AI edits",
+        "Ambiguous approvals"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Security & Compliance",
+          "reason": "Legal operations requires controlled handling of assets and AI-assisted changes."
+        },
+        {
+          "feature": "Version History",
+          "reason": "Traceability is needed because the persona has low trust in untracked AI decisions."
+        },
+        {
+          "feature": "Enterprise Brand Control",
+          "reason": "Ensures the eagle design remains approved for organizational use."
+        }
+      ],
+      "acceptance_criteria": [
+        "Every AI-assisted change is reviewable",
+        "No confidential legal matter details are used",
+        "Design follows approved enterprise controls",
+        "Final export includes a documented approval step"
+      ],
+      "chatgpt_prompt": "Assist me with a controlled Adobe Express workflow for an eagle design on a yellow background. Use Security & Compliance guidance first, then Enterprise Brand Control for approved colors and layout, and Version History to keep AI-assisted changes traceable. Provide formal numbered steps and include an export approval checklist. Do not use confidential matter details, legal advice wording, untracked AI edits, or vague approval language."
+    },
+    {
+      "id": "persona-008",
+      "name": "Grace Williams",
+      "age": 66,
+      "occupation": "Retired community volunteer",
+      "locale": "en-AU",
+      "technical_skill": "Novice",
+      "prompt_style": "Patient, plain-language, confirms one action at a time",
+      "ai_trust_level": "Low trust until the result is visible",
+      "accessibility_needs": [
+        "Large text",
+        "Low visual clutter",
+        "Clear contrast"
+      ],
+      "privacy_posture": "Avoids sharing personal address, phone number, or community member photos",
+      "communication_tone": "Patient, encouraging, and simple",
+      "avoid_list": [
+        "Fast multi-step instructions",
+        "Small text",
+        "Personal contact details",
+        "Photos of community members without permission"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Guided Editing",
+          "reason": "Novice user needs slow, visible, one-action-at-a-time support."
+        },
+        {
+          "feature": "Templates",
+          "reason": "A simple flyer template reduces complexity and visual clutter."
+        },
+        {
+          "feature": "Accessibility Checks",
+          "reason": "Large text and contrast requirements need explicit validation."
+        }
+      ],
+      "acceptance_criteria": [
+        "Instructions are delivered one step at a time",
+        "Text is large and easy to read",
+        "Eagle and yellow background are clearly visible",
+        "No personal contact details are included"
+      ],
+      "chatgpt_prompt": "Please help me slowly create a simple Adobe Express community flyer with an eagle picture and a yellow background. Use Guided Editing and Templates so I can follow one action at a time, and use Accessibility Checks to make sure the text is large, clear, and easy to read. Ask me to confirm after each step before moving on. Do not include my address, phone number, or photos of community members without permission."
+    },
+    {
+      "id": "persona-009",
+      "name": "Kenji Sato",
+      "age": 72,
+      "occupation": "Museum education consultant",
+      "locale": "ja-JP",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Context-rich, historically sensitive, asks for explanatory notes",
+      "ai_trust_level": "Moderate trust with factual review",
+      "accessibility_needs": [
+        "Readable captions",
+        "Bilingual-friendly layout"
+      ],
+      "privacy_posture": "Avoids restricted collection images and unpublished research",
+      "communication_tone": "Respectful, educational, and detail-oriented",
+      "avoid_list": [
+        "Restricted collection assets",
+        "Unverified historical statements",
+        "Crowded layout",
+        "Unpublished research details"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Multilingual Content Support",
+          "reason": "Persona may need bilingual educational text for Japanese and English audiences."
+        },
+        {
+          "feature": "Text Effects",
+          "reason": "Readable captions and headings can distinguish educational sections without clutter."
+        },
+        {
+          "feature": "Adobe Stock Integration",
+          "reason": "Helps avoid restricted museum collection assets by using licensed eagle imagery."
+        }
+      ],
+      "acceptance_criteria": [
+        "Eagle visual uses licensed or approved imagery",
+        "Yellow background supports readable bilingual text",
+        "Historical or educational wording is clearly marked for review",
+        "Layout is not crowded"
+      ],
+      "chatgpt_prompt": "Help me prepare an educational Adobe Express design with an eagle image on a yellow background for a museum learning activity. Use Adobe Stock Integration for approved eagle imagery, Multilingual Content Support for Japanese and English text planning, and Text Effects only where they improve readable captions. Please include notes on which statements need factual review. Avoid restricted collection images, unpublished research, unverified historical claims, and crowded layouts."
+    },
+    {
+      "id": "persona-010",
+      "name": "Margaret Ellis",
+      "age": 81,
+      "occupation": "Local history club newsletter editor",
+      "locale": "en-US",
+      "technical_skill": "Novice",
+      "prompt_style": "Careful, traditional, asks for printable instructions",
+      "ai_trust_level": "Very low trust and prefers manual review",
+      "accessibility_needs": [
+        "Large print",
+        "Simple printable checklist",
+        "High contrast"
+      ],
+      "privacy_posture": "Avoids home addresses, phone numbers, and member-only stories",
+      "communication_tone": "Respectful, patient, and traditional",
+      "avoid_list": [
+        "Modern slang",
+        "Tiny decorative text",
+        "Member contact details",
+        "Automatic publishing"
+      ],
+      "adobe_express_feature_mapping": [
+        {
+          "feature": "Print-ready Export",
+          "reason": "Newsletter editor needs a design that can be reviewed and printed."
+        },
+        {
+          "feature": "Guided Editing",
+          "reason": "Novice skill and low AI trust require careful manual confirmation."
+        },
+        {
+          "feature": "Accessibility Checks",
+          "reason": "Large print and high contrast are essential for the persona's audience."
+        }
+      ],
+      "acceptance_criteria": [
+        "Design is print-ready",
+        "Instructions are suitable for manual review",
+        "Yellow background and eagle image print clearly",
+        "No member contact details or private stories are included"
+      ],
+      "chatgpt_prompt": "Please give me a careful, printable checklist for making an Adobe Express newsletter graphic with an eagle image and a yellow background. Use Guided Editing so I can approve each change myself, Accessibility Checks for large print and high contrast, and Print-ready Export when the design is finished. Use traditional, respectful wording. Do not use slang, tiny decorative text, member contact details, private club stories, or automatic publishing."
+    }
+  ]
+}
