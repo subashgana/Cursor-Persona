@@ -631,7 +631,7 @@
           <h2>Adobe Express feature catalogue used for mapping</h2>
           <p>Feature names are aligned to the Adobe Express feature page and related Adobe Express product pages.</p>
         </div>
-        <span class="pill">Source: adobe.com/express/feature</span>
+        <span class="pill">Source: adobe.com/in/express/feature</span>
       </header>
       <div class="feature-grid">
         <article class="tile" style="--tile-color: rgba(255, 31, 61, 0.22)">
@@ -1186,7 +1186,7 @@ Avoid casual wording, busy effects, unapproved claims, and decorative type that 
     </section>
 
     <p class="footer">
-      Prepared for Adobe Express Enterprise persona testing. Adobe Express feature references are based on public Adobe Express feature information available at adobe.com/express/feature and related Adobe Express pages.
+      Prepared for Adobe Express Enterprise persona testing. Adobe Express feature references are based on public Adobe Express feature information available at https://www.adobe.com/in/express/feature and related Adobe Express pages.
     </p>
   </main>
 
@@ -1214,10 +1214,27 @@ Avoid casual wording, busy effects, unapproved claims, and decorative type that 
       visibleCount.textContent = `Showing ${shown} persona${shown === 1 ? "" : "s"}`;
     }
 
+    async function copyPrompt(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.setAttribute("readonly", "");
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
+
     document.querySelectorAll(".copy").forEach((button) => {
       button.addEventListener("click", async () => {
         const prompt = button.closest(".prompt").querySelector("pre").innerText;
-        await navigator.clipboard.writeText(prompt);
+        await copyPrompt(prompt);
         const original = button.textContent;
         button.textContent = "Copied";
         setTimeout(() => {
