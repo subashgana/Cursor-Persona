@@ -1,0 +1,24 @@
+{
+  "task": "Create a logo with tiger image",
+  "requested_persona_source": "C:\\Users\\subash.b\\OneDrive - Qualitest Group\\Desktop\\PERSONA FILE\\persona_behaviors.html",
+  "source_status": "The requested Windows Desktop persona file is not accessible from this Linux cloud workspace; used labelled fallback personas to demonstrate the required behaviour-to-feature mapping. Requested source: C:\\Users\\subash.b\\OneDrive - Qualitest Group\\Desktop\\PERSONA FILE\\persona_behaviors.html.",
+  "adobe_feature_source": "https://www.adobe.com/in/express/feature",
+  "outputs": [
+    "Persona_Test_Cases_from_adobe_Demo.html",
+    "Persona Test Cases from adobe.docx",
+    "tiger-logo.png",
+    "tiger-logo.svg"
+  ],
+  "personas": [
+    "Maya Srinivasan",
+    "David Chen",
+    "Sofia Martinez",
+    "Aisha Khan",
+    "Noah Williams",
+    "Priya Raman",
+    "Liam O'Connor",
+    "Hana Tanaka",
+    "Grace Okafor",
+    "Omar Al-Farsi"
+  ]
+}

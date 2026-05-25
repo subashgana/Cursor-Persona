@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Tiger logo reference</title>
+  <desc id="desc">Editable tiger head badge on a yellow background.</desc>
+  <rect width="512" height="512" rx="96" fill="#ffc928"/>
+  <circle cx="256" cy="258" r="168" fill="#f58220" stroke="#111111" stroke-width="18"/>
+  <path d="M117 130l77 35-55 42zM395 130l-77 35 55 42z" fill="#111111"/>
+  <path d="M160 198l64 26-78 16zM352 198l-64 26 78 16zM187 294l46 12-58 43zM325 294l-46 12 58 43z" fill="#111111"/>
+  <path d="M217 250c16-17 62-17 78 0-9 37-25 64-39 64s-30-27-39-64z" fill="#ffffff"/>
+  <path d="M208 258c21 14 75 14 96 0" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="207" cy="242" r="15" fill="#111111"/>
+  <circle cx="305" cy="242" r="15" fill="#111111"/>
+  <path d="M256 273l-22 24h44z" fill="#111111"/>
+  <path d="M222 331c22 18 46 18 68 0" fill="none" stroke="#111111" stroke-width="12" stroke-linecap="round"/>
+</svg>
