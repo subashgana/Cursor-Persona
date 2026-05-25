@@ -1,0 +1,76 @@
+{
+  "source_url": "https://www.adobe.com/in/express/feature",
+  "captured_for_task": "Map Adobe Express features to persona behavior for Bird logo prompt generation.",
+  "features": [
+    {
+      "name": "Edit images, videos and PDFs in just a few clicks",
+      "short_name": "Quick Actions",
+      "description": "Resize content, convert files, remove backgrounds, and add animated effects quickly."
+    },
+    {
+      "name": "Make it all. All in one place",
+      "short_name": "All-in-one editor",
+      "description": "Create marketing, social, video, photo, and PDF content in one editor."
+    },
+    {
+      "name": "Design with AI",
+      "short_name": "Firefly generative AI",
+      "description": "Use Adobe Firefly text-to-image and Generate Text Effect tools from natural language prompts."
+    },
+    {
+      "name": "Make content that always stands out",
+      "short_name": "Templates for logos and more",
+      "description": "Start from thousands of free templates, including business cards, social media graphics, posters, flyers, and logos."
+    },
+    {
+      "name": "Get free Adobe Stock images, videos and music",
+      "short_name": "Adobe Stock assets",
+      "description": "Use royalty-free Adobe Stock photos, videos, and audio assets when a licensed reference or supporting asset is needed."
+    },
+    {
+      "name": "Take command of social content",
+      "short_name": "Content scheduler",
+      "description": "Plan, schedule, preview, and publish social content from Adobe Express."
+    },
+    {
+      "name": "Work better together",
+      "short_name": "Collaboration and review",
+      "description": "Collaborate, co-edit, share templates, share brand identity, and review visual projects with a team."
+    },
+    {
+      "name": "Make it move",
+      "short_name": "Animation effects",
+      "description": "Add motion to text, images, icons, and other design elements."
+    },
+    {
+      "name": "Apply your brand",
+      "short_name": "Brand controls",
+      "description": "Upload and apply brand logos, fonts, and colors to keep designs consistent."
+    },
+    {
+      "name": "Add amazing effects to any project",
+      "short_name": "Effects, filters, textures, overlays",
+      "description": "Apply effects, filters, textures, and overlays to images or videos."
+    },
+    {
+      "name": "Add design elements",
+      "short_name": "Icons, backgrounds, and assets",
+      "description": "Search and add images, icons, backgrounds, videos, and mood-based curated design assets."
+    },
+    {
+      "name": "Play with text",
+      "short_name": "Adobe Fonts and text templates",
+      "description": "Use licensed Adobe Fonts, recommended font pairings, and text templates."
+    },
+    {
+      "name": "Remix it",
+      "short_name": "Template remixing",
+      "description": "Customize premade templates, graphics, and text."
+    },
+    {
+      "name": "Create videos made for social",
+      "short_name": "Social resizing",
+      "description": "Resize video and static social posts, then trim and crop in the editor."
+    }
+  ]
+}
