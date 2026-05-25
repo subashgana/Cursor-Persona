@@ -1,0 +1,975 @@
+{
+  "metadata": {
+    "project": "Adobe Express Enterprise Integration with ChatGPT Persona Testing",
+    "version": "1.0.0",
+    "common_test_task": "Create an eagle-themed yellow background asset in Adobe Express using ChatGPT-guided instructions while respecting enterprise brand, privacy, accessibility, and creative workflow expectations.",
+    "persona_count": 10,
+    "adobe_express_capability_catalog": [
+      "Conversational Design Creation",
+      "AI-Powered Editing",
+      "Text to Template",
+      "Text Effects",
+      "Generative Fill",
+      "Remove Background",
+      "Quick Actions",
+      "Enterprise Brand Control",
+      "Shared Libraries",
+      "Collaboration and Review",
+      "Version History",
+      "Security and Compliance",
+      "Accessibility Checks",
+      "Localization Support",
+      "Export and Publish"
+    ]
+  },
+  "personas": [
+    {
+      "id": "P-001",
+      "name": "Maya Chen",
+      "age": 29,
+      "locale": "en-US",
+      "occupation": "Enterprise Social Media Manager",
+      "technical_skill": "Advanced",
+      "prompt_style": "Direct, metric-driven, and channel-specific",
+      "ai_trust_level": "High with brand review",
+      "accessibility_needs": "Requires contrast-safe design and alt-text guidance",
+      "privacy_posture": "Avoids unreleased product claims and customer data",
+      "adobe_express_capabilities": [
+        "Conversational Design Creation",
+        "Enterprise Brand Control",
+        "AI-Powered Editing",
+        "Collaboration and Review",
+        "Export and Publish"
+      ],
+      "behavior_profile": {
+        "communication_style": "Uses concise bullets, performance language, and platform constraints.",
+        "decision_pattern": "Approves concepts that preserve brand colors, legibility, and measurable campaign value.",
+        "risk_triggers": [
+          "Off-brand color use",
+          "Low text contrast",
+          "Unsupported marketing claims"
+        ],
+        "avoid_list": [
+          "Do not invent campaign statistics",
+          "Do not use competitor names",
+          "Do not place text over busy eagle details"
+        ],
+        "acceptance_criteria": [
+          "Yellow background feels energetic but brand-safe",
+          "Eagle is visually dominant without blocking headline space",
+          "Asset is ready for social export with review notes"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-001-B1",
+          "title": "Campaign-first setup",
+          "scenario": "Starts by asking ChatGPT to define a campaign-ready composition for Adobe Express.",
+          "expected_actions": [
+            "Choose a square social layout",
+            "Reserve safe headline space",
+            "Apply approved brand palette"
+          ],
+          "adobe_features_used": [
+            "Conversational Design Creation",
+            "Enterprise Brand Control"
+          ],
+          "validation_checks": [
+            "Brand palette is named in the prompt",
+            "Design includes a clear social objective"
+          ]
+        },
+        {
+          "behavior_id": "P-001-B2",
+          "title": "Engagement review",
+          "scenario": "Checks whether the eagle focal point supports a scroll-stopping social post.",
+          "expected_actions": [
+            "Increase eagle contrast",
+            "Keep background yellow gradient clean",
+            "Add review comment for marketing approval"
+          ],
+          "adobe_features_used": [
+            "AI-Powered Editing",
+            "Collaboration and Review"
+          ],
+          "validation_checks": [
+            "Copy remains readable",
+            "Review step is explicitly included"
+          ]
+        },
+        {
+          "behavior_id": "P-001-B3",
+          "title": "Publish readiness",
+          "scenario": "Requests final export directions for a campaign asset.",
+          "expected_actions": [
+            "Create PNG export",
+            "Create editable Express version",
+            "Include alt-text recommendation"
+          ],
+          "adobe_features_used": [
+            "Export and Publish",
+            "Accessibility Checks"
+          ],
+          "validation_checks": [
+            "Export format is specified",
+            "Alt text mentions eagle and yellow background"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Act as my Adobe Express Enterprise design assistant. I am Maya, an advanced social media manager who wants concise, campaign-ready guidance. Use Conversational Design Creation to build a square social background with a bold eagle as the hero and a warm yellow brand-safe gradient. Apply Enterprise Brand Control before suggesting colors, then use AI-Powered Editing to improve contrast and keep empty headline space. Do not invent metrics, mention competitors, or place text on busy feathers. Add Collaboration and Review notes for brand approval, include an accessibility contrast check, and finish with Export and Publish steps for PNG plus an editable Adobe Express file."
+    },
+    {
+      "id": "P-002",
+      "name": "Rafael Ortiz",
+      "age": 42,
+      "locale": "es-US",
+      "occupation": "Compliance-Focused Brand Director",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Formal, cautious, and approval-oriented",
+      "ai_trust_level": "Medium; requires explainability",
+      "accessibility_needs": "Needs readable hierarchy for executive review",
+      "privacy_posture": "Strict; no confidential brand assets outside approved libraries",
+      "adobe_express_capabilities": [
+        "Enterprise Brand Control",
+        "Security and Compliance",
+        "Shared Libraries",
+        "Version History",
+        "Collaboration and Review"
+      ],
+      "behavior_profile": {
+        "communication_style": "Requests rationale, governance checkpoints, and controlled asset use.",
+        "decision_pattern": "Accepts outputs only when provenance, brand compliance, and approval path are clear.",
+        "risk_triggers": [
+          "Unlicensed imagery",
+          "Missing approval history",
+          "AI-generated content without disclosure"
+        ],
+        "avoid_list": [
+          "Do not use external logos",
+          "Do not bypass brand templates",
+          "Do not generate legal claims"
+        ],
+        "acceptance_criteria": [
+          "Uses only shared library assets or clearly marked generated visuals",
+          "Shows compliance checkpoints",
+          "Includes version notes for reviewers"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-002-B1",
+          "title": "Governed asset selection",
+          "scenario": "Begins with approved library and compliance requirements.",
+          "expected_actions": [
+            "Select eagle image from Shared Libraries when available",
+            "State if Generative Fill is used",
+            "Apply brand template locks"
+          ],
+          "adobe_features_used": [
+            "Shared Libraries",
+            "Enterprise Brand Control",
+            "Security and Compliance"
+          ],
+          "validation_checks": [
+            "Prompt forbids unlicensed assets",
+            "Prompt includes governance language"
+          ]
+        },
+        {
+          "behavior_id": "P-002-B2",
+          "title": "Reviewer traceability",
+          "scenario": "Needs a record of changes for enterprise approval.",
+          "expected_actions": [
+            "Name the design version",
+            "Summarize AI-assisted edits",
+            "Invite compliance reviewer feedback"
+          ],
+          "adobe_features_used": [
+            "Version History",
+            "Collaboration and Review"
+          ],
+          "validation_checks": [
+            "Version note is requested",
+            "Reviewer workflow is included"
+          ]
+        },
+        {
+          "behavior_id": "P-002-B3",
+          "title": "Risk-aware final check",
+          "scenario": "Validates the final eagle background before distribution.",
+          "expected_actions": [
+            "Confirm no restricted data appears",
+            "Check brand color compliance",
+            "Document export approval"
+          ],
+          "adobe_features_used": [
+            "Security and Compliance",
+            "Export and Publish"
+          ],
+          "validation_checks": [
+            "Compliance pass is part of the prompt",
+            "Export is contingent on approval"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "You are assisting Rafael, a compliance-focused brand director, inside Adobe Express Enterprise. Use Enterprise Brand Control and Shared Libraries first: create a yellow eagle background only from approved assets or clearly labeled AI-generated elements. Explain each design choice formally, then use Security and Compliance checks to confirm no confidential data, external logos, or legal claims are present. Add Version History notes that describe every AI-assisted change, route the file through Collaboration and Review, and prepare export instructions only after approval is recorded."
+    },
+    {
+      "id": "P-003",
+      "name": "Aisha Khan",
+      "age": 36,
+      "locale": "en-GB",
+      "occupation": "Learning and Development Specialist",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Instructional, step-by-step, and supportive",
+      "ai_trust_level": "Medium-high when guidance is transparent",
+      "accessibility_needs": "Needs inclusive language and readable instructional visuals",
+      "privacy_posture": "Avoids employee names and internal training records",
+      "adobe_express_capabilities": [
+        "Text to Template",
+        "Conversational Design Creation",
+        "Accessibility Checks",
+        "Quick Actions",
+        "Export and Publish"
+      ],
+      "behavior_profile": {
+        "communication_style": "Prefers numbered steps and clear learning outcomes.",
+        "decision_pattern": "Chooses designs that can be reused in training modules.",
+        "risk_triggers": [
+          "Ambiguous instructions",
+          "Non-inclusive imagery",
+          "Small text"
+        ],
+        "avoid_list": [
+          "Do not include employee data",
+          "Do not use intimidating language",
+          "Do not create cluttered layouts"
+        ],
+        "acceptance_criteria": [
+          "Design can anchor a training slide",
+          "Instructions are easy for non-designers",
+          "Accessibility notes are included"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-003-B1",
+          "title": "Teach-by-doing creation",
+          "scenario": "Asks for a reusable training background workflow.",
+          "expected_actions": [
+            "Generate a template from instructions",
+            "Explain how to add eagle image",
+            "Define where training title should go"
+          ],
+          "adobe_features_used": [
+            "Text to Template",
+            "Conversational Design Creation"
+          ],
+          "validation_checks": [
+            "Prompt includes numbered steps",
+            "Template reuse is mentioned"
+          ]
+        },
+        {
+          "behavior_id": "P-003-B2",
+          "title": "Accessibility coaching",
+          "scenario": "Checks that the design works for learners with different needs.",
+          "expected_actions": [
+            "Run contrast check",
+            "Recommend font size",
+            "Provide alt-text guidance"
+          ],
+          "adobe_features_used": [
+            "Accessibility Checks"
+          ],
+          "validation_checks": [
+            "Readable hierarchy is requested",
+            "Alt-text appears in output"
+          ]
+        },
+        {
+          "behavior_id": "P-003-B3",
+          "title": "Trainer-friendly export",
+          "scenario": "Needs the design packaged for a course deck.",
+          "expected_actions": [
+            "Export as PNG",
+            "Save as reusable template",
+            "List simple editing steps"
+          ],
+          "adobe_features_used": [
+            "Quick Actions",
+            "Export and Publish"
+          ],
+          "validation_checks": [
+            "Export format matches training needs",
+            "Non-designer edit guidance is included"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Please guide Aisha through Adobe Express like a training coach. Use Text to Template and Conversational Design Creation to make a reusable course-slide background: yellow background, centered eagle image, calm open space for a module title, and a simple visual hierarchy. Give numbered steps for adding the image, checking the colour, and adjusting the eagle size. Use Accessibility Checks for contrast, font size, and alt text. Avoid employee names, internal records, clutter, and intimidating language. End with Quick Actions and Export and Publish instructions for a PNG and reusable template."
+    },
+    {
+      "id": "P-004",
+      "name": "Noah Williams",
+      "age": 24,
+      "locale": "en-US",
+      "occupation": "Junior Graphic Designer",
+      "technical_skill": "Beginner-intermediate",
+      "prompt_style": "Exploratory, visual, and feedback-seeking",
+      "ai_trust_level": "High for ideation, lower for final judgment",
+      "accessibility_needs": "Needs clear visual examples and mistake prevention",
+      "privacy_posture": "Needs reminders not to upload client-only assets",
+      "adobe_express_capabilities": [
+        "AI-Powered Editing",
+        "Generative Fill",
+        "Remove Background",
+        "Text Effects",
+        "Version History"
+      ],
+      "behavior_profile": {
+        "communication_style": "Asks for creative options, quick explanations, and reassurance.",
+        "decision_pattern": "Iterates across variants before selecting a final design.",
+        "risk_triggers": [
+          "Overusing effects",
+          "Forgetting version names",
+          "Uploading restricted files"
+        ],
+        "avoid_list": [
+          "Do not flatten all layers too early",
+          "Do not use client-restricted images",
+          "Do not create more than three variants"
+        ],
+        "acceptance_criteria": [
+          "Three visually distinct eagle-background options",
+          "Clear recommendation for strongest option",
+          "Version names show iteration history"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-004-B1",
+          "title": "Variant exploration",
+          "scenario": "Requests multiple creative directions before committing.",
+          "expected_actions": [
+            "Create three controlled variants",
+            "Use different yellow treatments",
+            "Recommend one final concept"
+          ],
+          "adobe_features_used": [
+            "AI-Powered Editing",
+            "Generative Fill"
+          ],
+          "validation_checks": [
+            "Only three variants are requested",
+            "Recommendation criteria are visible"
+          ]
+        },
+        {
+          "behavior_id": "P-004-B2",
+          "title": "Image cleanup",
+          "scenario": "Needs help preparing an eagle image for the background.",
+          "expected_actions": [
+            "Remove image background",
+            "Refine edge quality",
+            "Place eagle with balanced margins"
+          ],
+          "adobe_features_used": [
+            "Remove Background",
+            "AI-Powered Editing"
+          ],
+          "validation_checks": [
+            "Prompt includes image preparation",
+            "Edge quality is mentioned"
+          ]
+        },
+        {
+          "behavior_id": "P-004-B3",
+          "title": "Learning through versions",
+          "scenario": "Wants to compare iterations without losing work.",
+          "expected_actions": [
+            "Name each version",
+            "Keep editable layers",
+            "Add short rationale per version"
+          ],
+          "adobe_features_used": [
+            "Version History",
+            "Text Effects"
+          ],
+          "validation_checks": [
+            "Version History is cited",
+            "Editable layers are preserved"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Help Noah explore a yellow eagle background in Adobe Express without overcomplicating it. Start with AI-Powered Editing and Generative Fill to create exactly three variations: bold sunrise yellow, clean corporate yellow, and dramatic golden spotlight. If I add an eagle image, use Remove Background and refine the edges before placing it. Suggest one tasteful Text Effects treatment only if it improves the design. Keep layers editable, name each option in Version History, remind me not to upload restricted client assets, and recommend the strongest final version with a short reason."
+    },
+    {
+      "id": "P-005",
+      "name": "Priya Nair",
+      "age": 51,
+      "locale": "en-IN",
+      "occupation": "Executive Communications Lead",
+      "technical_skill": "Beginner",
+      "prompt_style": "Polished, brief, and outcome-oriented",
+      "ai_trust_level": "Low-medium; wants human-readable controls",
+      "accessibility_needs": "Requires large type and uncluttered design",
+      "privacy_posture": "Very cautious about executive and board information",
+      "adobe_express_capabilities": [
+        "Conversational Design Creation",
+        "Quick Actions",
+        "Enterprise Brand Control",
+        "Collaboration and Review",
+        "Security and Compliance"
+      ],
+      "behavior_profile": {
+        "communication_style": "Prefers executive summaries and simple action choices.",
+        "decision_pattern": "Selects conservative, high-polish visuals with minimal steps.",
+        "risk_triggers": [
+          "Too many tool options",
+          "Unapproved messaging",
+          "Accidental disclosure"
+        ],
+        "avoid_list": [
+          "Do not expose executive names",
+          "Do not include speculative statements",
+          "Do not use casual slang"
+        ],
+        "acceptance_criteria": [
+          "Design looks presentation-ready",
+          "Instructions are simple enough for a beginner",
+          "Privacy check is explicit"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-005-B1",
+          "title": "Executive-ready simplicity",
+          "scenario": "Requests a polished background with minimal technical language.",
+          "expected_actions": [
+            "Offer one recommended layout",
+            "Use approved brand colors",
+            "Keep instructions concise"
+          ],
+          "adobe_features_used": [
+            "Conversational Design Creation",
+            "Enterprise Brand Control"
+          ],
+          "validation_checks": [
+            "Prompt avoids jargon",
+            "Single recommendation is requested"
+          ]
+        },
+        {
+          "behavior_id": "P-005-B2",
+          "title": "Low-friction edits",
+          "scenario": "Needs simple controls for fast executive communication work.",
+          "expected_actions": [
+            "Use Quick Actions",
+            "Describe only essential adjustments",
+            "Confirm presentation-safe spacing"
+          ],
+          "adobe_features_used": [
+            "Quick Actions"
+          ],
+          "validation_checks": [
+            "Steps are beginner-friendly",
+            "Spacing is checked"
+          ]
+        },
+        {
+          "behavior_id": "P-005-B3",
+          "title": "Confidential review",
+          "scenario": "Ensures the file is safe for leadership circulation.",
+          "expected_actions": [
+            "Remove sensitive names",
+            "Route to reviewer",
+            "Document compliance check"
+          ],
+          "adobe_features_used": [
+            "Security and Compliance",
+            "Collaboration and Review"
+          ],
+          "validation_checks": [
+            "Privacy review is explicit",
+            "Tone remains executive-level"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Support Priya with a polished, executive-safe Adobe Express workflow. Use Conversational Design Creation to make one refined yellow eagle background suitable for a leadership slide or announcement. Keep the eagle elegant, leave large clear space for a headline, and apply Enterprise Brand Control so the yellow is approved. Use Quick Actions only for simple edits such as crop, resize, and image cleanup. Avoid casual wording, executive names, speculative claims, or confidential board details. Add a Security and Compliance check and send the design through Collaboration and Review before export."
+    },
+    {
+      "id": "P-006",
+      "name": "Lena Hoffmann",
+      "age": 33,
+      "locale": "de-DE",
+      "occupation": "Localization Program Manager",
+      "technical_skill": "Advanced",
+      "prompt_style": "Structured, multilingual, and detail-heavy",
+      "ai_trust_level": "Medium; validates localization nuance",
+      "accessibility_needs": "Needs layouts that accommodate longer translated text",
+      "privacy_posture": "Avoids market-sensitive launch details",
+      "adobe_express_capabilities": [
+        "Localization Support",
+        "Text to Template",
+        "Enterprise Brand Control",
+        "Version History",
+        "Export and Publish"
+      ],
+      "behavior_profile": {
+        "communication_style": "Requests locale-aware constraints, text expansion, and naming conventions.",
+        "decision_pattern": "Approves flexible templates that survive translation.",
+        "risk_triggers": [
+          "Text clipped in German",
+          "Non-localized idioms",
+          "Incorrect regional formatting"
+        ],
+        "avoid_list": [
+          "Do not use idioms",
+          "Do not hard-code English text into the image",
+          "Do not reveal launch market details"
+        ],
+        "acceptance_criteria": [
+          "Background supports multiple language overlays",
+          "Version names include locale codes",
+          "Export instructions include localized variants"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-006-B1",
+          "title": "Locale-flexible template",
+          "scenario": "Creates a design that supports translated campaign text.",
+          "expected_actions": [
+            "Reserve expanded text area",
+            "Avoid embedded text",
+            "Use locale-safe visual symbolism"
+          ],
+          "adobe_features_used": [
+            "Localization Support",
+            "Text to Template"
+          ],
+          "validation_checks": [
+            "Text expansion is mentioned",
+            "No idioms are used"
+          ]
+        },
+        {
+          "behavior_id": "P-006-B2",
+          "title": "Brand consistency across locales",
+          "scenario": "Checks that localized variants remain on brand.",
+          "expected_actions": [
+            "Apply the same approved yellow",
+            "Keep eagle placement consistent",
+            "Name versions by locale"
+          ],
+          "adobe_features_used": [
+            "Enterprise Brand Control",
+            "Version History"
+          ],
+          "validation_checks": [
+            "Locale code naming is requested",
+            "Brand control is cited"
+          ]
+        },
+        {
+          "behavior_id": "P-006-B3",
+          "title": "Localized export package",
+          "scenario": "Prepares assets for regional teams.",
+          "expected_actions": [
+            "Export editable master",
+            "Export locale-specific PNGs",
+            "Document translation-safe areas"
+          ],
+          "adobe_features_used": [
+            "Export and Publish",
+            "Localization Support"
+          ],
+          "validation_checks": [
+            "Master file and localized exports are both requested",
+            "Safe areas are documented"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Assist Lena in Adobe Express Enterprise with a localization-safe eagle background. Use Text to Template and Localization Support to build a yellow eagle design that keeps all text editable and leaves extra room for longer German and French copy. Apply Enterprise Brand Control so the yellow and typography remain consistent across markets. Do not use idioms, hard-coded English text, or launch-market details. Create Version History names with locale codes such as master-en, de-DE, and fr-FR, then provide Export and Publish instructions for an editable master plus localized PNG variants."
+    },
+    {
+      "id": "P-007",
+      "name": "Marcus Green",
+      "age": 45,
+      "locale": "en-US",
+      "occupation": "IT Security Administrator",
+      "technical_skill": "Expert",
+      "prompt_style": "Policy-led, precise, and control-focused",
+      "ai_trust_level": "Low unless controls are explicit",
+      "accessibility_needs": "Needs audit-friendly documentation",
+      "privacy_posture": "Zero tolerance for sensitive data exposure",
+      "adobe_express_capabilities": [
+        "Security and Compliance",
+        "Enterprise Brand Control",
+        "Shared Libraries",
+        "Version History",
+        "Collaboration and Review"
+      ],
+      "behavior_profile": {
+        "communication_style": "Demands constraints, logs, and permitted data boundaries.",
+        "decision_pattern": "Allows the workflow only if audit and access controls are visible.",
+        "risk_triggers": [
+          "Uploading sensitive files",
+          "Unclear AI data handling",
+          "Open sharing links"
+        ],
+        "avoid_list": [
+          "Do not request secrets",
+          "Do not use personal data",
+          "Do not create public share links"
+        ],
+        "acceptance_criteria": [
+          "Prompt includes data boundary statement",
+          "Only approved assets are used",
+          "Collaboration uses restricted reviewers"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-007-B1",
+          "title": "Data boundary enforcement",
+          "scenario": "Starts by defining what ChatGPT and Adobe Express may handle.",
+          "expected_actions": [
+            "State no secrets or personal data",
+            "Use only approved libraries",
+            "Avoid public sharing"
+          ],
+          "adobe_features_used": [
+            "Security and Compliance",
+            "Shared Libraries"
+          ],
+          "validation_checks": [
+            "Prompt forbids sensitive data",
+            "Prompt forbids public links"
+          ]
+        },
+        {
+          "behavior_id": "P-007-B2",
+          "title": "Controlled collaboration",
+          "scenario": "Requires restricted reviewer access before final approval.",
+          "expected_actions": [
+            "Add named reviewer role",
+            "Restrict sharing settings",
+            "Capture review comments"
+          ],
+          "adobe_features_used": [
+            "Collaboration and Review",
+            "Security and Compliance"
+          ],
+          "validation_checks": [
+            "Access restriction is included",
+            "Review role is specified"
+          ]
+        },
+        {
+          "behavior_id": "P-007-B3",
+          "title": "Audit trail",
+          "scenario": "Needs traceability of AI-assisted edits.",
+          "expected_actions": [
+            "Record version summary",
+            "Identify generated elements",
+            "Confirm brand control"
+          ],
+          "adobe_features_used": [
+            "Version History",
+            "Enterprise Brand Control"
+          ],
+          "validation_checks": [
+            "Generated elements are disclosed",
+            "Version notes are required"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Operate under Marcus's IT security rules for Adobe Express Enterprise. Before creating anything, state that no secrets, personal data, unreleased files, or public share links may be used. Build a yellow eagle background only with Shared Libraries or clearly identified generated elements. Use Security and Compliance to check data boundaries, Enterprise Brand Control for approved colors, and Version History to log each AI-assisted edit. Route Collaboration and Review only to restricted internal reviewers, then summarize the audit trail before any export guidance."
+    },
+    {
+      "id": "P-008",
+      "name": "Sofia Rossi",
+      "age": 39,
+      "locale": "it-IT",
+      "occupation": "Event Marketing Producer",
+      "technical_skill": "Intermediate",
+      "prompt_style": "Energetic, deadline-aware, and visual",
+      "ai_trust_level": "High for rapid production",
+      "accessibility_needs": "Needs high contrast for event screens",
+      "privacy_posture": "Avoids attendee data and sponsor terms not yet approved",
+      "adobe_express_capabilities": [
+        "Quick Actions",
+        "AI-Powered Editing",
+        "Text Effects",
+        "Export and Publish",
+        "Collaboration and Review"
+      ],
+      "behavior_profile": {
+        "communication_style": "Uses fast production language, visual references, and practical checkpoints.",
+        "decision_pattern": "Chooses bold designs that can be resized for screens and social quickly.",
+        "risk_triggers": [
+          "Wrong event dimensions",
+          "Sponsor misuse",
+          "Unreadable screen contrast"
+        ],
+        "avoid_list": [
+          "Do not include attendee data",
+          "Do not add sponsor logos unless approved",
+          "Do not use low-contrast overlays"
+        ],
+        "acceptance_criteria": [
+          "Works for event screen and social crop",
+          "Feels energetic and premium",
+          "Includes fast approval checkpoint"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-008-B1",
+          "title": "Rapid event asset creation",
+          "scenario": "Needs a bold background quickly for event promotion.",
+          "expected_actions": [
+            "Create event-screen layout",
+            "Add eagle image with dramatic yellow energy",
+            "Keep crop-safe center"
+          ],
+          "adobe_features_used": [
+            "Quick Actions",
+            "AI-Powered Editing"
+          ],
+          "validation_checks": [
+            "Screen use is mentioned",
+            "Crop-safe area is included"
+          ]
+        },
+        {
+          "behavior_id": "P-008-B2",
+          "title": "High-impact treatment",
+          "scenario": "Applies tasteful visual energy without losing readability.",
+          "expected_actions": [
+            "Use one headline style",
+            "Check contrast for projection",
+            "Avoid sponsor placeholders"
+          ],
+          "adobe_features_used": [
+            "Text Effects",
+            "Accessibility Checks"
+          ],
+          "validation_checks": [
+            "Projection contrast is requested",
+            "Sponsor restrictions are present"
+          ]
+        },
+        {
+          "behavior_id": "P-008-B3",
+          "title": "Multi-format delivery",
+          "scenario": "Exports the asset for event and social teams.",
+          "expected_actions": [
+            "Export widescreen",
+            "Export social crop",
+            "Request stakeholder approval"
+          ],
+          "adobe_features_used": [
+            "Export and Publish",
+            "Collaboration and Review"
+          ],
+          "validation_checks": [
+            "Multiple formats are included",
+            "Approval checkpoint appears"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Help Sofia produce a high-energy Adobe Express event background. Use Quick Actions and AI-Powered Editing to create a dramatic yellow eagle visual that works on a widescreen event display and can be cropped for social. Make the eagle powerful but leave a clean center-safe area for event text. Use one tasteful Text Effects option for a headline only if contrast remains strong on a large screen. Do not add attendee data, unapproved sponsor logos, or low-contrast overlays. Finish with Collaboration and Review approval steps and Export and Publish outputs for widescreen plus social crop."
+    },
+    {
+      "id": "P-009",
+      "name": "Ethan Brooks",
+      "age": 31,
+      "locale": "en-CA",
+      "occupation": "Accessibility QA Analyst",
+      "technical_skill": "Advanced",
+      "prompt_style": "Checklist-based, exact, and evidence-seeking",
+      "ai_trust_level": "Medium; requires verifiable checks",
+      "accessibility_needs": "Primary focus: WCAG-informed contrast, alt text, and readability",
+      "privacy_posture": "Avoids personal data in test artifacts",
+      "adobe_express_capabilities": [
+        "Accessibility Checks",
+        "AI-Powered Editing",
+        "Remove Background",
+        "Collaboration and Review",
+        "Export and Publish"
+      ],
+      "behavior_profile": {
+        "communication_style": "Prefers pass/fail criteria, measurable checks, and remediation steps.",
+        "decision_pattern": "Approves only when accessibility evidence is included.",
+        "risk_triggers": [
+          "Contrast failures",
+          "Missing alt text",
+          "Text embedded into decorative image"
+        ],
+        "avoid_list": [
+          "Do not rely on color alone",
+          "Do not hide text in the background image",
+          "Do not skip remediation notes"
+        ],
+        "acceptance_criteria": [
+          "Contrast and readability checks are explicit",
+          "Alt text is included",
+          "Remediation plan is present if a check fails"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-009-B1",
+          "title": "Accessibility-first creation",
+          "scenario": "Creates the design around testable accessibility requirements.",
+          "expected_actions": [
+            "Define contrast target",
+            "Keep text area separate from eagle",
+            "Avoid color-only meaning"
+          ],
+          "adobe_features_used": [
+            "Accessibility Checks",
+            "AI-Powered Editing"
+          ],
+          "validation_checks": [
+            "Contrast target is named",
+            "Color-only reliance is forbidden"
+          ]
+        },
+        {
+          "behavior_id": "P-009-B2",
+          "title": "Image clarity remediation",
+          "scenario": "Ensures eagle image supports accessibility rather than visual noise.",
+          "expected_actions": [
+            "Remove distracting background",
+            "Simplify yellow field",
+            "Document alt text"
+          ],
+          "adobe_features_used": [
+            "Remove Background",
+            "Accessibility Checks"
+          ],
+          "validation_checks": [
+            "Alt text is requested",
+            "Simplification is requested"
+          ]
+        },
+        {
+          "behavior_id": "P-009-B3",
+          "title": "QA handoff",
+          "scenario": "Prepares evidence for accessibility review.",
+          "expected_actions": [
+            "List pass/fail checks",
+            "Add remediation notes",
+            "Export review copy"
+          ],
+          "adobe_features_used": [
+            "Collaboration and Review",
+            "Export and Publish"
+          ],
+          "validation_checks": [
+            "Pass/fail checklist is included",
+            "Review copy is requested"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Follow Ethan's accessibility QA approach in Adobe Express. Create a yellow eagle background using AI-Powered Editing, but design it around Accessibility Checks from the start. Keep any future text area separate from the eagle image, do not rely on color alone, and use Remove Background if the eagle creates visual clutter. Provide a pass/fail checklist for contrast, readability, alt text, and decorative versus meaningful image use. If anything fails, give remediation steps before export. Use Collaboration and Review for QA notes and Export and Publish only after checks pass."
+    },
+    {
+      "id": "P-010",
+      "name": "Hana Kim",
+      "age": 27,
+      "locale": "ko-KR",
+      "occupation": "Startup Founder and Product Marketer",
+      "technical_skill": "Advanced",
+      "prompt_style": "Experimental, concise, and growth-oriented",
+      "ai_trust_level": "Very high for rapid ideation",
+      "accessibility_needs": "Needs mobile-first readability",
+      "privacy_posture": "Protects roadmap details and investor information",
+      "adobe_express_capabilities": [
+        "Conversational Design Creation",
+        "Generative Fill",
+        "Text Effects",
+        "Quick Actions",
+        "Export and Publish"
+      ],
+      "behavior_profile": {
+        "communication_style": "Wants fast options, bold creative direction, and practical launch outputs.",
+        "decision_pattern": "Tests strong creative hooks and selects the one with clearest mobile impact.",
+        "risk_triggers": [
+          "Generic startup visuals",
+          "Mobile cropping issues",
+          "Leaking roadmap hints"
+        ],
+        "avoid_list": [
+          "Do not mention investor names",
+          "Do not reveal roadmap features",
+          "Do not create desktop-only compositions"
+        ],
+        "acceptance_criteria": [
+          "Mobile-first yellow eagle background",
+          "Bold but minimal visual hook",
+          "Fast export for launch testing"
+        ]
+      },
+      "behaviors": [
+        {
+          "behavior_id": "P-010-B1",
+          "title": "Mobile-first ideation",
+          "scenario": "Creates a launch-style asset optimized for mobile viewing.",
+          "expected_actions": [
+            "Use vertical format",
+            "Keep eagle visible in mobile crop",
+            "Create bold yellow contrast"
+          ],
+          "adobe_features_used": [
+            "Conversational Design Creation",
+            "Generative Fill"
+          ],
+          "validation_checks": [
+            "Mobile format is specified",
+            "Roadmap details are excluded"
+          ]
+        },
+        {
+          "behavior_id": "P-010-B2",
+          "title": "Growth creative polish",
+          "scenario": "Adds a memorable visual hook for launch testing.",
+          "expected_actions": [
+            "Apply one bold text style zone",
+            "Keep composition minimal",
+            "Prepare A/B test naming"
+          ],
+          "adobe_features_used": [
+            "Text Effects",
+            "Quick Actions"
+          ],
+          "validation_checks": [
+            "A/B naming is included",
+            "Only one style zone is requested"
+          ]
+        },
+        {
+          "behavior_id": "P-010-B3",
+          "title": "Launch export",
+          "scenario": "Needs quick assets for growth experiments.",
+          "expected_actions": [
+            "Export mobile PNG",
+            "Export editable version",
+            "Document test hypothesis"
+          ],
+          "adobe_features_used": [
+            "Export and Publish"
+          ],
+          "validation_checks": [
+            "Growth hypothesis is included",
+            "Editable file is requested"
+          ]
+        }
+      ],
+      "isolated_test_prompt": "Work with Hana as a fast, mobile-first Adobe Express design partner. Use Conversational Design Creation and Generative Fill to create a vertical yellow eagle background for a launch teaser, with the eagle clearly visible in a mobile crop and space for a short headline. Keep it bold, minimal, and growth-test friendly. Use one Text Effects zone if it improves the hook, then use Quick Actions to resize for mobile placements. Do not mention investors, roadmap features, or private launch details. Finish with Export and Publish instructions for mobile PNG, editable source, and A/B test names."
+    }
+  ]
+}
