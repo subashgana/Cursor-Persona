@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adobe Express + ChatGPT Persona Behaviors</title>
+  <style>
+    :root {
+      --ink: #1f2330;
+      --muted: #657085;
+      --panel: #ffffff;
+      --soft: #f5f7fb;
+      --line: #dfe5f0;
+      --accent: #7c3aed;
+      --accent-2: #ff6b35;
+      --accent-3: #0ea5e9;
+      --accent-4: #10b981;
+      --shadow: 0 18px 45px rgba(31, 35, 48, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.20), transparent 32rem),
+        radial-gradient(circle at top right, rgba(255, 107, 53, 0.20), transparent 30rem),
+        linear-gradient(135deg, #f9fbff 0%, #eef3ff 52%, #fff7ed 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 48px 24px 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: #4c1d95;
+      background: rgba(124, 58, 237, 0.12);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px auto 12px;
+      max-width: 900px;
+      font-size: clamp(2.2rem, 5vw, 4.7rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      margin: 0 auto;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.7;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin: 0 auto 24px;
+      max-width: 1180px;
+      padding: 14px 20px;
+      border: 1px solid rgba(124, 58, 237, 0.12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .search {
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 16px 0 44px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--ink);
+      background: var(--soft);
+      font: inherit;
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: rgba(124, 58, 237, 0.55);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+    }
+
+    .search span {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .counter {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 16px;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 56px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+    }
+
+    .persona-card {
+      overflow: hidden;
+      border: 1px solid rgba(124, 58, 237, 0.12);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .persona-head {
+      min-height: 170px;
+      padding: 24px;
+      color: white;
+      background: linear-gradient(135deg, var(--tone-a), var(--tone-b));
+    }
+
+    .persona-head small {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      margin: 0;
+      opacity: 0.9;
+      line-height: 1.45;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .behavior-count {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    button {
+      border: 0;
+      border-radius: 13px;
+      padding: 10px 12px;
+      color: white;
+      background: var(--ink);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(31, 35, 48, 0.18);
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    details + details {
+      margin-top: 12px;
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 900;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 50%;
+      color: var(--accent);
+      background: rgba(124, 58, 237, 0.10);
+      font-size: 1.1rem;
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    .behavior {
+      padding: 0 16px 16px;
+    }
+
+    .behavior dl {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .behavior-row {
+      padding: 12px;
+      border-radius: 14px;
+      background: var(--soft);
+    }
+
+    .behavior dt {
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .behavior dd {
+      margin: 0;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    .empty {
+      display: none;
+      padding: 34px;
+      border: 2px dashed rgba(124, 58, 237, 0.25);
+      border-radius: 24px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    footer {
+      padding: 30px 24px 46px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .toolbar {
+        position: static;
+        grid-template-columns: 1fr;
+        margin-inline: 16px;
+      }
+
+      .counter {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Behavior-only persona test set</div>
+    <h1>Adobe Express + ChatGPT Persona Behaviors</h1>
+    <p class="subtitle">
+      Ten isolated synthetic personas for Adobe integration testing. This page presents only persona behavior scenarios:
+      triggers, user behavior, prompt style, expected response style, and validation focus.
+    </p>
+  </header>
+
+  <section class="toolbar" aria-label="Behavior search tools">
+    <label class="search">
+      <span aria-hidden="true">Search</span>
+      <input id="searchInput" type="search" placeholder="Search persona, role, behavior, trigger, or validation focus">
+    </label>
+    <div class="counter" id="counter">10 personas / 40 behaviors</div>
+  </section>
+
+  <main>
+    <div class="empty" id="emptyState">
+      No matching behaviors found. Try another persona name, role, trigger, or behavior keyword.
+    </div>
+    <section class="grid" id="personaGrid" aria-live="polite"></section>
+  </main>
+
+  <footer>
+    Generated for Adobe Express and ChatGPT integration behavior testing.
+  </footer>
+
+  <script>
+    const personas = [
+      {
+        id: "persona-001",
+        name: "Maya Srinivasan",
+        role: "Social Media Coordinator",
+        tone: ["#7c3aed", "#0ea5e9"],
+        behaviors: [
+          {
+            name: "Rapid campaign starter",
+            trigger: "Needs a first draft for a short social campaign with minimal setup.",
+            userBehavior: "Provides a compact brief, asks for a ready-to-edit creative direction, and expects the assistant to move quickly.",
+            promptStyle: "Short imperative sentences with campaign keywords and a clear deadline.",
+            expectedResponse: "Prioritized steps, punchy wording, and immediately usable creative copy.",
+            validationFocus: "The assistant should not over-explain and should keep the workflow lightweight."
+          },
+          {
+            name: "Tone correction loop",
+            trigger: "The first output sounds too formal or too generic for social media.",
+            userBehavior: "Asks for more energetic wording, stronger hooks, and a friendlier caption style.",
+            promptStyle: "Uses phrases like 'make it snappier', 'less corporate', and 'give me options'.",
+            expectedResponse: "Multiple revised alternatives with clear differences in tone.",
+            validationFocus: "The assistant should preserve the original campaign objective while changing tone."
+          },
+          {
+            name: "Brand-safe shortcut seeker",
+            trigger: "Wants fast output but is worried about using the wrong brand phrase.",
+            userBehavior: "Asks ChatGPT to flag risky wording and suggest safer replacements.",
+            promptStyle: "Practical and checklist driven.",
+            expectedResponse: "A concise risk check followed by replacement copy.",
+            validationFocus: "The assistant should identify potentially risky claims without inventing policy details."
+          },
+          {
+            name: "Mobile-first reviewer",
+            trigger: "Reviews the creative as if it will be consumed on a phone screen.",
+            userBehavior: "Requests shorter text, stronger contrast guidance, and clearer hierarchy.",
+            promptStyle: "Uses mobile design language and asks for quick scanability.",
+            expectedResponse: "Compact recommendations ordered by visual priority.",
+            validationFocus: "The assistant should emphasize clarity, brevity, and readability."
+          }
+        ]
+      },
+      {
+        id: "persona-002",
+        name: "Daniel Brooks",
+        role: "Enterprise Brand Manager",
+        tone: ["#ef4444", "#f59e0b"],
+        behaviors: [
+          {
+            name: "Governed brief writer",
+            trigger: "Starts from a formal brand request with compliance sensitivity.",
+            userBehavior: "Provides approved claims, forbidden wording, required tone, and review checkpoints.",
+            promptStyle: "Structured, policy-aware, and specific.",
+            expectedResponse: "Organized sections with clear references to the user's stated constraints.",
+            validationFocus: "The assistant should follow the given rules exactly and avoid adding unapproved claims."
+          },
+          {
+            name: "Approval gatekeeper",
+            trigger: "Needs a pre-review checklist before sharing work with stakeholders.",
+            userBehavior: "Requests a pass/fail style review for tone, claims, visual wording, and audience fit.",
+            promptStyle: "Audit oriented and risk minimizing.",
+            expectedResponse: "Checklist with explicit pass, revise, or verify recommendations.",
+            validationFocus: "The assistant should distinguish between confirmed issues and items requiring human review."
+          },
+          {
+            name: "Version comparison analyst",
+            trigger: "Compares several creative directions for executive review.",
+            userBehavior: "Asks for pros, cons, and suitability by audience segment.",
+            promptStyle: "Comparative and evidence seeking.",
+            expectedResponse: "Side-by-side comparison with a clear recommendation.",
+            validationFocus: "The assistant should explain tradeoffs without overstating certainty."
+          },
+          {
+            name: "Terminology enforcer",
+            trigger: "Notices inconsistent product or campaign naming.",
+            userBehavior: "Asks ChatGPT to standardize terms and rewrite the content consistently.",
+            promptStyle: "Corrective and detail oriented.",
+            expectedResponse: "Clean rewritten text plus a small terminology list.",
+            validationFocus: "The assistant should preserve meaning while normalizing wording."
+          }
+        ]
+      },
+      {
+        id: "persona-003",
+        name: "Aisha Khan",
+        role: "Small Business Owner",
+        tone: ["#10b981", "#06b6d4"],
+        behaviors: [
+          {
+            name: "Beginner guidance request",
+            trigger: "Does not know how to start a promotional design.",
+            userBehavior: "Explains the business goal in simple terms and asks what to do first.",
+            promptStyle: "Conversational, uncertain, and help seeking.",
+            expectedResponse: "Numbered beginner-friendly steps with simple creative choices.",
+            validationFocus: "The assistant should avoid technical jargon and keep instructions manageable."
+          },
+          {
+            name: "Budget-sensitive editor",
+            trigger: "Wants a professional result without commissioning extra design work.",
+            userBehavior: "Asks for low-effort changes that make the design look polished.",
+            promptStyle: "Cost conscious and outcome focused.",
+            expectedResponse: "Practical edits ranked by impact.",
+            validationFocus: "The assistant should suggest realistic improvements without implying paid external work is required."
+          },
+          {
+            name: "Confidence checker",
+            trigger: "Feels unsure whether the design looks trustworthy.",
+            userBehavior: "Asks whether the wording and layout feel credible to customers.",
+            promptStyle: "Reassurance seeking with specific concerns.",
+            expectedResponse: "Balanced feedback with supportive language and concrete revisions.",
+            validationFocus: "The assistant should be encouraging while still identifying improvements."
+          },
+          {
+            name: "Simple reuse planner",
+            trigger: "Needs to reuse one creative idea across several channels.",
+            userBehavior: "Asks how to adapt the same message for a flyer, story post, and email header.",
+            promptStyle: "Practical and multi-use.",
+            expectedResponse: "Channel-specific guidance with short copy examples.",
+            validationFocus: "The assistant should keep the core message consistent across formats."
+          }
+        ]
+      },
+      {
+        id: "persona-004",
+        name: "Leo Martinez",
+        role: "University Event Volunteer",
+        tone: ["#ec4899", "#8b5cf6"],
+        behaviors: [
+          {
+            name: "Trend-inspired brainstormer",
+            trigger: "Wants an event creative concept that feels current and fun.",
+            userBehavior: "Asks for bold ideas, catchy slogans, and a youthful tone.",
+            promptStyle: "Informal, emoji-like energy, and exploratory wording.",
+            expectedResponse: "Several lively concepts with short explanations.",
+            validationFocus: "The assistant should generate distinct options without relying on copyrighted trends."
+          },
+          {
+            name: "Last-minute fixer",
+            trigger: "Discovers the event design needs changes shortly before posting.",
+            userBehavior: "Asks for urgent fixes to date, venue, and call-to-action wording.",
+            promptStyle: "Fast, informal, and slightly chaotic.",
+            expectedResponse: "Direct correction list and a clean final version.",
+            validationFocus: "The assistant should prioritize factual updates and avoid unnecessary redesign discussion."
+          },
+          {
+            name: "Peer feedback blender",
+            trigger: "Receives conflicting feedback from several student organizers.",
+            userBehavior: "Pastes short feedback notes and asks ChatGPT to combine them into one direction.",
+            promptStyle: "Collaborative and informal.",
+            expectedResponse: "A merged recommendation that resolves conflicts plainly.",
+            validationFocus: "The assistant should preserve important constraints while simplifying conflicting input."
+          },
+          {
+            name: "Accessibility nudge acceptor",
+            trigger: "A poster looks exciting but may be hard to read.",
+            userBehavior: "Asks for help keeping the design fun while making it clearer.",
+            promptStyle: "Open to guidance but protective of the energetic style.",
+            expectedResponse: "Readability changes that retain a lively tone.",
+            validationFocus: "The assistant should improve accessibility without flattening the creative personality."
+          }
+        ]
+      },
+      {
+        id: "persona-005",
+        name: "Nora Al-Fayed",
+        role: "Nonprofit Communications Director",
+        tone: ["#f97316", "#14b8a6"],
+        behaviors: [
+          {
+            name: "Mission-centered storyteller",
+            trigger: "Needs a campaign message that inspires support without exploiting personal stories.",
+            userBehavior: "Asks for empathetic wording and anonymized examples.",
+            promptStyle: "Respectful, cautious, and values based.",
+            expectedResponse: "Warm copy that avoids sensationalism and protects dignity.",
+            validationFocus: "The assistant should avoid making up private beneficiary details."
+          },
+          {
+            name: "Donor trust reviewer",
+            trigger: "Wants to ensure a design communicates credibility to donors.",
+            userBehavior: "Asks for revisions that make impact claims feel transparent.",
+            promptStyle: "Trust focused and careful.",
+            expectedResponse: "Suggestions that separate verified facts from emotional messaging.",
+            validationFocus: "The assistant should flag unsupported claims and suggest cautious alternatives."
+          },
+          {
+            name: "Inclusive language checker",
+            trigger: "Reviews copy for language that may feel exclusionary or insensitive.",
+            userBehavior: "Asks ChatGPT to soften wording and improve representation.",
+            promptStyle: "Reflective and revision oriented.",
+            expectedResponse: "Specific wording changes with short rationales.",
+            validationFocus: "The assistant should improve sensitivity without diluting the message."
+          },
+          {
+            name: "Multilingual sensitivity planner",
+            trigger: "Plans to adapt a message for audiences in different regions.",
+            userBehavior: "Asks what should stay universal and what should be localized.",
+            promptStyle: "Cross-cultural and careful.",
+            expectedResponse: "Localization notes focused on tone, imagery, and phrase sensitivity.",
+            validationFocus: "The assistant should not assume one culture or language fits all audiences."
+          }
+        ]
+      },
+      {
+        id: "persona-006",
+        name: "Hiro Tanaka",
+        role: "Product Marketing Manager",
+        tone: ["#2563eb", "#7c3aed"],
+        behaviors: [
+          {
+            name: "Positioning strategist",
+            trigger: "Needs creative messaging aligned to a product launch angle.",
+            userBehavior: "Provides audience, value proposition, and differentiators while withholding confidential details.",
+            promptStyle: "Structured and strategic.",
+            expectedResponse: "Clear message hierarchy with assumptions called out.",
+            validationFocus: "The assistant should not invent product facts beyond the provided brief."
+          },
+          {
+            name: "Audience segmentation thinker",
+            trigger: "Wants variants for different buyer roles.",
+            userBehavior: "Asks for adjusted emphasis for executives, practitioners, and evaluators.",
+            promptStyle: "Segment based and concise.",
+            expectedResponse: "Distinct audience variants with practical differences.",
+            validationFocus: "The assistant should tailor motivations without stereotyping roles."
+          },
+          {
+            name: "Competitive caution checker",
+            trigger: "Considers mentioning competitors or comparative claims.",
+            userBehavior: "Asks for safer wording that avoids risky direct claims.",
+            promptStyle: "Risk aware and precise.",
+            expectedResponse: "Alternative copy that emphasizes strengths without unsupported comparisons.",
+            validationFocus: "The assistant should avoid legal-sounding certainty and recommend verification for claims."
+          },
+          {
+            name: "Executive summary compressor",
+            trigger: "Needs to summarize the creative rationale for leadership.",
+            userBehavior: "Asks for a short executive-ready explanation of the creative direction.",
+            promptStyle: "Brief, formal, and outcome oriented.",
+            expectedResponse: "A compact summary with objective, audience, message, and decision request.",
+            validationFocus: "The assistant should reduce complexity without omitting the strategic reason."
+          }
+        ]
+      },
+      {
+        id: "persona-007",
+        name: "Elena Petrova",
+        role: "Corporate Trainer",
+        tone: ["#64748b", "#0f766e"],
+        behaviors: [
+          {
+            name: "Explain-before-action learner",
+            trigger: "Receives an unfamiliar creative task.",
+            userBehavior: "Asks ChatGPT to explain the purpose of each step before suggesting edits.",
+            promptStyle: "Question based and deliberate.",
+            expectedResponse: "Plain-language explanation followed by simple action steps.",
+            validationFocus: "The assistant should make the user feel informed rather than rushed."
+          },
+          {
+            name: "Training clarity reviewer",
+            trigger: "Checks whether a learning graphic is clear for employees.",
+            userBehavior: "Asks for simplified wording and stronger instructional flow.",
+            promptStyle: "Instructional and clarity focused.",
+            expectedResponse: "Rewritten learning copy and layout sequencing suggestions.",
+            validationFocus: "The assistant should support comprehension and avoid overly promotional language."
+          },
+          {
+            name: "Accessibility-first improver",
+            trigger: "Worries that older learners or busy employees may struggle to read the content.",
+            userBehavior: "Requests larger-text-friendly wording, simple hierarchy, and reduced clutter.",
+            promptStyle: "Inclusive and practical.",
+            expectedResponse: "Accessibility-oriented recommendations with concise explanations.",
+            validationFocus: "The assistant should address readability without requiring specialized design knowledge."
+          },
+          {
+            name: "Trust-building verifier",
+            trigger: "Feels unsure about accepting AI-generated training material.",
+            userBehavior: "Asks what a human should review before publishing.",
+            promptStyle: "Cautious and verification oriented.",
+            expectedResponse: "Human review checklist for accuracy, audience fit, and privacy.",
+            validationFocus: "The assistant should encourage appropriate review rather than claiming final authority."
+          }
+        ]
+      },
+      {
+        id: "persona-008",
+        name: "Jamal Reed",
+        role: "E-commerce Creative Lead",
+        tone: ["#111827", "#ff6b35"],
+        behaviors: [
+          {
+            name: "Conversion copy optimizer",
+            trigger: "Needs product creative to encourage clicks or purchases.",
+            userBehavior: "Asks for stronger value messaging, urgency, and call-to-action options.",
+            promptStyle: "Performance focused and direct.",
+            expectedResponse: "Several CTA and headline variants with short rationale.",
+            validationFocus: "The assistant should avoid fabricated conversion rates or sales guarantees."
+          },
+          {
+            name: "Visual merchandising reviewer",
+            trigger: "Reviews whether the creative highlights the product clearly.",
+            userBehavior: "Asks for composition, hierarchy, and product emphasis improvements.",
+            promptStyle: "Design QA oriented.",
+            expectedResponse: "Actionable visual notes in priority order.",
+            validationFocus: "The assistant should keep attention on the product and shopper decision path."
+          },
+          {
+            name: "A/B test planner",
+            trigger: "Wants to test two creative variants.",
+            userBehavior: "Asks for controlled differences between variant A and variant B.",
+            promptStyle: "Experimental and structured.",
+            expectedResponse: "Variant definitions with one clear variable changed at a time.",
+            validationFocus: "The assistant should avoid mixing too many changes into one test."
+          },
+          {
+            name: "Policy-safe urgency editor",
+            trigger: "Wants urgent copy but must avoid misleading scarcity.",
+            userBehavior: "Asks for urgency language that feels honest.",
+            promptStyle: "Commercial but cautious.",
+            expectedResponse: "Urgency alternatives that do not imply false scarcity.",
+            validationFocus: "The assistant should produce persuasive but truthful wording."
+          }
+        ]
+      },
+      {
+        id: "persona-009",
+        name: "Sofia Garcia",
+        role: "Accessibility Consultant",
+        tone: ["#0ea5e9", "#22c55e"],
+        behaviors: [
+          {
+            name: "Accessibility audit requester",
+            trigger: "Reviews a creative concept for accessibility issues.",
+            userBehavior: "Asks ChatGPT to check reading order, contrast risk, text length, and inclusive wording.",
+            promptStyle: "Systematic and standards aware.",
+            expectedResponse: "Issue list with severity, reason, and suggested fix.",
+            validationFocus: "The assistant should be specific and avoid vague accessibility advice."
+          },
+          {
+            name: "Alt-text quality coach",
+            trigger: "Needs descriptive text for an image-based creative.",
+            userBehavior: "Asks for concise alternative descriptions that capture purpose and context.",
+            promptStyle: "Precise and inclusive.",
+            expectedResponse: "Several alt-text options with notes on when to use each.",
+            validationFocus: "The assistant should describe meaningful content without overloading the description."
+          },
+          {
+            name: "Plain-language refiner",
+            trigger: "Finds the copy too complex for broad audiences.",
+            userBehavior: "Asks for simpler wording while keeping the message respectful.",
+            promptStyle: "Plain-language and audience inclusive.",
+            expectedResponse: "Simplified copy plus a short readability explanation.",
+            validationFocus: "The assistant should simplify without becoming patronizing."
+          },
+          {
+            name: "Bias and representation reviewer",
+            trigger: "Checks whether imagery or wording might exclude groups.",
+            userBehavior: "Requests a bias check and more inclusive alternatives.",
+            promptStyle: "Critical, constructive, and respectful.",
+            expectedResponse: "Potential concerns and replacement suggestions.",
+            validationFocus: "The assistant should raise concerns carefully and avoid assuming intent."
+          }
+        ]
+      },
+      {
+        id: "persona-010",
+        name: "Owen Fletcher",
+        role: "Legal Operations Specialist",
+        tone: ["#4338ca", "#475569"],
+        behaviors: [
+          {
+            name: "Compliance wording screener",
+            trigger: "Reviews promotional copy for possible compliance risk.",
+            userBehavior: "Asks for claims that may need legal review and safer draft alternatives.",
+            promptStyle: "Formal and risk focused.",
+            expectedResponse: "Risk flags, suggested safer wording, and items for human review.",
+            validationFocus: "The assistant should not present itself as a legal authority."
+          },
+          {
+            name: "Data minimization enforcer",
+            trigger: "A prompt includes unnecessary sensitive information.",
+            userBehavior: "Asks how to rewrite the request while removing confidential details.",
+            promptStyle: "Privacy first and procedural.",
+            expectedResponse: "A redacted prompt template and explanation of what was removed.",
+            validationFocus: "The assistant should encourage minimal disclosure and preserve task usefulness."
+          },
+          {
+            name: "Approval workflow recorder",
+            trigger: "Needs a clear trail of what should be reviewed before publishing.",
+            userBehavior: "Requests a review checklist for marketing, privacy, legal, and stakeholder approval.",
+            promptStyle: "Checklist oriented and conservative.",
+            expectedResponse: "Ordered approval checklist with ownership labels.",
+            validationFocus: "The assistant should separate creative suggestions from approval requirements."
+          },
+          {
+            name: "Assumption challenger",
+            trigger: "ChatGPT output contains unstated assumptions.",
+            userBehavior: "Asks the assistant to identify assumptions and rewrite with caveats.",
+            promptStyle: "Critical and precise.",
+            expectedResponse: "Assumption list followed by a caveated revision.",
+            validationFocus: "The assistant should acknowledge uncertainty and avoid unsupported conclusions."
+          }
+        ]
+      }
+    ];
+
+    const grid = document.getElementById("personaGrid");
+    const emptyState = document.getElementById("emptyState");
+    const searchInput = document.getElementById("searchInput");
+    const counter = document.getElementById("counter");
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function behaviorText(persona, behavior) {
+      return [
+        `${persona.name} - ${persona.role}`,
+        `Behavior: ${behavior.name}`,
+        `Trigger: ${behavior.trigger}`,
+        `User behavior: ${behavior.userBehavior}`,
+        `Prompt style: ${behavior.promptStyle}`,
+        `Expected response style: ${behavior.expectedResponse}`,
+        `Validation focus: ${behavior.validationFocus}`
+      ].join("\n");
+    }
+
+    function copyPersonaBehaviors(personaId) {
+      const persona = personas.find((item) => item.id === personaId);
+      if (!persona) return;
+
+      const text = persona.behaviors
+        .map((behavior) => behaviorText(persona, behavior))
+        .join("\n\n---\n\n");
+
+      navigator.clipboard.writeText(text).then(() => {
+        const button = document.querySelector(`[data-copy="${personaId}"]`);
+        if (!button) return;
+        const originalText = button.textContent;
+        button.textContent = "Copied";
+        window.setTimeout(() => {
+          button.textContent = originalText;
+        }, 1200);
+      });
+    }
+
+    function personaMatches(persona, query) {
+      if (!query) return true;
+      const haystack = [
+        persona.name,
+        persona.role,
+        ...persona.behaviors.flatMap((behavior) => [
+          behavior.name,
+          behavior.trigger,
+          behavior.userBehavior,
+          behavior.promptStyle,
+          behavior.expectedResponse,
+          behavior.validationFocus
+        ])
+      ].join(" ").toLowerCase();
+      return haystack.includes(query);
+    }
+
+    function render() {
+      const query = searchInput.value.trim().toLowerCase();
+      const visiblePersonas = personas.filter((persona) => personaMatches(persona, query));
+      const visibleBehaviorCount = visiblePersonas.reduce((sum, persona) => sum + persona.behaviors.length, 0);
+
+      counter.textContent = `${visiblePersonas.length} personas / ${visibleBehaviorCount} behaviors`;
+      emptyState.style.display = visiblePersonas.length ? "none" : "block";
+
+      grid.innerHTML = visiblePersonas.map((persona) => `
+        <article class="persona-card" style="--tone-a: ${persona.tone[0]}; --tone-b: ${persona.tone[1]};">
+          <div class="persona-head">
+            <small>${escapeHtml(persona.id)}</small>
+            <h2>${escapeHtml(persona.name)}</h2>
+            <p class="role">${escapeHtml(persona.role)}</p>
+          </div>
+          <div class="card-body">
+            <div class="behavior-count">
+              <strong>${persona.behaviors.length} behavior scenarios</strong>
+              <button type="button" data-copy="${persona.id}" onclick="copyPersonaBehaviors('${persona.id}')">Copy all</button>
+            </div>
+            ${persona.behaviors.map((behavior, index) => `
+              <details ${index === 0 ? "open" : ""}>
+                <summary>${escapeHtml(behavior.name)}</summary>
+                <div class="behavior">
+                  <dl>
+                    <div class="behavior-row">
+                      <dt>Trigger</dt>
+                      <dd>${escapeHtml(behavior.trigger)}</dd>
+                    </div>
+                    <div class="behavior-row">
+                      <dt>User behavior</dt>
+                      <dd>${escapeHtml(behavior.userBehavior)}</dd>
+                    </div>
+                    <div class="behavior-row">
+                      <dt>Prompt style</dt>
+                      <dd>${escapeHtml(behavior.promptStyle)}</dd>
+                    </div>
+                    <div class="behavior-row">
+                      <dt>Expected response style</dt>
+                      <dd>${escapeHtml(behavior.expectedResponse)}</dd>
+                    </div>
+                    <div class="behavior-row">
+                      <dt>Validation focus</dt>
+                      <dd>${escapeHtml(behavior.validationFocus)}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </details>
+            `).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    searchInput.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
