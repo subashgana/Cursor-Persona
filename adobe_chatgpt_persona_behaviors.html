@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adobe + ChatGPT Persona Behaviors</title>
+  <style>
+    :root {
+      --ink: #182033;
+      --muted: #5d667a;
+      --card: #ffffff;
+      --line: #dde4f2;
+      --blue: #335cff;
+      --purple: #7b3ff2;
+      --teal: #008f8c;
+      --amber: #f5a400;
+      --bg-a: #f6f8ff;
+      --bg-b: #fff7e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(123, 63, 242, 0.18), transparent 30rem),
+        radial-gradient(circle at top right, rgba(245, 164, 0, 0.2), transparent 28rem),
+        linear-gradient(135deg, var(--bg-a), var(--bg-b));
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 48px 6vw 28px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 auto 12px;
+      max-width: 980px;
+      font-size: clamp(2rem, 5vw, 4.25rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      margin: 0 auto;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 6vw 30px;
+    }
+
+    .search {
+      width: min(680px, 100%);
+      padding: 15px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(24, 32, 51, 0.08);
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(51, 92, 255, 0.12);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+      padding: 0 6vw 56px;
+    }
+
+    .persona-card {
+      overflow: hidden;
+      border: 1px solid rgba(221, 228, 242, 0.9);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 18px 42px rgba(24, 32, 51, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .persona-head {
+      padding: 24px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .persona-card:nth-child(3n + 2) .persona-head {
+      background: linear-gradient(135deg, var(--teal), #13b983);
+    }
+
+    .persona-card:nth-child(3n) .persona-head {
+      background: linear-gradient(135deg, #e64980, var(--amber));
+    }
+
+    .persona-id {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .persona-name {
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .behavior-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 20px;
+      list-style: none;
+    }
+
+    .behavior {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .behavior-topline {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(51, 92, 255, 0.1);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .behavior-id {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .behavior p {
+      margin: 0;
+      color: #2f394d;
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      padding: 0 6vw 34px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Adobe + ChatGPT Persona Behaviors</h1>
+    <p class="subtitle">Behavior-only showcase for 10 synthetic testing personas. Each card lists multiple observable behaviors for isolated integration testing.</p>
+  </header>
+
+  <section class="toolbar" aria-label="Behavior search">
+    <input class="search" id="search" type="search" placeholder="Search personas or behaviors..." aria-label="Search personas or behaviors">
+  </section>
+
+  <main id="persona-grid">
+    <article class="persona-card" data-search="P001 Maya Singh Prompting Workflow Review Privacy Accessibility Starts with a short directive Requests multiple social-ready variations Checks generated copy Removes confidential launch names Asks for contrast-friendly text placement">
+      <div class="persona-head">
+        <span class="persona-id">P001</span>
+        <h2 class="persona-name">Maya Singh</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P001-B01</span></div>
+          <p>Starts with a short directive and expects ChatGPT to ask only one clarifying question if needed.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P001-B02</span></div>
+          <p>Requests multiple social-ready variations before choosing a final creative direction.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P001-B03</span></div>
+          <p>Checks whether generated copy is energetic but does not exaggerate campaign claims.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P001-B04</span></div>
+          <p>Removes confidential launch names from prompts and uses placeholder campaign labels.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P001-B05</span></div>
+          <p>Asks for contrast-friendly text placement and concise alt-text guidance for exported assets.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P002 Oliver Grant Prompting Workflow Review Privacy Accessibility Writes numbered instructions Separates creative exploration Inspects brand drift Uses sanitized campaign briefs Requests readable summaries">
+      <div class="persona-head">
+        <span class="persona-id">P002</span>
+        <h2 class="persona-name">Oliver Grant</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P002-B01</span></div>
+          <p>Writes numbered instructions that define brand tone, forbidden wording, and approval gates.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P002-B02</span></div>
+          <p>Asks ChatGPT to separate creative exploration from final production guidance.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P002-B03</span></div>
+          <p>Inspects every output for brand drift, off-brand colors, and unsupported claims.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P002-B04</span></div>
+          <p>Uses sanitized campaign briefs and requests reminders before sharing sensitive files.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P002-B05</span></div>
+          <p>Requests readable summaries and keyboard-accessible steps for sign-off documentation.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P003 Sofia Martinez Prompting Workflow Review Privacy Accessibility Describes composition Iterates slowly Compares outputs Protects uploaded artwork Requests larger previews">
+      <div class="persona-head">
+        <span class="persona-id">P003</span>
+        <h2 class="persona-name">Sofia Martinez</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P003-B01</span></div>
+          <p>Describes composition, texture, emotion, and color mood before asking for edits.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P003-B02</span></div>
+          <p>Iterates slowly, changing one visual variable at a time to preserve creative intent.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P003-B03</span></div>
+          <p>Compares outputs against her sketch notes and rejects results that feel generic.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P003-B04</span></div>
+          <p>Asks whether uploaded artwork remains private and requests non-training wording in test prompts.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P003-B05</span></div>
+          <p>Requests larger previews and simple Spanish-English explanations for complex edit steps.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P004 Daniel Chen Prompting Workflow Review Privacy Accessibility Frames requests as training scenarios Breaks creative tasks Checks clear concept Replaces real department names Requests captions">
+      <div class="persona-head">
+        <span class="persona-id">P004</span>
+        <h2 class="persona-name">Daniel Chen</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P004-B01</span></div>
+          <p>Frames requests as training scenarios with learner goals, audience level, and success rubric.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P004-B02</span></div>
+          <p>Breaks creative tasks into repeatable steps that can be documented for teammates.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P004-B03</span></div>
+          <p>Checks whether the result teaches a clear concept without visual clutter.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P004-B04</span></div>
+          <p>Replaces real department names, employee examples, and internal metrics with neutral samples.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P004-B05</span></div>
+          <p>Requests captions, accessible reading order, and simple instructions for screen-reader users.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P005 Aisha Okafor Prompting Workflow Review Privacy Accessibility Explains the mission Requests low-effort workflow Reviews dignity Removes beneficiary names Asks for large readable text">
+      <div class="persona-head">
+        <span class="persona-id">P005</span>
+        <h2 class="persona-name">Aisha Okafor</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P005-B01</span></div>
+          <p>Explains the mission first and asks ChatGPT to keep language respectful, hopeful, and direct.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P005-B02</span></div>
+          <p>Requests a low-effort workflow that volunteers can repeat without advanced design skills.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P005-B03</span></div>
+          <p>Reviews outputs for dignity, cultural sensitivity, and donor-safe wording.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P005-B04</span></div>
+          <p>Removes beneficiary names, faces, locations, and donor details unless explicit consent is confirmed.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P005-B05</span></div>
+          <p>Asks for large readable text, mobile previews, and simple calls to action.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P006 Ethan Brooks Prompting Workflow Review Privacy Accessibility Uses informal shorthand Rapidly tests bold alternatives Checks fresh shareable content Needs privacy reminders Requests captions">
+      <div class="persona-head">
+        <span class="persona-id">P006</span>
+        <h2 class="persona-name">Ethan Brooks</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P006-B01</span></div>
+          <p>Uses informal shorthand and expects ChatGPT to infer creative intent from minimal context.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P006-B02</span></div>
+          <p>Rapidly tests bold alternatives and asks for quick ranking of the strongest option.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P006-B03</span></div>
+          <p>Checks whether the result looks fresh, shareable, and not like a template.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P006-B04</span></div>
+          <p>Needs prompts to remind him not to include student IDs, private chats, or location details.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P006-B05</span></div>
+          <p>Requests captions and readable text overlays because most classmates view content on mobile.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P007 Priya Raman Prompting Workflow Review Privacy Accessibility Defines target segment Requests variants Validates every line Substitutes generic product names Requests checklist-style review">
+      <div class="persona-head">
+        <span class="persona-id">P007</span>
+        <h2 class="persona-name">Priya Raman</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P007-B01</span></div>
+          <p>Defines target segment, funnel stage, desired action, and forbidden product claims.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P007-B02</span></div>
+          <p>Requests variants for awareness, consideration, and conversion before selecting the final direction.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P007-B03</span></div>
+          <p>Validates every line against positioning, competitive differentiation, and factual accuracy.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P007-B04</span></div>
+          <p>Substitutes generic product names for unreleased features and removes customer account references.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P007-B05</span></div>
+          <p>Requests checklist-style review notes and clear contrast recommendations for campaign assets.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P008 Lucas Meyer Prompting Workflow Review Privacy Accessibility Writes prompts like QA cases Requests exact checkpoints Challenges vague recommendations Uses anonymized test cases Requires alt-text notes">
+      <div class="persona-head">
+        <span class="persona-id">P008</span>
+        <h2 class="persona-name">Lucas Meyer</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P008-B01</span></div>
+          <p>Writes prompts like QA cases with preconditions, steps, expected result, and failure signals.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P008-B02</span></div>
+          <p>Requests exact checkpoints for keyboard use, reading order, contrast, and text alternatives.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P008-B03</span></div>
+          <p>Challenges vague AI recommendations and asks for measurable accessibility evidence.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P008-B04</span></div>
+          <p>Uses anonymized test cases instead of real disability disclosures or user research quotes.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P008-B05</span></div>
+          <p>Requires every creative output to include alt-text notes, contrast checks, and screen-reader assumptions.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P009 Hana Kim Prompting Workflow Review Privacy Accessibility Begins with compliance limits Requests conservative edits Checks disclaimers Never uploads contracts Asks for plain-language summaries">
+      <div class="persona-head">
+        <span class="persona-id">P009</span>
+        <h2 class="persona-name">Hana Kim</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P009-B01</span></div>
+          <p>Begins with compliance limits and asks ChatGPT to flag anything requiring legal review.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P009-B02</span></div>
+          <p>Requests conservative edits and rejects broad creative rewrites that change approved meaning.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P009-B03</span></div>
+          <p>Checks disclaimers, regulated wording, consent language, and recordkeeping notes before approval.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P009-B04</span></div>
+          <p>Never uploads contracts, names, personal identifiers, or privileged legal communications.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P009-B05</span></div>
+          <p>Asks for plain-language summaries that separate creative suggestions from legal-risk notes.</p>
+        </li>
+      </ol>
+    </article>
+
+    <article class="persona-card" data-search="P010 Noah Williams Prompting Workflow Review Privacy Accessibility Uses everyday language Prefers one recommended path Evaluates professional local customer result Needs reminders Requests large readable text">
+      <div class="persona-head">
+        <span class="persona-id">P010</span>
+        <h2 class="persona-name">Noah Williams</h2>
+      </div>
+      <ol class="behavior-list">
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Prompting</span><span class="behavior-id">P010-B01</span></div>
+          <p>Uses everyday language and asks ChatGPT to explain each creative step without jargon.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Workflow</span><span class="behavior-id">P010-B02</span></div>
+          <p>Prefers one recommended path instead of many options, with a simple checklist to follow.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Review</span><span class="behavior-id">P010-B03</span></div>
+          <p>Evaluates whether the final asset looks professional enough for local customers.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Privacy</span><span class="behavior-id">P010-B04</span></div>
+          <p>Needs reminders to remove customer names, phone numbers, invoice amounts, and payment references.</p>
+        </li>
+        <li class="behavior">
+          <div class="behavior-topline"><span class="tag">Accessibility</span><span class="behavior-id">P010-B05</span></div>
+          <p>Requests large readable text, simple buttons, and a final checklist he can print.</p>
+        </li>
+      </ol>
+    </article>
+  </main>
+
+  <footer>
+    <span id="count">10 personas shown</span>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const cards = Array.from(document.querySelectorAll(".persona-card"));
+    const count = document.getElementById("count");
+
+    function updateSearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const searchableText = card.dataset.search.toLowerCase();
+        const isVisible = !query || searchableText.includes(query);
+        card.classList.toggle("hidden", !isVisible);
+        if (isVisible) {
+          visible += 1;
+        }
+      });
+
+      count.textContent = `${visible} persona${visible === 1 ? "" : "s"} shown`;
+    }
+
+    searchInput.addEventListener("input", updateSearch);
+  </script>
+</body>
+</html>

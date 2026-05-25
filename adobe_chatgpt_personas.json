@@ -1,0 +1,452 @@
+{
+  "project": "Adobe integration with ChatGPT persona testing",
+  "version": "1.0",
+  "persona_count": 10,
+  "notes": [
+    "Personas are synthetic and designed for isolated Adobe + ChatGPT integration testing.",
+    "Each persona contains multiple behaviors for prompt, privacy, accessibility, review, and workflow validation.",
+    "No Adobe feature mapping is included in this file."
+  ],
+  "personas": [
+    {
+      "id": "P001",
+      "name": "Maya Singh",
+      "age": 29,
+      "occupation": "Social Media Manager",
+      "locale": "en-IN",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "High with quick verification",
+      "prompt_style": "Short, energetic, trend-focused prompts with clear output expectations",
+      "accessibility_needs": "Prefers high contrast previews and concise visual descriptions",
+      "privacy_posture": "Avoids uploading unreleased campaign assets unless workspace is marked private",
+      "acceptance_criteria": [
+        "Output must be ready for fast campaign review.",
+        "Generated suggestions should sound brand-safe and audience-aware.",
+        "Visual changes must be easy to compare before approval."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P001-B01",
+          "category": "Prompting",
+          "description": "Starts with a short directive and expects ChatGPT to ask only one clarifying question if needed."
+        },
+        {
+          "behavior_id": "P001-B02",
+          "category": "Workflow",
+          "description": "Requests multiple social-ready variations before choosing a final creative direction."
+        },
+        {
+          "behavior_id": "P001-B03",
+          "category": "Review",
+          "description": "Checks whether generated copy is energetic but does not exaggerate campaign claims."
+        },
+        {
+          "behavior_id": "P001-B04",
+          "category": "Privacy",
+          "description": "Removes confidential launch names from prompts and uses placeholder campaign labels."
+        },
+        {
+          "behavior_id": "P001-B05",
+          "category": "Accessibility",
+          "description": "Asks for contrast-friendly text placement and concise alt-text guidance for exported assets."
+        }
+      ]
+    },
+    {
+      "id": "P002",
+      "name": "Oliver Grant",
+      "age": 47,
+      "occupation": "Enterprise Brand Director",
+      "locale": "en-GB",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate; requires governance checks",
+      "prompt_style": "Structured, formal, and policy-led prompts with approval constraints",
+      "accessibility_needs": "Needs keyboard-friendly review flow and readable document-style summaries",
+      "privacy_posture": "Strict; never shares unreleased brand strategy, client lists, or internal guidelines",
+      "acceptance_criteria": [
+        "All outputs must preserve brand tone and visual consistency.",
+        "Recommendations must include rationale suitable for stakeholder review.",
+        "Any uncertain AI suggestion must be clearly flagged for human approval."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P002-B01",
+          "category": "Prompting",
+          "description": "Writes numbered instructions that define brand tone, forbidden wording, and approval gates."
+        },
+        {
+          "behavior_id": "P002-B02",
+          "category": "Workflow",
+          "description": "Asks ChatGPT to separate creative exploration from final production guidance."
+        },
+        {
+          "behavior_id": "P002-B03",
+          "category": "Review",
+          "description": "Inspects every output for brand drift, off-brand colors, and unsupported claims."
+        },
+        {
+          "behavior_id": "P002-B04",
+          "category": "Privacy",
+          "description": "Uses sanitized campaign briefs and requests reminders before sharing sensitive files."
+        },
+        {
+          "behavior_id": "P002-B05",
+          "category": "Accessibility",
+          "description": "Requests readable summaries and keyboard-accessible steps for sign-off documentation."
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "name": "Sofia Martinez",
+      "age": 35,
+      "occupation": "Freelance Illustrator",
+      "locale": "es-MX",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Curious but selective",
+      "prompt_style": "Visual, descriptive, and mood-board oriented prompts with bilingual notes",
+      "accessibility_needs": "Prefers plain-language steps and large thumbnail comparisons",
+      "privacy_posture": "Protects original artwork and asks how generated variations are used",
+      "acceptance_criteria": [
+        "Output should preserve the artist's original style direction.",
+        "Generated options must avoid copying recognizable third-party artwork.",
+        "Workflow should support iterative visual comparison."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P003-B01",
+          "category": "Prompting",
+          "description": "Describes composition, texture, emotion, and color mood before asking for edits."
+        },
+        {
+          "behavior_id": "P003-B02",
+          "category": "Workflow",
+          "description": "Iterates slowly, changing one visual variable at a time to preserve creative intent."
+        },
+        {
+          "behavior_id": "P003-B03",
+          "category": "Review",
+          "description": "Compares outputs against her sketch notes and rejects results that feel generic."
+        },
+        {
+          "behavior_id": "P003-B04",
+          "category": "Privacy",
+          "description": "Asks whether uploaded artwork remains private and requests non-training wording in test prompts."
+        },
+        {
+          "behavior_id": "P003-B05",
+          "category": "Accessibility",
+          "description": "Requests larger previews and simple Spanish-English explanations for complex edit steps."
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "name": "Daniel Chen",
+      "age": 41,
+      "occupation": "Corporate Training Lead",
+      "locale": "en-SG",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate; evidence-driven",
+      "prompt_style": "Scenario-based prompts with learning objectives and rubric language",
+      "accessibility_needs": "Requires captions, screen-reader-friendly text, and low cognitive load instructions",
+      "privacy_posture": "Masks employee names and internal performance data",
+      "acceptance_criteria": [
+        "Outputs must align to training goals.",
+        "Instructions should be repeatable by non-design colleagues.",
+        "Content must be inclusive and accessible for distributed teams."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P004-B01",
+          "category": "Prompting",
+          "description": "Frames requests as training scenarios with learner goals, audience level, and success rubric."
+        },
+        {
+          "behavior_id": "P004-B02",
+          "category": "Workflow",
+          "description": "Breaks creative tasks into repeatable steps that can be documented for teammates."
+        },
+        {
+          "behavior_id": "P004-B03",
+          "category": "Review",
+          "description": "Checks whether the result teaches a clear concept without visual clutter."
+        },
+        {
+          "behavior_id": "P004-B04",
+          "category": "Privacy",
+          "description": "Replaces real department names, employee examples, and internal metrics with neutral samples."
+        },
+        {
+          "behavior_id": "P004-B05",
+          "category": "Accessibility",
+          "description": "Requests captions, accessible reading order, and simple instructions for screen-reader users."
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "name": "Aisha Okafor",
+      "age": 52,
+      "occupation": "Nonprofit Communications Director",
+      "locale": "en-NG",
+      "technical_skill": "Basic to intermediate",
+      "ai_trust_level": "Cautious; values human review",
+      "prompt_style": "Mission-led, empathetic prompts with budget-conscious constraints",
+      "accessibility_needs": "Needs plain language, readable contrast, and mobile-friendly previews",
+      "privacy_posture": "Highly careful with beneficiary identities and donor information",
+      "acceptance_criteria": [
+        "Outputs must be respectful and avoid exploiting sensitive stories.",
+        "Design guidance should be simple enough for a small team.",
+        "Copy must support trust, dignity, and clear calls to action."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P005-B01",
+          "category": "Prompting",
+          "description": "Explains the mission first and asks ChatGPT to keep language respectful, hopeful, and direct."
+        },
+        {
+          "behavior_id": "P005-B02",
+          "category": "Workflow",
+          "description": "Requests a low-effort workflow that volunteers can repeat without advanced design skills."
+        },
+        {
+          "behavior_id": "P005-B03",
+          "category": "Review",
+          "description": "Reviews outputs for dignity, cultural sensitivity, and donor-safe wording."
+        },
+        {
+          "behavior_id": "P005-B04",
+          "category": "Privacy",
+          "description": "Removes beneficiary names, faces, locations, and donor details unless explicit consent is confirmed."
+        },
+        {
+          "behavior_id": "P005-B05",
+          "category": "Accessibility",
+          "description": "Asks for large readable text, mobile previews, and simple calls to action."
+        }
+      ]
+    },
+    {
+      "id": "P006",
+      "name": "Ethan Brooks",
+      "age": 22,
+      "occupation": "University Student Creator",
+      "locale": "en-US",
+      "technical_skill": "High",
+      "ai_trust_level": "Very high; experiments freely",
+      "prompt_style": "Casual, fast, meme-aware prompts with rapid iteration requests",
+      "accessibility_needs": "Prefers dark mode and captioned media guidance",
+      "privacy_posture": "Sometimes overshares; benefits from privacy reminders",
+      "acceptance_criteria": [
+        "Outputs should feel current and not overly corporate.",
+        "Workflow should support quick experimentation.",
+        "Privacy reminders should catch personal data before export."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P006-B01",
+          "category": "Prompting",
+          "description": "Uses informal shorthand and expects ChatGPT to infer creative intent from minimal context."
+        },
+        {
+          "behavior_id": "P006-B02",
+          "category": "Workflow",
+          "description": "Rapidly tests bold alternatives and asks for quick ranking of the strongest option."
+        },
+        {
+          "behavior_id": "P006-B03",
+          "category": "Review",
+          "description": "Checks whether the result looks fresh, shareable, and not like a template."
+        },
+        {
+          "behavior_id": "P006-B04",
+          "category": "Privacy",
+          "description": "Needs prompts to remind him not to include student IDs, private chats, or location details."
+        },
+        {
+          "behavior_id": "P006-B05",
+          "category": "Accessibility",
+          "description": "Requests captions and readable text overlays because most classmates view content on mobile."
+        }
+      ]
+    },
+    {
+      "id": "P007",
+      "name": "Priya Raman",
+      "age": 38,
+      "occupation": "Product Marketing Manager",
+      "locale": "en-IN",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Moderate to high with metrics validation",
+      "prompt_style": "Outcome-driven prompts with audience segments, constraints, and measurable goals",
+      "accessibility_needs": "Prefers concise tables, structured checklists, and contrast guidance",
+      "privacy_posture": "Avoids roadmap, pricing, and customer pipeline details",
+      "acceptance_criteria": [
+        "Outputs must connect creative choices to audience outcomes.",
+        "Messaging should be accurate, differentiated, and launch-ready.",
+        "Sensitive product roadmap details must remain excluded."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P007-B01",
+          "category": "Prompting",
+          "description": "Defines target segment, funnel stage, desired action, and forbidden product claims."
+        },
+        {
+          "behavior_id": "P007-B02",
+          "category": "Workflow",
+          "description": "Requests variants for awareness, consideration, and conversion before selecting the final direction."
+        },
+        {
+          "behavior_id": "P007-B03",
+          "category": "Review",
+          "description": "Validates every line against positioning, competitive differentiation, and factual accuracy."
+        },
+        {
+          "behavior_id": "P007-B04",
+          "category": "Privacy",
+          "description": "Substitutes generic product names for unreleased features and removes customer account references."
+        },
+        {
+          "behavior_id": "P007-B05",
+          "category": "Accessibility",
+          "description": "Requests checklist-style review notes and clear contrast recommendations for campaign assets."
+        }
+      ]
+    },
+    {
+      "id": "P008",
+      "name": "Lucas Meyer",
+      "age": 33,
+      "occupation": "Accessibility QA Analyst",
+      "locale": "de-DE",
+      "technical_skill": "Advanced",
+      "ai_trust_level": "Skeptical until tested",
+      "prompt_style": "Precise, test-case oriented prompts with expected and negative checks",
+      "accessibility_needs": "Uses screen reader validation, keyboard navigation, and color contrast checks",
+      "privacy_posture": "Shares only test assets and avoids real user accessibility data",
+      "acceptance_criteria": [
+        "Outputs must be testable against accessibility criteria.",
+        "Generated guidance must include failure conditions.",
+        "Visual changes should not reduce usability for assistive technology users."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P008-B01",
+          "category": "Prompting",
+          "description": "Writes prompts like QA cases with preconditions, steps, expected result, and failure signals."
+        },
+        {
+          "behavior_id": "P008-B02",
+          "category": "Workflow",
+          "description": "Requests exact checkpoints for keyboard use, reading order, contrast, and text alternatives."
+        },
+        {
+          "behavior_id": "P008-B03",
+          "category": "Review",
+          "description": "Challenges vague AI recommendations and asks for measurable accessibility evidence."
+        },
+        {
+          "behavior_id": "P008-B04",
+          "category": "Privacy",
+          "description": "Uses anonymized test cases instead of real disability disclosures or user research quotes."
+        },
+        {
+          "behavior_id": "P008-B05",
+          "category": "Accessibility",
+          "description": "Requires every creative output to include alt-text notes, contrast checks, and screen-reader assumptions."
+        }
+      ]
+    },
+    {
+      "id": "P009",
+      "name": "Hana Kim",
+      "age": 44,
+      "occupation": "Legal Operations Manager",
+      "locale": "ko-KR",
+      "technical_skill": "Intermediate",
+      "ai_trust_level": "Low; needs explicit risk controls",
+      "prompt_style": "Risk-aware prompts with compliance boundaries and audit-friendly language",
+      "accessibility_needs": "Needs clear summaries, no jargon overload, and downloadable review notes",
+      "privacy_posture": "Very strict; avoids contracts, personal data, privileged material, and regulated claims",
+      "acceptance_criteria": [
+        "Outputs must avoid legal advice and unsupported compliance claims.",
+        "Sensitive information must be excluded or anonymized.",
+        "Review trail should make human approval responsibilities clear."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P009-B01",
+          "category": "Prompting",
+          "description": "Begins with compliance limits and asks ChatGPT to flag anything requiring legal review."
+        },
+        {
+          "behavior_id": "P009-B02",
+          "category": "Workflow",
+          "description": "Requests conservative edits and rejects broad creative rewrites that change approved meaning."
+        },
+        {
+          "behavior_id": "P009-B03",
+          "category": "Review",
+          "description": "Checks disclaimers, regulated wording, consent language, and recordkeeping notes before approval."
+        },
+        {
+          "behavior_id": "P009-B04",
+          "category": "Privacy",
+          "description": "Never uploads contracts, names, personal identifiers, or privileged legal communications."
+        },
+        {
+          "behavior_id": "P009-B05",
+          "category": "Accessibility",
+          "description": "Asks for plain-language summaries that separate creative suggestions from legal-risk notes."
+        }
+      ]
+    },
+    {
+      "id": "P010",
+      "name": "Noah Williams",
+      "age": 58,
+      "occupation": "Small Business Owner",
+      "locale": "en-AU",
+      "technical_skill": "Basic",
+      "ai_trust_level": "Moderate when instructions are simple",
+      "prompt_style": "Plain-spoken prompts with examples, practical constraints, and step-by-step requests",
+      "accessibility_needs": "Prefers large text, simple navigation, and minimal technical vocabulary",
+      "privacy_posture": "Avoids customer names, invoices, and payment details but may need reminders",
+      "acceptance_criteria": [
+        "Outputs must be easy to understand and immediately usable.",
+        "Steps should avoid specialist design terminology.",
+        "Customer or payment information must not be exposed."
+      ],
+      "behaviors": [
+        {
+          "behavior_id": "P010-B01",
+          "category": "Prompting",
+          "description": "Uses everyday language and asks ChatGPT to explain each creative step without jargon."
+        },
+        {
+          "behavior_id": "P010-B02",
+          "category": "Workflow",
+          "description": "Prefers one recommended path instead of many options, with a simple checklist to follow."
+        },
+        {
+          "behavior_id": "P010-B03",
+          "category": "Review",
+          "description": "Evaluates whether the final asset looks professional enough for local customers."
+        },
+        {
+          "behavior_id": "P010-B04",
+          "category": "Privacy",
+          "description": "Needs reminders to remove customer names, phone numbers, invoice amounts, and payment references."
+        },
+        {
+          "behavior_id": "P010-B05",
+          "category": "Accessibility",
+          "description": "Requests large readable text, simple buttons, and a final checklist he can print."
+        }
+      ]
+    }
+  ]
+}
